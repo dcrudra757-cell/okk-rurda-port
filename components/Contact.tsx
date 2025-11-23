@@ -19,7 +19,7 @@ const Contact: React.FC<ContactProps> = ({ mode }) => {
   const iconBg = isVideo ? 'group-hover:bg-red-600 group-hover:text-white' : 'group-hover:bg-blue-600 group-hover:text-white';
 
   return (
-    <section id="contact" className="py-20 md:py-32 bg-darker relative">
+    <section id="contact" className="py-16 md:py-32 bg-darker relative">
       <div className="container mx-auto px-6">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20">
           

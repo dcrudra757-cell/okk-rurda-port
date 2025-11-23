@@ -14,7 +14,7 @@ const TechTicker: React.FC<TickerProps> = ({ mode }) => {
 
   return (
     <div className="w-full bg-[#050505] py-6 md:py-8 border-y border-white/5 overflow-hidden relative z-20">
-      <div className="flex w-[200%] animate-marquee group hover:pause">
+      <div className="flex w-max animate-marquee group hover:pause">
         {[...items, ...items, ...items].map((item, index) => (
           <div key={index} className="flex items-center gap-4 md:gap-6 mx-4 md:mx-8 shrink-0 opacity-50 hover:opacity-100 transition-opacity duration-300">
              <Zap size={14} className={`${iconColor} md:w-[18px] md:h-[18px]`} fill="currentColor" />

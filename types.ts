@@ -22,7 +22,7 @@ export interface Service {
   id: string;
   title: string;
   description: string;
-  icon: React.ComponentType<{ className?: string; size?: number }>;
+  icon: LucideIcon;
 }
 
 export interface Skill {

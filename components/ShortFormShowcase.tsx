@@ -225,7 +225,7 @@ const ShortFormShowcase: React.FC = () => {
         {/* Carousel */}
         <div 
           ref={scrollContainerRef}
-          className="flex gap-5 md:gap-8 overflow-x-auto pb-16 snap-x snap-mandatory -mx-6 px-6 md:mx-0 md:px-0 pt-4"
+          className="flex gap-4 md:gap-8 overflow-x-auto pb-16 snap-x snap-mandatory -mx-6 px-6 md:mx-0 md:px-0 pt-4"
           style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
         >
           {SHORT_FORM_VIDEOS.map((video) => (

@@ -49,7 +49,7 @@ const Hero: React.FC<HeroProps> = ({ mode, setMode }) => {
       </div>
 
       <div className="container mx-auto px-6">
-        <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
+        <div className="flex flex-col lg:flex-row items-center gap-10 lg:gap-20">
           <div className="flex-1 space-y-6 md:space-y-8 z-10 w-full flex flex-col items-center lg:items-start text-center lg:text-left">
             
             {/* Toggle Switch */}
