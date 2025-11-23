@@ -33,19 +33,19 @@ const Hero: React.FC<HeroProps> = ({ mode, setMode }) => {
   const frameBorder = isVideo ? 'border-red-500/30' : 'border-blue-500/30';
 
   return (
-    <section id="home" className="relative pt-28 pb-16 md:pt-40 md:pb-24 overflow-hidden min-h-screen flex items-center transition-colors duration-700 bg-darker">
+    <section id="home" className="relative pt-28 pb-16 md:pt-40 md:pb-24 overflow-hidden min-h-screen flex items-center transition-colors duration-700 bg-[#050505]">
       {/* Decorative Background Elements */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden -z-10 pointer-events-none">
          {/* Dynamic Orbs */}
-         <div className={`absolute top-[5%] -right-[10%] md:top-[10%] md:right-[5%] w-64 h-64 md:w-96 md:h-96 rounded-full border border-white/[0.03] animate-[spin_20s_linear_infinite] transition-all duration-1000 opacity-40 ${isVideo ? 'border-red-500/10' : 'border-blue-500/10'}`}></div>
-         <div className="absolute top-[10%] right-[0%] md:top-[15%] md:right-[10%] w-48 h-48 md:w-72 md:h-72 rounded-full border border-white/[0.03] animate-[spin_25s_linear_infinite_reverse] opacity-40"></div>
+         <div className={`absolute top-[5%] -right-[10%] md:top-[10%] md:right-[5%] w-64 h-64 md:w-96 md:h-96 rounded-full border border-white/[0.03] animate-[spin_30s_linear_infinite] transition-all duration-1000 opacity-60 ${isVideo ? 'border-red-500/10' : 'border-blue-500/10'}`}></div>
+         <div className="absolute top-[10%] right-[0%] md:top-[15%] md:right-[10%] w-48 h-48 md:w-72 md:h-72 rounded-full border border-white/[0.03] animate-[spin_35s_linear_infinite_reverse] opacity-50"></div>
          
          {/* Color Glows */}
-         <div className={`absolute top-0 left-0 md:left-1/4 w-[300px] md:w-[600px] h-[300px] md:h-[600px] rounded-full blur-[100px] md:blur-[140px] transition-colors duration-1000 opacity-15 ${isVideo ? 'bg-red-900' : 'bg-blue-900'}`}></div>
-         <div className={`absolute bottom-0 right-0 w-[300px] md:w-[700px] h-[300px] md:h-[700px] rounded-full blur-[100px] md:blur-[140px] transition-colors duration-1000 opacity-10 ${isVideo ? 'bg-orange-900' : 'bg-cyan-900'}`}></div>
+         <div className={`absolute top-0 left-0 md:left-1/4 w-[300px] md:w-[600px] h-[300px] md:h-[600px] rounded-full blur-[100px] md:blur-[140px] transition-colors duration-1000 opacity-20 ${isVideo ? 'bg-red-900' : 'bg-blue-900'}`}></div>
+         <div className={`absolute bottom-0 right-0 w-[300px] md:w-[700px] h-[300px] md:h-[700px] rounded-full blur-[100px] md:blur-[140px] transition-colors duration-1000 opacity-15 ${isVideo ? 'bg-orange-900' : 'bg-cyan-900'}`}></div>
          
          {/* Grid Pattern */}
-         <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-[0.03]"></div>
+         <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-[0.03] mix-blend-overlay"></div>
       </div>
 
       <div className="container mx-auto px-6">
@@ -53,7 +53,7 @@ const Hero: React.FC<HeroProps> = ({ mode, setMode }) => {
           <div className="flex-1 space-y-6 md:space-y-8 z-10 w-full flex flex-col items-center lg:items-start text-center lg:text-left">
             
             {/* Toggle Switch */}
-            <div className="inline-flex items-center bg-black/40 backdrop-blur-md border border-white/[0.08] rounded-full p-1.5 relative shadow-inner">
+            <div className="inline-flex items-center bg-[#0a0a0a] border border-white/[0.08] rounded-full p-1.5 relative shadow-[inset_0_2px_4px_rgba(0,0,0,0.5)]">
               {/* Sliding Background */}
               <div 
                 className={`absolute top-1.5 bottom-1.5 w-[calc(50%-6px)] rounded-full transition-all duration-300 ease-out shadow-lg ${mode === 'dev' ? 'left-1.5 bg-blue-600' : 'left-[calc(50%+3px)] bg-red-600'}`}
@@ -77,18 +77,18 @@ const Hero: React.FC<HeroProps> = ({ mode, setMode }) => {
 
             {/* Status Badge */}
             <div>
-              <div className={`inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/[0.03] border border-white/[0.05] text-[10px] md:text-xs font-bold tracking-widest uppercase transition-colors duration-500 ${primaryText} shadow-sm backdrop-blur-sm`}>
+              <div className={`inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/[0.02] border border-white/[0.08] text-[10px] md:text-xs font-bold tracking-widest uppercase transition-colors duration-500 ${primaryText} backdrop-blur-md`}>
                 <span className={`w-1.5 h-1.5 md:w-2 md:h-2 rounded-full animate-pulse ${isVideo ? 'bg-red-500 shadow-[0_0_8px_rgba(239,68,68,0.6)]' : 'bg-green-500 shadow-[0_0_8px_rgba(34,197,94,0.6)]'}`}></span>
                 Available for projects
               </div>
             </div>
             
             {/* Text Content */}
-            <div className={`space-y-3 md:space-y-4 transition-opacity duration-500 ${isAnimating ? 'opacity-50' : 'opacity-100'}`}>
+            <div className={`space-y-2 md:space-y-4 transition-opacity duration-500 ${isAnimating ? 'opacity-50' : 'opacity-100'}`}>
               <h2 className={`font-bold tracking-[0.25em] text-xs md:text-sm transition-colors duration-500 ${primaryText}`}>
                 {content.greeting}
               </h2>
-              <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-heading font-black text-white tracking-tighter leading-[0.95] md:leading-[0.9]">
+              <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-heading font-black text-white tracking-tighter leading-[0.95] md:leading-[0.9] drop-shadow-2xl">
                 {content.titleLine1} <br />
                 <span className={`text-transparent bg-clip-text bg-gradient-to-r ${gradientText} transition-all duration-1000 pb-2 inline-block`}>
                   {content.titleLine2}
@@ -96,7 +96,7 @@ const Hero: React.FC<HeroProps> = ({ mode, setMode }) => {
               </h1>
             </div>
 
-            <h3 className={`text-xl md:text-3xl text-slate-400 font-light transition-opacity duration-500 leading-tight ${isAnimating ? 'opacity-50' : 'opacity-100'}`}>
+            <h3 className={`text-xl md:text-2xl text-slate-400 font-light transition-opacity duration-500 leading-tight ${isAnimating ? 'opacity-50' : 'opacity-100'}`}>
               {content.subtitle} <br className="hidden md:block" /> 
               <span className="text-white font-medium block md:inline mt-1 md:mt-0">{content.subtitleHighlight}</span>
             </h3>
@@ -120,7 +120,7 @@ const Hero: React.FC<HeroProps> = ({ mode, setMode }) => {
                   <a 
                     key={idx}
                     href={social.href} 
-                    className="p-3.5 bg-white/[0.03] hover:bg-white/[0.08] border border-white/[0.08] rounded-full text-slate-400 hover:text-white transition-all hover:-translate-y-1 hover:border-white/20 hover:shadow-lg"
+                    className="p-3.5 bg-white/[0.03] hover:bg-white/[0.08] border border-white/[0.08] rounded-full text-slate-400 hover:text-white transition-all hover:-translate-y-1 hover:border-white/20 hover:shadow-lg backdrop-blur-sm"
                   >
                     <social.icon size={18} className="md:w-5 md:h-5" />
                   </a>
@@ -132,7 +132,7 @@ const Hero: React.FC<HeroProps> = ({ mode, setMode }) => {
           {/* Visual/Image Side */}
           <div className="flex-1 w-full flex justify-center lg:justify-end relative mt-12 lg:mt-0">
              {/* Profile Card / Illustration */}
-             <div className={`relative w-full max-w-sm lg:max-w-lg aspect-[4/5] bg-card/50 backdrop-blur-sm border rounded-3xl md:rounded-[2.5rem] overflow-hidden shadow-2xl transform transition-all duration-700 group ${isVideo ? 'rotate-2 hover:rotate-0 shadow-red-900/20' : '-rotate-2 hover:rotate-0 shadow-blue-900/20'} ${frameBorder}`}>
+             <div className={`relative w-full max-w-sm lg:max-w-lg aspect-[4/5] bg-[#111]/80 backdrop-blur-sm border rounded-3xl md:rounded-[2.5rem] overflow-hidden shadow-2xl transform transition-all duration-700 group ${isVideo ? 'rotate-2 hover:rotate-0 shadow-red-900/20' : '-rotate-2 hover:rotate-0 shadow-blue-900/20'} ${frameBorder}`}>
                 
                 {/* Image with blending and grayscale animation */}
                 <div className="absolute inset-0 z-0 bg-black">
@@ -150,7 +150,7 @@ const Hero: React.FC<HeroProps> = ({ mode, setMode }) => {
                 {isVideo && <div className="absolute inset-0 bg-[linear-gradient(transparent_50%,rgba(0,0,0,0.25)_50%)] bg-[length:100%_4px] pointer-events-none z-20 opacity-20"></div>}
                 
                 {/* Floating Info Card */}
-                <div className="absolute bottom-6 left-6 right-6 md:bottom-10 md:left-8 md:right-8 bg-black/70 backdrop-blur-xl border border-white/10 p-5 md:p-6 rounded-2xl md:rounded-3xl z-30 transform translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 delay-100 shadow-2xl">
+                <div className="absolute bottom-6 left-6 right-6 md:bottom-10 md:left-8 md:right-8 bg-black/80 backdrop-blur-2xl border border-white/10 p-5 md:p-6 rounded-2xl md:rounded-3xl z-30 transform translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 delay-100 shadow-[0_20px_40px_rgba(0,0,0,0.8)]">
                    {content.floatingCard.type === 'code' ? (
                      <>
                        <div className="flex items-center gap-2 text-[10px] md:text-xs text-slate-400 mb-2 md:mb-3 border-b border-white/5 pb-2">
@@ -203,8 +203,8 @@ const Hero: React.FC<HeroProps> = ({ mode, setMode }) => {
              </div>
              
              {/* Abstract shapes behind */}
-             <div className={`absolute -top-6 -right-6 md:-top-10 md:-right-10 w-24 h-24 md:w-40 md:h-40 rounded-full blur-[50px] md:blur-[80px] opacity-50 transition-colors duration-1000 ${isVideo ? 'bg-red-600' : 'bg-blue-600'}`}></div>
-             <div className={`absolute -bottom-6 -left-6 md:-bottom-10 md:-left-10 w-24 h-24 md:w-40 md:h-40 rounded-full blur-[50px] md:blur-[80px] opacity-50 transition-colors duration-1000 ${isVideo ? 'bg-orange-600' : 'bg-cyan-600'}`}></div>
+             <div className={`absolute -top-6 -right-6 md:-top-10 md:-right-10 w-24 h-24 md:w-40 md:h-40 rounded-full blur-[50px] md:blur-[80px] opacity-40 transition-colors duration-1000 ${isVideo ? 'bg-red-600' : 'bg-blue-600'}`}></div>
+             <div className={`absolute -bottom-6 -left-6 md:-bottom-10 md:-left-10 w-24 h-24 md:w-40 md:h-40 rounded-full blur-[50px] md:blur-[80px] opacity-40 transition-colors duration-1000 ${isVideo ? 'bg-orange-600' : 'bg-cyan-600'}`}></div>
           </div>
         </div>
       </div>

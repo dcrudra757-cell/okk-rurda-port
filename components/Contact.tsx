@@ -14,18 +14,18 @@ const Contact: React.FC<ContactProps> = ({ mode }) => {
     ? 'bg-red-600 hover:bg-red-700 shadow-lg shadow-red-600/30' 
     : 'bg-blue-600 hover:bg-blue-700 shadow-lg shadow-blue-600/30';
   const focusBorder = isVideo 
-    ? 'focus:border-red-600/50 focus:bg-red-900/10 focus:ring-1 focus:ring-red-600/50' 
-    : 'focus:border-blue-500/50 focus:bg-blue-900/10 focus:ring-1 focus:ring-blue-500/50';
+    ? 'focus:border-red-600/50 focus:bg-red-900/5 focus:ring-1 focus:ring-red-600/50' 
+    : 'focus:border-blue-500/50 focus:bg-blue-900/5 focus:ring-1 focus:ring-blue-500/50';
   const iconBg = isVideo ? 'group-hover:bg-red-600 group-hover:text-white' : 'group-hover:bg-blue-600 group-hover:text-white';
 
   return (
-    <section id="contact" className="py-16 md:py-32 bg-darker relative">
+    <section id="contact" className="py-16 md:py-32 bg-[#050505] relative">
       <div className="container mx-auto px-6">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20">
           
           <div>
             <h3 className={`${accentText} font-bold tracking-[0.2em] mb-4 uppercase text-sm`}>CONTACT</h3>
-            <h2 className="text-4xl sm:text-5xl md:text-6xl font-heading font-black text-white mb-6 md:mb-8 tracking-tight">
+            <h2 className="text-4xl sm:text-5xl md:text-6xl font-heading font-black text-white mb-6 md:mb-8 tracking-tighter">
               {isVideo ? 'Start A Project' : "Let's Build It"}
             </h2>
             <p className="text-slate-400 text-lg md:text-xl mb-8 md:mb-12 max-w-md leading-relaxed">
@@ -41,8 +41,8 @@ const Contact: React.FC<ContactProps> = ({ mode }) => {
                 { icon: MapPin, title: 'Location', value: 'Available Worldwide (Remote)' }
               ].map((item, idx) => (
                 <div key={idx} className="flex items-start gap-4 md:gap-6 group">
-                  <div className={`w-12 h-12 md:w-14 md:h-14 bg-card rounded-2xl flex items-center justify-center shrink-0 border border-white/[0.05] text-slate-400 transition-all duration-300 ${iconBg} shadow-sm`}>
-                    <item.icon size={20} className="md:w-6 md:h-6" />
+                  <div className={`w-12 h-12 md:w-14 md:h-14 bg-[#111] rounded-2xl flex items-center justify-center shrink-0 border border-white/[0.05] text-slate-400 transition-all duration-300 ${iconBg} shadow-sm`}>
+                    <item.icon size={20} className="md:w-6 md:h-6" strokeWidth={1.5} />
                   </div>
                   <div>
                     <h4 className="text-white font-bold text-base md:text-lg mb-1">{item.title}</h4>
@@ -53,7 +53,7 @@ const Contact: React.FC<ContactProps> = ({ mode }) => {
             </div>
           </div>
 
-          <div className="bg-card/50 backdrop-blur-sm p-6 sm:p-8 md:p-12 rounded-3xl border border-white/[0.05] shadow-2xl relative overflow-hidden">
+          <div className="bg-[#111]/50 backdrop-blur-sm p-6 sm:p-8 md:p-12 rounded-3xl border border-white/[0.05] shadow-2xl relative overflow-hidden">
             {/* Subtle Glow */}
             <div className={`absolute -top-20 -right-20 w-64 h-64 rounded-full blur-[100px] opacity-10 ${isVideo ? 'bg-red-600' : 'bg-blue-600'}`}></div>
 
@@ -99,7 +99,7 @@ const Contact: React.FC<ContactProps> = ({ mode }) => {
                 ></textarea>
               </div>
 
-              <button type="submit" className={`w-full text-white py-4 md:py-5 rounded-xl font-bold text-base md:text-lg transition-all shadow-xl flex items-center justify-center gap-3 hover:-translate-y-1 hover:brightness-110 ${btnColor}`}>
+              <button type="submit" className={`w-full text-white py-4 md:py-5 rounded-xl font-bold text-base md:text-lg transition-all shadow-xl flex items-center justify-center gap-3 hover:-translate-y-1 hover:brightness-110 active:scale-95 ${btnColor}`}>
                 Send Message
                 <Send size={18} className="md:w-5 md:h-5" />
               </button>
