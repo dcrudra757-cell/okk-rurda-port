@@ -73,7 +73,7 @@ const VideoCard: React.FC<{ video: ShortFormVideo }> = ({ video }) => {
 
   return (
     <div 
-      className="min-w-[220px] md:min-w-[260px] aspect-[9/16] relative rounded-2xl overflow-hidden group border border-white/10 shadow-2xl snap-center bg-card cursor-pointer"
+      className="min-w-[240px] md:min-w-[280px] aspect-[9/16] relative rounded-2xl overflow-hidden group border border-white/10 shadow-2xl snap-center bg-card cursor-pointer hover:z-50 transition-all duration-300"
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
@@ -167,13 +167,13 @@ const ShortFormShowcase: React.FC = () => {
         <div className="flex flex-col md:flex-row justify-between items-end mb-12 relative">
           <div>
             {/* Background Text - Fixed positioning to not be cut off */}
-            <h2 className="text-4xl md:text-6xl font-heading font-black text-white/5 absolute top-0 left-0 select-none pointer-events-none scale-150 origin-top-left -translate-y-6 md:-translate-y-8 z-0">
+            <h2 className="text-3xl md:text-6xl font-heading font-black text-white/5 absolute top-0 left-0 select-none pointer-events-none scale-150 origin-top-left -translate-y-4 md:-translate-y-8 z-0">
               SHORT FORM
             </h2>
             <h2 className="text-3xl md:text-5xl font-heading font-bold text-white relative z-10">
               Short Form <span className="text-red-600">Edits</span>
             </h2>
-            <p className="text-slate-400 mt-4 max-w-lg relative z-10">
+            <p className="text-slate-400 mt-4 max-w-lg relative z-10 text-sm md:text-base">
               High-retention vertical content optimized for Reels, TikTok, and Shorts.
             </p>
           </div>
@@ -191,7 +191,7 @@ const ShortFormShowcase: React.FC = () => {
         {/* Carousel */}
         <div 
           ref={scrollContainerRef}
-          className="flex gap-6 md:gap-8 overflow-x-auto pb-12 snap-x snap-mandatory -mx-6 px-6 md:mx-0 md:px-0"
+          className="flex gap-5 md:gap-8 overflow-x-auto pb-12 snap-x snap-mandatory -mx-6 px-6 md:mx-0 md:px-0"
           style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
         >
           {SHORT_FORM_VIDEOS.map((video) => (
