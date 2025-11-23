@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ArrowRight, Terminal, Video, Code, Film } from 'lucide-react';
+import { ArrowRight, Terminal, Video, Code, Film, Figma, LayoutTemplate, FileText } from 'lucide-react';
 import { HERO_DATA } from '../constants';
 import { AppMode } from '../types';
 
@@ -151,31 +151,51 @@ const Hero: React.FC<HeroProps> = ({ mode, setMode }) => {
                 
                 {/* Floating Info Card */}
                 <div className="absolute bottom-4 left-4 right-4 md:bottom-8 md:left-6 md:right-6 bg-black/60 backdrop-blur-xl border border-white/10 p-4 md:p-5 rounded-xl md:rounded-2xl z-30 transform translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 delay-100 shadow-2xl">
-                   <div className="flex items-center gap-2 text-[10px] md:text-xs text-slate-400 mb-2 md:mb-3 border-b border-white/5 pb-2">
-                      {content.floatingCard.type === 'code' ? <Terminal size={12} className="text-blue-400 md:w-[14px] md:h-[14px]" /> : <Video size={12} className="text-red-500 md:w-[14px] md:h-[14px]" />}
-                      <span className="uppercase tracking-wider font-bold">{content.floatingCard.title}</span>
-                   </div>
-                   
-                   {/* Render content based on type */}
                    {content.floatingCard.type === 'code' ? (
-                     <div className="text-[10px] md:text-xs font-mono text-slate-300 space-y-1 md:space-y-1.5">
-                        <p><span className="text-purple-400">const</span> <span className="text-yellow-300">developer</span> = <span className="text-purple-400">{`{`}</span></p>
-                        <p className="pl-4">name: <span className="text-green-400">'Rudra'</span>,</p>
-                        <p className="pl-4">skills: [<span className="text-green-400">'React'</span>, <span className="text-green-400">'Next.js'</span>],</p>
-                        <p><span className="text-purple-400">{`}`}</span>;</p>
-                     </div>
+                     <>
+                       <div className="flex items-center gap-2 text-[10px] md:text-xs text-slate-400 mb-2 md:mb-3 border-b border-white/5 pb-2">
+                          <Terminal size={12} className="text-blue-400 md:w-[14px] md:h-[14px]" />
+                          <span className="uppercase tracking-wider font-bold">{content.floatingCard.title}</span>
+                       </div>
+                       <div className="text-[10px] md:text-xs font-mono text-slate-300 space-y-1 md:space-y-1.5">
+                          <p><span className="text-purple-400">const</span> <span className="text-yellow-300">developer</span> = <span className="text-purple-400">{`{`}</span></p>
+                          <p className="pl-4">name: <span className="text-green-400">'Rudra'</span>,</p>
+                          <p className="pl-4">skills: [<span className="text-green-400">'React'</span>, <span className="text-green-400">'Next.js'</span>],</p>
+                          <p><span className="text-purple-400">{`}`}</span>;</p>
+                       </div>
+                     </>
                    ) : (
-                     <div className="text-[10px] md:text-xs font-mono text-slate-300 space-y-2 md:space-y-3">
-                        <div className="w-full bg-white/10 h-1 md:h-1.5 rounded-full overflow-hidden">
-                          <div className="bg-red-600 h-full w-[98%] animate-pulse"></div>
+                     <div className="flex flex-col items-center gap-3">
+                        {/* Badge */}
+                        <div className="px-3 py-1 rounded-full bg-black/80 border border-white/10 flex items-center gap-2 shadow-lg mb-1">
+                           <Video size={12} className="text-purple-500 fill-purple-500" />
+                           <span className="text-[10px] font-bold text-white tracking-wide">Video Editor</span>
                         </div>
-                        <div className="flex justify-between text-[8px] md:text-[10px] uppercase tracking-wider text-slate-500 font-bold">
-                          <span>Rendering</span>
-                          <span className="text-red-500">98%</span>
-                        </div>
-                        <div className="space-y-1 md:space-y-1.5 pt-1">
-                           <p className="flex items-center gap-2"><span className="w-1 h-1 md:w-1.5 md:h-1.5 rounded-full bg-green-500 shadow-[0_0_5px_#22c55e]"></span> {content.floatingCard.line2.replace('Color Grade: ', '')}</p>
-                           <p className="flex items-center gap-2"><span className="w-1 h-1 md:w-1.5 md:h-1.5 rounded-full bg-green-500 shadow-[0_0_5px_#22c55e]"></span> {content.floatingCard.line3.replace('Audio Mix: ', '')}</p>
+                        
+                        {/* Dock */}
+                        <div className="flex items-center gap-2 md:gap-3 p-2 bg-white/5 rounded-2xl border border-white/5 backdrop-blur-md">
+                           {/* Premiere */}
+                           <div className="w-8 h-8 md:w-10 md:h-10 rounded-lg bg-[#00005c] border border-white/10 flex items-center justify-center text-[#d29bf8] font-bold text-[10px] md:text-xs shadow-lg hover:scale-110 transition-transform cursor-default" title="Premiere Pro">Pr</div>
+                           {/* Photoshop */}
+                           <div className="w-8 h-8 md:w-10 md:h-10 rounded-lg bg-[#001e36] border border-white/10 flex items-center justify-center text-[#31a8ff] font-bold text-[10px] md:text-xs shadow-lg hover:scale-110 transition-transform cursor-default" title="Photoshop">Ps</div>
+                           {/* Media Encoder */}
+                           <div className="w-8 h-8 md:w-10 md:h-10 rounded-lg bg-[#00005c] border border-white/10 flex items-center justify-center text-[#d29bf8] font-bold text-[10px] md:text-xs shadow-lg hover:scale-110 transition-transform cursor-default" title="Media Encoder">Me</div>
+                           
+                           {/* Divider */}
+                           <div className="w-px h-5 bg-white/10 mx-0.5"></div>
+                           
+                           {/* Figma */}
+                           <div className="w-8 h-8 md:w-10 md:h-10 rounded-lg bg-black/50 border border-white/10 flex items-center justify-center hover:scale-110 transition-transform cursor-default group/icon" title="Figma">
+                              <Figma size={14} className="text-white opacity-80 group-hover/icon:opacity-100 md:w-[18px] md:h-[18px]" />
+                           </div>
+                           {/* Framer */}
+                           <div className="w-8 h-8 md:w-10 md:h-10 rounded-lg bg-black/50 border border-white/10 flex items-center justify-center hover:scale-110 transition-transform cursor-default group/icon" title="Framer">
+                              <LayoutTemplate size={14} className="text-white opacity-80 group-hover/icon:opacity-100 md:w-[18px] md:h-[18px]" />
+                           </div>
+                           {/* Notion */}
+                           <div className="w-8 h-8 md:w-10 md:h-10 rounded-lg bg-black/50 border border-white/10 flex items-center justify-center hover:scale-110 transition-transform cursor-default group/icon" title="Notion">
+                              <FileText size={14} className="text-white opacity-80 group-hover/icon:opacity-100 md:w-[18px] md:h-[18px]" />
+                           </div>
                         </div>
                      </div>
                    )}

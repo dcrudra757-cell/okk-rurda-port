@@ -49,25 +49,26 @@ const ShortFormShowcase: React.FC = () => {
   };
 
   return (
-    <section id="shorts" className="py-20 md:py-32 bg-darker overflow-hidden relative">
+    <section id="shorts" className="py-20 md:py-32 bg-gradient-to-b from-card to-darker overflow-hidden relative">
       {/* Background Gradient to match screenshot vibe */}
-      <div className="absolute top-0 left-0 w-full h-1/2 bg-gradient-to-b from-black to-darker opacity-80 z-0"></div>
+      <div className="absolute top-0 left-0 w-full h-1/2 bg-gradient-to-b from-black/50 to-transparent opacity-50 z-0"></div>
       
       <div className="container mx-auto px-6 relative z-10">
-        <div className="flex flex-col md:flex-row justify-between items-end mb-12">
+        <div className="flex flex-col md:flex-row justify-between items-end mb-12 relative">
           <div>
-            <h2 className="text-4xl md:text-6xl font-heading font-black text-white/10 absolute -top-10 left-6 md:left-0 select-none pointer-events-none scale-150 origin-top-left">
+            {/* Background Text - Fixed positioning to not be cut off */}
+            <h2 className="text-4xl md:text-6xl font-heading font-black text-white/5 absolute top-0 left-0 select-none pointer-events-none scale-150 origin-top-left -translate-y-6 md:-translate-y-8 z-0">
               SHORT FORM
             </h2>
             <h2 className="text-3xl md:text-5xl font-heading font-bold text-white relative z-10">
               Short Form <span className="text-red-600">Edits</span>
             </h2>
-            <p className="text-slate-400 mt-4 max-w-lg">
+            <p className="text-slate-400 mt-4 max-w-lg relative z-10">
               High-retention vertical content optimized for Reels, TikTok, and Shorts.
             </p>
           </div>
           
-          <div className="hidden md:flex gap-4">
+          <div className="hidden md:flex gap-4 relative z-10">
              <button onClick={() => scroll('left')} className="p-3 rounded-full bg-white/5 border border-white/10 hover:bg-red-600 hover:border-red-600 transition-all text-white">
                <ChevronLeft size={24} />
              </button>
