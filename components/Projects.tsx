@@ -124,10 +124,10 @@ const Projects: React.FC<ProjectsProps> = ({ mode }) => {
 
                 {/* Link */}
                 <a 
-                  href={project.link} 
+                  href={project.link || '#'} 
                   className={`inline-flex items-center gap-2 font-bold uppercase tracking-wider text-xs md:text-sm group/link transition-colors ${isVideo ? 'text-red-500 hover:text-red-400' : 'text-blue-500 hover:text-blue-400'}`}
                 >
-                  {isVideo ? 'Watch Video' : 'View Project'}
+                  View Project
                   <ArrowRight size={16} className="group-hover/link:translate-x-1 transition-transform md:w-[18px] md:h-[18px]" />
                 </a>
               </div>

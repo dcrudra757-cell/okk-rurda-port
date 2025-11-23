@@ -6,8 +6,8 @@ const Footer: React.FC = () => {
     <footer className="bg-darker py-12 border-t border-white/5">
       <div className="container mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
         <div className="text-center md:text-left">
-          <a href="#" className="text-2xl font-heading font-bold text-white tracking-tighter block mb-2">
-            RUDRA<span className="text-primary">.DEV</span>
+          <a href="#" className="text-2xl font-heading font-bold text-white tracking-tighter block mb-2 hover:opacity-80 transition-opacity">
+            RUDRA
           </a>
           <p className="text-slate-500 text-sm">
             &copy; {new Date().getFullYear()} Rudra Saxena. All rights reserved.

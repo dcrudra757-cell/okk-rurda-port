@@ -5,6 +5,7 @@ import TechTicker from './components/TechTicker';
 import About from './components/About';
 import Services from './components/Services';
 import ShopifyShowcase from './components/ShopifyShowcase';
+import ShortFormShowcase from './components/ShortFormShowcase';
 import SEOProcess from './components/SEOProcess';
 import Projects from './components/Projects';
 import Testimonials from './components/Testimonials';
@@ -39,6 +40,8 @@ const App: React.FC = () => {
         <About mode={mode} />
         <Services mode={mode} />
         <ShopifyShowcase mode={mode} />
+        {/* Short Form Showcase only for Video Mode */}
+        {mode === 'video' && <ShortFormShowcase />}
         <SEOProcess mode={mode} />
         <Projects mode={mode} />
         <Testimonials mode={mode} />

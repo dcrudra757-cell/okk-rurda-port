@@ -15,7 +15,6 @@ const Navbar: React.FC<NavbarProps> = ({ mode }) => {
   const isVideo = mode === 'video';
   
   // Design System
-  const logoAccent = isVideo ? 'text-red-600' : 'text-blue-500';
   const linkHover = isVideo ? 'hover:text-red-500' : 'hover:text-blue-400';
   const btnColor = isVideo 
     ? 'bg-red-600 hover:bg-red-700 shadow-[0_0_15px_rgba(220,38,38,0.5)]' 
@@ -32,8 +31,8 @@ const Navbar: React.FC<NavbarProps> = ({ mode }) => {
   return (
     <nav className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${isScrolled ? 'bg-darker/90 backdrop-blur-md border-b border-white/5 py-3 md:py-4' : 'bg-transparent py-4 md:py-6'}`}>
       <div className="container mx-auto px-6 flex justify-between items-center">
-        <a href="#" className="text-xl md:text-2xl font-heading font-bold text-white tracking-tighter group">
-          RUDRA<span className={`transition-colors duration-300 ${logoAccent}`}>{mode === 'dev' ? '.DEV' : '.CUTS'}</span>
+        <a href="#" className="text-xl md:text-2xl font-heading font-bold text-white tracking-tighter group hover:opacity-90 transition-opacity">
+          RUDRA
         </a>
 
         {/* Desktop Menu */}

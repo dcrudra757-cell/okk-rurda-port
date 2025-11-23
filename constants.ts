@@ -1,4 +1,4 @@
-import { Project, Service, SpecializedProject, WorkflowStep, Testimonial, CaseStudy, HeroModeContent, DataByMode, AboutContent } from './types';
+import { Project, Service, SpecializedProject, WorkflowStep, Testimonial, CaseStudy, HeroModeContent, DataByMode, AboutContent, ShortFormVideo } from './types';
 import { 
   Code, 
   ShoppingBag, 
@@ -36,6 +36,7 @@ export const NAV_LINKS: DataByMode<{ name: string; href: string }[]> = {
     { name: 'About', href: '#about' },
     { name: 'Services', href: '#services' },
     { name: 'Solutions', href: '#shopify' }, // Using same ID anchor for layout consistency
+    { name: 'Shorts', href: '#shorts' },
     { name: 'Projects', href: '#projects' },
     { name: 'Contact', href: '#contact' },
   ]
@@ -264,39 +265,30 @@ export const WORKFLOW_PROCESS: DataByMode<{ title: string; subtitle: string; ste
 export const PROJECTS: DataByMode<Project[]> = {
   dev: [
     {
-      id: '1',
-      title: 'E-Commerce Redesign',
-      category: 'Shopify',
-      image: 'https://picsum.photos/800/600?random=1',
-      description: 'A complete overhaul of a fashion brand\'s Shopify store, resulting in a 40% increase in conversion rate.',
-      tech: ['Shopify', 'Liquid', 'JS', 'Tailwind'],
+      id: 'd1',
+      title: 'N Plus Pro',
+      category: 'B2B Platform',
+      image: 'https://images.unsplash.com/photo-1551434678-e076c223a692?q=80&w=2670&auto=format&fit=crop', // Networking/Business
+      description: 'A modern B2B platform for professional networking and business solutions.',
+      tech: ['React', 'Node.js', 'MongoDB'],
       link: '#',
     },
     {
-      id: '2',
-      title: 'SaaS Dashboard',
-      category: 'Web App',
-      image: 'https://picsum.photos/800/600?random=2',
-      description: 'A comprehensive analytics dashboard for a B2B SaaS platform, featuring real-time data visualization.',
-      tech: ['React', 'TypeScript', 'D3.js', 'Node.js'],
+      id: 'd2',
+      title: 'Platform One Inc',
+      category: 'Enterprise',
+      image: 'https://images.unsplash.com/photo-1558494949-ef526b0042a0?q=80&w=2668&auto=format&fit=crop', // Server/Tech
+      description: 'Enterprise software solutions and digital transformation services.',
+      tech: ['Next.js', 'TypeScript', 'Tailwind'],
       link: '#',
     },
     {
-      id: '3',
-      title: 'SEO Audit Tool',
-      category: 'SEO / Tool',
-      image: 'https://picsum.photos/800/600?random=3',
-      description: 'An internal tool developed to automate technical SEO audits for client websites.',
-      tech: ['Python', 'React', 'Next.js'],
-      link: '#',
-    },
-    {
-      id: '4',
-      title: 'Real Estate Platform',
-      category: 'Web App',
-      image: 'https://picsum.photos/800/600?random=4',
-      description: 'A listing platform with advanced filtering, map integration, and virtual tour capabilities.',
-      tech: ['Next.js', 'PostgreSQL', 'Google Maps API'],
+      id: 'd3',
+      title: 'Spotlite Mall of Joy',
+      category: 'E-Commerce',
+      image: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=2670&auto=format&fit=crop', // Mall/Shopping
+      description: 'An interactive e-commerce platform for retail shopping experiences.',
+      tech: ['React', 'Redux', 'Express'],
       link: '#',
     },
   ],
@@ -339,6 +331,37 @@ export const PROJECTS: DataByMode<Project[]> = {
     }
   ]
 };
+
+export const SHORT_FORM_VIDEOS: ShortFormVideo[] = [
+  {
+    id: 'sf1',
+    title: 'Typographic Promo',
+    category: 'Motion Graphics',
+    views: '45K+ Views',
+    image: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1000&auto=format&fit=crop', // Abstract Grid/Typography style
+  },
+  {
+    id: 'sf2',
+    title: 'Software Tutorial',
+    category: 'Educational',
+    views: '120K+ Views',
+    image: 'https://images.unsplash.com/photo-1550439062-609e1531270e?q=80&w=1000&auto=format&fit=crop', // UI/Screen style
+  },
+  {
+    id: 'sf3',
+    title: 'Before & After Color',
+    category: 'Color Grading',
+    views: '85K+ Views',
+    image: 'https://images.unsplash.com/photo-1535451801241-b5395e1d4a1b?q=80&w=1000&auto=format&fit=crop', // Split screen vibe
+  },
+  {
+    id: 'sf4',
+    title: 'Financial VSL',
+    category: 'Commercial',
+    views: '200K+ Views',
+    image: 'https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?q=80&w=1000&auto=format&fit=crop', // Money/Business
+  }
+];
 
 export const TESTIMONIALS: DataByMode<Testimonial[]> = {
   dev: [

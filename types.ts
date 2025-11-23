@@ -118,3 +118,11 @@ export interface AboutContent {
   quoteAuthor: string;
   quoteRole: string;
 }
+
+export interface ShortFormVideo {
+  id: string;
+  title: string;
+  image: string;
+  views: string;
+  category: string;
+}
