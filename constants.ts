@@ -339,7 +339,7 @@ export const SHORT_FORM_VIDEOS: ShortFormVideo[] = [
     category: 'Motion Graphics',
     views: '45K+ Views',
     image: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1000&auto=format&fit=crop',
-    videoUrl: 'https://assets.mixkit.co/videos/preview/mixkit-vertical-video-of-a-woman-dancing-40019-large.mp4', // Sample Video
+    videoUrl: 'https://drive.google.com/file/d/1vg4CVhCiHBgKyN6QIHgQCSmusuqB2Vfo/view?usp=sharing', // User provided link
   },
   {
     id: 'sf2',
@@ -355,7 +355,7 @@ export const SHORT_FORM_VIDEOS: ShortFormVideo[] = [
     category: 'Color Grading',
     views: '85K+ Views',
     image: 'https://images.unsplash.com/photo-1535451801241-b5395e1d4a1b?q=80&w=1000&auto=format&fit=crop',
-    videoUrl: '', // Add your drive link here
+    videoUrl: 'https://drive.google.com/file/d/1vg4CVhCiHBgKyN6QIHgQCSmusuqB2Vfo/view?usp=sharing', // User provided link
   },
   {
     id: 'sf4',
@@ -363,7 +363,7 @@ export const SHORT_FORM_VIDEOS: ShortFormVideo[] = [
     category: 'Commercial',
     views: '200K+ Views',
     image: 'https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?q=80&w=1000&auto=format&fit=crop',
-    videoUrl: '', // Add your drive link here
+    videoUrl: 'https://drive.google.com/file/d/1vg4CVhCiHBgKyN6QIHgQCSmusuqB2Vfo/view?usp=sharing', // User provided link
   }
 ];
 
