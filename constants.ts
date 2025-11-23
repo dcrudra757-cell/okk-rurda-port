@@ -82,11 +82,11 @@ export const HERO_DATA: DataByMode<HeroModeContent> = {
     ],
     floatingCard: {
       type: 'video',
-      title: 'Final_Render_v3.mp4',
-      line1: "Rendering... 98%",
-      line2: "Color Grade: [Applied]",
-      line3: "Audio Mix: [Mastered]",
-      line4: "Exporting to 4K..."
+      title: 'Video Editor', // Title used for badge
+      line1: "", // Unused in new component
+      line2: "",
+      line3: "",
+      line4: ""
     }
   }
 };
@@ -347,7 +347,7 @@ export const SHORT_FORM_VIDEOS: ShortFormVideo[] = [
     category: 'Educational',
     views: '120K+ Views',
     image: 'https://images.unsplash.com/photo-1550439062-609e1531270e?q=80&w=1000&auto=format&fit=crop',
-    videoUrl: '', // Add your drive link here
+    videoUrl: 'https://drive.google.com/file/d/1vg4CVhCiHBgKyN6QIHgQCSmusuqB2Vfo/view?usp=sharing', // User provided link
   },
   {
     id: 'sf3',
