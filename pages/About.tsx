@@ -122,7 +122,8 @@ const AboutPage: React.FC<AboutPageProps> = ({ mode }) => {
                   {timeline.map((item, index) => (
                     <div key={index} className="relative group">
                       <div className={`absolute -left-[49px] w-7 h-7 rounded-full border-4 border-[#050505] ${accentBg} flex items-center justify-center shadow-[0_0_15px_rgba(0,0,0,0.5)]`}></div>
-                      <span className={`block text-xs font-bold mb-2 px-3 py-1 rounded-full bg-white/5 w-max text-white`}>{item.year}</span>
+                      {/* display year if present, fall back to parsing a date field */}
+                      <span className={`block text-xs font-bold mb-2 px-3 py-1 rounded-full bg-white/5 w-max text-white`}>{item.year ?? (item.date ? String(new Date(item.date).getFullYear()) : '')}</span>
                       <h4 className="text-white font-bold text-xl mb-2 group-hover:text-slate-200 transition-colors">{item.title}</h4>
                       <p className="text-base text-slate-400 leading-relaxed max-w-2xl">{item.description}</p>
                     </div>
@@ -167,15 +168,17 @@ const AboutPage: React.FC<AboutPageProps> = ({ mode }) => {
                   </div>
                </div>
 
-               {/* Key Stats */}
-               <div className="grid grid-cols-2 gap-4">
-                 {content.stats.map((stat, idx) => (
-                   <div key={idx} className="bg-[#0a0a0a] border border-white/5 p-6 rounded-2xl text-center hover:bg-white/5 transition-colors">
-                     <div className={`text-3xl font-heading font-black mb-1 ${accentText}`}>{stat.value}</div>
-                     <div className="text-xs text-slate-500 uppercase font-bold tracking-wider">{stat.label}</div>
-                   </div>
-                 ))}
-               </div>
+               {/* Key Stats (guarded) */}
+               {Array.isArray(content.stats) && content.stats.length > 0 && (
+                 <div className="grid grid-cols-2 gap-4">
+                   {content.stats.map((stat, idx) => (
+                     <div key={idx} className="bg-[#0a0a0a] border border-white/5 p-6 rounded-2xl text-center hover:bg-white/5 transition-colors">
+                       <div className={`text-3xl font-heading font-black mb-1 ${accentText}`}>{stat.value}</div>
+                       <div className="text-xs text-slate-500 uppercase font-bold tracking-wider">{stat.label}</div>
+                     </div>
+                   ))}
+                 </div>
+               )}
             </div>
           </div>
         </div>
