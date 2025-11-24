@@ -1,87 +1,46 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { SERVICES } from '../constants';
 import { AppMode } from '../types';
+import { ArrowRight } from 'lucide-react';
 
 interface ServicesProps {
   mode: AppMode;
 }
 
 const Services: React.FC<ServicesProps> = ({ mode }) => {
-  const allServices = SERVICES[mode];
+  const services = SERVICES[mode];
   const isVideo = mode === 'video';
-  const [filter, setFilter] = useState('All');
-
-  // Simple category mapping based on service titles (Mock categories for display)
-  const getCategory = (title: string) => {
-    if (title.includes('YouTube') || title.includes('Web')) return 'Core';
-    if (title.includes('Reels') || title.includes('App')) return 'Social/Mobile';
-    if (title.includes('Cinematic') || title.includes('SEO')) return 'Strategy/High-End';
-    return 'Creative';
-  };
-
-  const categories = ['All', 'Core', 'Social/Mobile', 'Strategy/High-End'];
-
-  const filteredServices = filter === 'All' 
-    ? allServices 
-    : allServices.filter(s => getCategory(s.title) === filter);
-
-  const accentText = isVideo ? 'text-cine-red' : 'text-blue-500';
-  const accentBg = isVideo ? 'bg-cine-red' : 'bg-blue-600';
+  const accentText = isVideo ? 'text-cine-red' : 'text-primary';
+  const accentBg = isVideo ? 'bg-cine-red' : 'bg-primary';
 
   return (
-    <section id="services" className="py-24 md:py-36 bg-surface relative">
+    <section id="services" className="py-24 md:py-32 bg-[#050505] relative border-t border-white/5">
       <div className="container mx-auto px-6">
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <h3 className={`${accentText} font-bold tracking-[0.2em] mb-4 uppercase text-xs md:text-sm`}>WHAT I DO</h3>
-          <h2 className="text-3xl sm:text-5xl md:text-6xl font-heading font-black text-white mb-6 tracking-tight">
-            Premium {mode === 'dev' ? 'Development' : 'Editing'} <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-white/50">Services.</span>
+        
+        {/* Header */}
+        <div className="text-center mb-16">
+          <h3 className={`${accentText} font-bold tracking-[0.2em] mb-4 uppercase text-xs md:text-sm`}>EXPERTISE</h3>
+          <h2 className="text-3xl md:text-5xl font-heading font-black text-white">
+            {isVideo ? 'Video Editing' : 'Development'} Services
           </h2>
-          <p className="text-text-muted text-base md:text-lg">
-            Specialized solutions tailored to your unique needs. From concept to final delivery, I ensure quality at every step.
-          </p>
         </div>
 
-        {/* Filter Tabs */}
-        <div className="flex flex-wrap justify-center gap-3 mb-12">
-          {categories.map(cat => (
-            <button
-              key={cat}
-              onClick={() => setFilter(cat)}
-              className={`px-5 py-2 rounded-full text-xs md:text-sm font-bold transition-all border ${
-                filter === cat 
-                  ? `${accentBg} border-transparent text-white shadow-lg` 
-                  : 'bg-white/5 border-white/5 text-text-muted hover:text-white hover:bg-white/10'
-              }`}
-            >
-              {cat}
-            </button>
-          ))}
-        </div>
+        {/* Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+          {services.map((service) => (
+            <div key={service.id} className="group bg-[#111] border border-white/5 rounded-2xl p-8 hover:border-white/10 transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl flex flex-col h-full">
+               <div className={`w-12 h-12 rounded-xl flex items-center justify-center mb-6 transition-colors ${isVideo ? 'bg-white/5 text-white group-hover:bg-cine-red' : 'bg-white/5 text-white group-hover:bg-blue-600'}`}>
+                  <service.icon size={24} strokeWidth={1.5} />
+               </div>
+               
+               <h4 className="text-lg font-bold text-white mb-3">{service.title}</h4>
+               <p className="text-slate-400 text-sm leading-relaxed mb-8 flex-1">
+                 {service.description}
+               </p>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-          {filteredServices.map((service) => (
-            <div 
-              key={service.id}
-              className="group relative bg-[#131313] rounded-3xl p-1 overflow-hidden transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl"
-            >
-              {/* Gradient Border */}
-              <div className={`absolute inset-0 bg-gradient-to-br ${isVideo ? 'from-cine-red/50 to-orange-500/0' : 'from-blue-600/50 to-cyan-500/0'} opacity-0 group-hover:opacity-100 transition-opacity duration-500`}></div>
-              
-              <div className="relative h-full bg-[#131313] rounded-[1.4rem] p-8 flex flex-col items-start z-10">
-                <div className={`w-14 h-14 rounded-2xl flex items-center justify-center mb-6 transition-colors duration-300 ${isVideo ? 'bg-white/5 text-white group-hover:bg-cine-red' : 'bg-white/5 text-white group-hover:bg-blue-600'}`}>
-                   <service.icon size={28} strokeWidth={1.5} />
-                </div>
-                
-                <h4 className="text-xl font-bold text-white mb-3">{service.title}</h4>
-                <p className="text-text-muted text-sm leading-relaxed mb-6 flex-1">
-                  {service.description}
-                </p>
-                
-                <div className={`w-full h-1 rounded-full bg-white/5 overflow-hidden`}>
-                  <div className={`h-full w-0 group-hover:w-full transition-all duration-700 ease-out ${accentBg}`}></div>
-                </div>
-              </div>
+               <button className="w-full py-3 rounded-lg border border-white/10 text-white text-xs font-bold uppercase tracking-wider hover:bg-white/5 transition-colors flex items-center justify-center gap-2 group/btn">
+                 Start Project <ArrowRight size={14} className="group-hover/btn:translate-x-1 transition-transform" />
+               </button>
             </div>
           ))}
         </div>

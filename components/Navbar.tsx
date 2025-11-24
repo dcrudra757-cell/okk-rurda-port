@@ -14,11 +14,10 @@ const Navbar: React.FC<NavbarProps> = ({ mode }) => {
   const links = NAV_LINKS[mode];
   const isVideo = mode === 'video';
   
-  // Design System
-  const linkHover = isVideo ? 'hover:text-cine-red' : 'hover:text-blue-400';
+  const linkHover = isVideo ? 'hover:text-cine-red' : 'hover:text-primary';
   const btnColor = isVideo 
-    ? 'bg-gradient-to-r from-cine-red to-red-600 hover:from-red-500 hover:to-orange-500 shadow-[0_0_20px_rgba(255,74,25,0.4)]' 
-    : 'bg-blue-600 hover:bg-blue-700 shadow-[0_0_20px_rgba(59,130,246,0.4)]';
+    ? 'bg-cine-red hover:bg-red-600 shadow-[0_0_20px_rgba(255,74,25,0.4)]' 
+    : 'bg-primary hover:bg-blue-700 shadow-[0_0_20px_rgba(59,130,246,0.4)]';
 
   useEffect(() => {
     const handleScroll = () => {
@@ -28,26 +27,18 @@ const Navbar: React.FC<NavbarProps> = ({ mode }) => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  useEffect(() => {
-    if (isMobileMenuOpen) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = 'unset';
-    }
-  }, [isMobileMenuOpen]);
-
   return (
     <>
       <nav 
         className={`fixed top-0 left-0 w-full z-[100] transition-all duration-500 border-b ${
           isScrolled 
-            ? 'bg-[#050505]/90 backdrop-blur-xl border-white/[0.05] py-3 shadow-lg' 
+            ? 'bg-[#050505]/90 backdrop-blur-xl border-white/[0.05] py-4 shadow-lg' 
             : 'bg-transparent border-transparent py-6'
         }`}
       >
         <div className="container mx-auto px-6 flex justify-between items-center">
           <a href="#" className="text-2xl font-heading font-black text-white tracking-tighter group flex items-center gap-1 relative z-[101]">
-            RUDRA<span className={isVideo ? 'text-cine-red' : 'text-blue-500'}>.</span>
+            RUDRA<span className={isVideo ? 'text-cine-red' : 'text-primary'}>.</span>
           </a>
 
           {/* Desktop Menu */}
@@ -57,7 +48,7 @@ const Navbar: React.FC<NavbarProps> = ({ mode }) => {
                 <a 
                   key={link.name} 
                   href={link.href} 
-                  className={`text-[11px] font-bold text-text-muted transition-all duration-300 uppercase tracking-[0.15em] hover:text-white ${linkHover}`}
+                  className={`text-[11px] font-bold text-slate-400 transition-all duration-300 uppercase tracking-[0.15em] hover:text-white ${linkHover}`}
                 >
                   {link.name}
                 </a>
@@ -73,7 +64,7 @@ const Navbar: React.FC<NavbarProps> = ({ mode }) => {
 
           {/* Mobile Menu Toggle */}
           <button 
-            className={`md:hidden text-white transition-colors hover:text-text-muted relative z-[101] ${isMobileMenuOpen ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}
+            className={`md:hidden text-white transition-colors hover:text-slate-300 relative z-[101] ${isMobileMenuOpen ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}
             onClick={() => setIsMobileMenuOpen(true)}
             aria-label="Open Menu"
           >
