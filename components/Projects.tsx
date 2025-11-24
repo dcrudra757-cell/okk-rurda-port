@@ -11,6 +11,7 @@ const Projects: React.FC<ProjectsProps> = ({ mode }) => {
   const projects = PROJECTS[mode];
   const isVideo = mode === 'video';
   const accentText = isVideo ? 'text-cine-red' : 'text-blue-500';
+  const hoverText = isVideo ? 'group-hover:text-cine-red' : 'group-hover:text-blue-500';
   const scrollContainerRef = useRef<HTMLDivElement>(null);
 
   const scroll = (direction: 'left' | 'right') => {
@@ -62,9 +63,9 @@ const Projects: React.FC<ProjectsProps> = ({ mode }) => {
            style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
         >
           {projects.map((project) => (
-            <div key={project.id} className="min-w-[90vw] md:min-w-[600px] snap-start shrink-0 group cursor-pointer">
+            <div key={project.id} className="min-w-[90vw] md:min-w-[600px] lg:min-w-[700px] snap-start shrink-0 group cursor-pointer">
               {/* Image Container */}
-              <div className="relative aspect-video rounded-[2rem] overflow-hidden mb-6 bg-[#111] border border-white/5">
+              <div className="relative aspect-video rounded-3xl overflow-hidden mb-6 bg-[#111] border border-white/5">
                  <img 
                     src={project.image} 
                     alt={project.title} 
@@ -92,7 +93,7 @@ const Projects: React.FC<ProjectsProps> = ({ mode }) => {
               {/* Text Content */}
               <div className="px-2">
                  <div className="flex justify-between items-start mb-2">
-                    <h3 className="text-2xl font-bold text-white group-hover:text-cine-red transition-colors">{project.title}</h3>
+                    <h3 className={`text-2xl font-bold text-white ${hoverText} transition-colors`}>{project.title}</h3>
                     <a href={project.link} className="p-2 rounded-full hover:bg-white/5 transition-colors group/link">
                       <ArrowUpRight className="text-text-muted group-hover/link:text-white transition-colors" />
                     </a>
