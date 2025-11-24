@@ -58,7 +58,7 @@ const SolutionsPage: React.FC<SolutionsPageProps> = ({ mode }) => {
                   <div className={`absolute -inset-4 bg-gradient-to-r ${isVideo ? 'from-cine-red/20 to-orange-600/20' : 'from-blue-600/20 to-cyan-500/20'} rounded-[2.5rem] blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-700`}></div>
                   
                   <div className="relative rounded-[2rem] overflow-hidden aspect-[4/3] border border-white/10 bg-[#111]">
-                      <img src={solution.image} alt={solution.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-80 group-hover:opacity-100" />
+                      <img src={solution.image} alt={solution.title} loading="lazy" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-80 group-hover:opacity-100" />
                       
                       {/* Floating Comparison Card */}
                       <div className="absolute bottom-6 left-6 right-6 bg-[#0a0a0a]/90 backdrop-blur-xl p-6 rounded-xl border border-white/10 shadow-2xl">

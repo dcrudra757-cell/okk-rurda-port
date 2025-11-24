@@ -113,6 +113,7 @@ const Projects: React.FC<ProjectsProps> = ({ mode }) => {
                        <img 
                           src={project.image} 
                           alt={project.title} 
+                          loading="lazy"
                           className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                        />
                        <div className="absolute inset-0 bg-blue-900/10 mix-blend-overlay"></div>
@@ -141,6 +142,8 @@ const Projects: React.FC<ProjectsProps> = ({ mode }) => {
                        <a href={project.link} className="inline-flex items-center text-sm font-bold text-[#A78BFA] hover:text-white transition-colors mt-auto group/link">
                           View Case Study <ArrowRight size={16} className="ml-1 transition-transform group-hover/link:translate-x-1" />
                        </a>
+                      {/* Mobile full-width CTA */}
+                      <a href={project.link} className="mt-4 md:hidden block w-full text-center py-3 rounded-xl bg-[#6b46c1] text-white font-bold text-sm">View Project</a>
                     </div>
                  </div>
               </div>
@@ -152,6 +155,7 @@ const Projects: React.FC<ProjectsProps> = ({ mode }) => {
                    <img 
                       src={project.image} 
                       alt={project.title} 
+                      loading="lazy"
                       className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 grayscale group-hover:grayscale-0 opacity-80 group-hover:opacity-100"
                    />
                    
@@ -185,6 +189,10 @@ const Projects: React.FC<ProjectsProps> = ({ mode }) => {
                          <span key={t} className="text-[10px] text-text-muted font-medium px-2 py-0.5 bg-white/5 rounded-md border border-white/5">#{t}</span>
                       ))}
                    </div>
+                           {/* Mobile full-width View button */}
+                           <div className="mt-4 md:hidden px-1">
+                              <a href={project.link} className="block w-full py-3 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 text-white text-center font-bold">View Project</a>
+                           </div>
                 </div>
               </div>
             )

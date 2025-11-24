@@ -32,7 +32,7 @@ const Testimonials: React.FC<TestimonialsProps> = ({ mode }) => {
                 </div>
                 <p className="text-slate-300 text-sm leading-relaxed mb-8 italic">"{t.content}"</p>
                 <div className="flex items-center gap-4">
-                   <img src={t.image} alt={t.name} className="w-10 h-10 rounded-full object-cover grayscale" />
+                   <img src={t.image} alt={t.name} loading="lazy" className="w-10 h-10 rounded-full object-cover grayscale" />
                    <div>
                       <h4 className="text-white font-bold text-sm">{t.name}</h4>
                       <div className="text-xs text-text-muted">{t.company}</div>

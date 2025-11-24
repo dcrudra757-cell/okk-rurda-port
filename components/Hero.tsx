@@ -88,7 +88,7 @@ const Hero: React.FC<HeroProps> = ({ mode, setMode }) => {
                  {content.greeting}
               </h2>
               
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-heading font-black text-white tracking-tighter leading-[0.95] mb-4">
+                     <h1 className="hero-h1 text-[28px] sm:text-5xl lg:text-6xl font-heading font-black text-white tracking-tighter leading-[1.05] mb-4">
                 {content.titleLine1} <br />
                 <span className={`text-transparent bg-clip-text bg-gradient-to-r ${gradientText} animate-text`}>
                   {content.titleLine2}
@@ -99,21 +99,21 @@ const Hero: React.FC<HeroProps> = ({ mode, setMode }) => {
                 {content.subtitle} <span className="text-white font-medium border-b border-white/20 pb-0.5">{content.subtitleHighlight}</span>
               </h3>
 
-              <div className="flex flex-wrap items-center justify-center lg:justify-start gap-4">
-                <a 
-                  href="#projects" 
-                  className={`text-white px-7 py-3 rounded-full font-bold text-xs tracking-wide transition-all shadow-[0_10px_30px_-10px_rgba(0,0,0,0.5)] hover:-translate-y-1 hover:shadow-2xl flex items-center gap-2 group ${primaryBg} ${glowColor}`}
-                >
-                  {content.primaryButtonText}
-                  <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
-                </a>
+                     <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
+                        <a 
+                           href="#projects" 
+                           className={`cta-full sm:w-auto text-white px-6 py-3 rounded-full font-bold text-sm tracking-wide transition-all shadow-[0_10px_30px_-10px_rgba(0,0,0,0.5)] hover:-translate-y-1 hover:shadow-2xl flex items-center gap-2 group ${primaryBg} ${glowColor}`}
+                        >
+                           {content.primaryButtonText}
+                           <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+                        </a>
                 
-                {isVideo && (
-                  <button className="px-7 py-3 rounded-full border border-white/10 text-white font-bold text-xs hover:bg-white/5 transition-all flex items-center gap-2">
-                    <Play size={14} fill="currentColor" /> Showreel
-                  </button>
-                )}
-              </div>
+                        {isVideo && (
+                           <button className="w-full sm:w-auto px-6 py-3 rounded-full border border-white/10 text-white font-bold text-sm hover:bg-white/5 transition-all flex items-center gap-2 justify-center">
+                              <Play size={14} fill="currentColor" /> Showreel
+                           </button>
+                        )}
+                     </div>
 
               {/* Social Proof Bar */}
               <div className="mt-8 pt-6 border-t border-white/5 w-full flex flex-wrap justify-center lg:justify-start gap-6 md:gap-10">
@@ -169,6 +169,7 @@ const Hero: React.FC<HeroProps> = ({ mode, setMode }) => {
                    <img 
                       src={profileSrc} 
                       alt="Profile" 
+                      loading="lazy"
                       className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700 group-hover:scale-105"
                    />
                    

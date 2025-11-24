@@ -81,53 +81,55 @@ const Navbar: React.FC<NavbarProps> = ({ mode }) => {
 
           {/* Mobile Menu Toggle */}
           <button 
-            className={`md:hidden text-white transition-colors hover:text-text-muted relative z-[101] ${isMobileMenuOpen ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}
+            className={`md:hidden text-white transition-colors hover:text-text-muted relative z-[101] min-h-[48px] p-3 rounded-md ${isMobileMenuOpen ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}
             onClick={() => setIsMobileMenuOpen(true)}
             aria-label="Open Menu"
           >
-            <Menu size={28} strokeWidth={1.5} />
+            <Menu size={22} strokeWidth={1.5} />
           </button>
         </div>
       </nav>
 
-      {/* Mobile Menu Overlay */}
-      <div 
-        className={`fixed inset-0 bg-[#050505] z-[200] flex flex-col items-center justify-center transition-all duration-500 ${isMobileMenuOpen ? 'opacity-100 visible' : 'opacity-0 invisible pointer-events-none'}`}
-      >
-        <button 
-          className="absolute top-6 right-6 p-2 text-white/50 hover:text-white border border-white/10 rounded-full transition-colors hover:bg-white/5"
-          onClick={() => setIsMobileMenuOpen(false)}
-          aria-label="Close Menu"
-        >
-          <X size={32} strokeWidth={1.5} />
-        </button>
+      {/* Mobile Menu Overlay (backdrop + slide-in panel) */}
+      <div className={`fixed inset-0 z-[200] pointer-events-none transition-all ${isMobileMenuOpen ? 'opacity-100 visible' : 'opacity-0 invisible'}`}>
+        {/* Backdrop */}
+        <div className={`absolute inset-0 bg-black/60 backdrop-blur-sm transition-opacity ${isMobileMenuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`} onClick={() => setIsMobileMenuOpen(false)}></div>
 
-        <div className="flex flex-col items-center gap-8 w-full max-w-sm px-6">
-          {links.map((link, index) => (
-            <NavLink 
-              key={link.name} 
-              to={link.href} 
-              className={({ isActive }) => `text-3xl font-heading font-black transition-all duration-300 transform hover:scale-105 tracking-tight ${isActive ? 'text-white' : 'text-white/50'} ${linkHover}`}
-              style={{ transitionDelay: `${index * 50}ms`, opacity: isMobileMenuOpen ? 1 : 0, transform: isMobileMenuOpen ? 'translateY(0)' : 'translateY(20px)' }}
-              onClick={() => setIsMobileMenuOpen(false)}
-            >
-              {link.name}
-            </NavLink>
-          ))}
-          
-          <div 
-            className="w-full pt-8 flex justify-center"
-            style={{ transitionDelay: `${links.length * 50}ms`, opacity: isMobileMenuOpen ? 1 : 0, transform: isMobileMenuOpen ? 'translateY(0)' : 'translateY(20px)' }}
-          >
-            <NavLink 
-              to="/contact" 
-              className={`w-full max-w-[200px] text-center text-white px-8 py-4 rounded-full font-bold uppercase tracking-wide text-sm shadow-xl transition-transform active:scale-95 ${btnColor}`}
-              onClick={() => setIsMobileMenuOpen(false)}
-            >
-              {mode === 'dev' ? "Let's Talk" : "Start Project"}
-            </NavLink>
+        {/* Slide-in panel */}
+        <aside className={`absolute top-0 right-0 h-full mobile-menu-panel glass-card shadow-xl pointer-events-auto ${isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'}`}>
+          <div className="h-full flex flex-col justify-start items-stretch px-6 py-8">
+            <div className="flex items-center justify-between mb-8">
+              <NavLink to="/" className="text-xl font-heading font-black text-white tracking-tighter flex items-center gap-1">
+                RUDRA<span className={isVideo ? 'text-cine-red' : 'text-blue-500'}>.</span>
+              </NavLink>
+              <button className="p-2 rounded-md text-white/70 hover:text-white hover:bg-white/5" onClick={() => setIsMobileMenuOpen(false)} aria-label="Close Menu">
+                <X size={20} />
+              </button>
+            </div>
+
+            <nav className="flex-1 overflow-auto">
+              <div className="flex flex-col gap-6">
+                {links.map((link, index) => (
+                  <NavLink 
+                    key={link.name}
+                    to={link.href}
+                    className={({ isActive }) => `text-2xl font-heading font-black transition-all duration-300 tracking-tight ${isActive ? 'text-white' : 'text-white/70'} ${linkHover}`}
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    style={{ transitionDelay: `${index * 40}ms` }}
+                  >
+                    {link.name}
+                  </NavLink>
+                ))}
+              </div>
+            </nav>
+
+            <div className="mt-6">
+              <NavLink to="/contact" className={`cta-full text-center text-white px-6 py-3 rounded-full font-bold uppercase tracking-wide text-sm ${btnColor}`} onClick={() => setIsMobileMenuOpen(false)}>
+                {mode === 'dev' ? "Let's Talk" : "Start Project"}
+              </NavLink>
+            </div>
           </div>
-        </div>
+        </aside>
       </div>
     </>
   );

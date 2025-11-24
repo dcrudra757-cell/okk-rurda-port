@@ -43,7 +43,7 @@ const About: React.FC<AboutProps> = ({ mode }) => {
                  <h3 className="text-white font-bold tracking-[0.2em] uppercase text-sm">ABOUT ME</h3>
               </div>
               
-              <h2 className="text-4xl sm:text-5xl md:text-6xl font-heading font-black text-white mb-4 leading-[1.1] tracking-tight">
+              <h2 className="hero-h2 text-4xl sm:text-5xl md:text-6xl font-heading font-black text-white mb-4 leading-[1.1] tracking-tight">
                 {content.heading} <br />
                 <span className={`text-transparent bg-clip-text bg-gradient-to-r ${gradientText} animate-gradient`}>
                   {content.headingHighlight}
@@ -56,6 +56,9 @@ const About: React.FC<AboutProps> = ({ mode }) => {
               <p>{content.description1}</p>
               <p>{content.description2}</p>
             </div>
+
+            {/* Mobile divider between bio and stats */}
+            <hr className="block lg:hidden border-white/5 my-6" />
 
             {/* Premium Stats Grid */}
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-12">
@@ -72,7 +75,7 @@ const About: React.FC<AboutProps> = ({ mode }) => {
             
             {/* CTA Button */}
             <div>
-              <a href="#projects" className={`inline-flex items-center gap-3 px-8 py-4 rounded-full text-white font-bold text-sm uppercase tracking-wider transition-all duration-300 transform hover:scale-105 hover:shadow-2xl ${accentBg} ${glowShadow}`}>
+              <a href="#projects" className={`cta-full md:inline-flex items-center gap-3 px-8 py-4 rounded-full text-white font-bold text-sm uppercase tracking-wider transition-all duration-300 transform hover:scale-105 hover:shadow-2xl ${accentBg} ${glowShadow}`}>
                  <Play size={16} fill="currentColor" /> 
                  <span>View My Work</span>
               </a>

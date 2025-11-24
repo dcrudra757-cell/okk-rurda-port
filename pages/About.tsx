@@ -138,7 +138,7 @@ const AboutPage: React.FC<AboutPageProps> = ({ mode }) => {
                {/* Photo Card */}
                <div className="relative rounded-3xl overflow-hidden aspect-[4/5] mb-8 group">
                   <div className={`absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent z-10`}></div>
-                  <img src={profileSrc} alt="Rudra" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                  <img src={profileSrc} alt="Rudra" loading="lazy" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
                   <div className="absolute bottom-6 left-6 z-20">
                      <h3 className="text-white font-bold text-2xl">Rudra Saxena</h3>
                      <p className={`text-sm font-medium ${accentText}`}>{content.subtitle || (isVideo ? "Video Editor" : "Full Stack Dev")}</p>

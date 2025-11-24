@@ -77,7 +77,7 @@ const ProjectsPage: React.FC<ProjectsPageProps> = ({ mode }) => {
                 <div key={project.id} className="group cursor-pointer">
                   {/* Thumbnail */}
                   <div className="relative aspect-video rounded-[2rem] overflow-hidden mb-6 border border-white/5 bg-[#111]">
-                      <img src={project.image} alt={project.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-80 group-hover:opacity-100" />
+                      <img src={project.image} alt={project.title} loading="lazy" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-80 group-hover:opacity-100" />
                       
                       {/* Dark Overlay on Hover */}
                       <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-500 backdrop-blur-[2px]"></div>

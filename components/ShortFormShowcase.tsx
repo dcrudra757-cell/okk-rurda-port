@@ -88,7 +88,7 @@ const VideoCard: React.FC<{ video: ShortFormVideo }> = ({ video }) => {
 
   return (
     <div 
-      className={`min-w-[260px] md:min-w-[300px] aspect-[9/16] relative rounded-[2rem] overflow-hidden group border transition-all duration-300 snap-center bg-[#0a0a0a] cursor-pointer
+      className={`w-full md:min-w-[260px] md:md:min-w-[300px] aspect-[9/16] relative rounded-[2rem] overflow-hidden group border transition-all duration-300 snap-center bg-[#0a0a0a] cursor-pointer
         ${showDrivePlayer 
           ? 'border-white/20 z-50 scale-100' 
           : 'border-white/5 hover:border-white/20 hover:shadow-2xl hover:scale-[1.02] hover:z-40'
@@ -128,6 +128,7 @@ const VideoCard: React.FC<{ video: ShortFormVideo }> = ({ video }) => {
             <img 
               src={video.image} 
               alt={video.title} 
+              loading="lazy"
               className={`w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 grayscale group-hover:grayscale-0 absolute inset-0 z-10 ${isPlaying && !driveId ? 'opacity-0' : 'opacity-100'}`}
             />
             

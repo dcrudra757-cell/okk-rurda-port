@@ -45,7 +45,7 @@ const Contact: React.FC<ContactProps> = ({ mode }) => {
                  <textarea rows={4} placeholder="Tell me about your project..." className="w-full bg-[#0a0a0a] border border-white/10 rounded-xl py-4 pl-12 text-white focus:outline-none focus:border-white/30 transition-colors resize-none"></textarea>
               </div>
 
-              <button className={`w-full py-5 rounded-xl text-white font-bold text-lg tracking-wide shadow-xl transform transition-all hover:-translate-y-1 active:scale-95 flex items-center justify-center gap-3 ${btnGradient}`}>
+              <button className={`w-full py-5 rounded-xl text-white font-bold text-lg tracking-wide shadow-xl transform transition-all hover:-translate-y-1 active:scale-95 flex items-center justify-center gap-3 ${btnGradient} cta-full`}>
                  Send Message <Send size={20} />
               </button>
            </form>
