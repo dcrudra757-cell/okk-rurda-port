@@ -1,6 +1,6 @@
 /*
-  Backend Server Entry Point (Express + MongoDB)
-  Run with: node server/index.js
+  CommonJS server entry for environments where top-level project is ESM.
+  Run with: node server/index.cjs
 */
 const express = require('express');
 const mongoose = require('mongoose');
@@ -10,11 +10,7 @@ const jwt = require('jsonwebtoken');
 
 dotenv.config();
 
-const About = require('./models/About');
-const Service = require('./models/Service');
-const FAQ = require('./models/FAQ');
-const Contact = require('./models/Contact');
-const Project = require('./models/Project');
+const dataProvider = require('./dataProvider.cjs');
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -22,20 +18,17 @@ const PORT = process.env.PORT || 5000;
 app.use(cors());
 app.use(express.json());
 
-// Utility: always return friendly messages to client
 function safeJson(res, data) {
   return res.json(data);
 }
 
 function friendlyError(res) {
-  // Generic friendly message; never expose internal error details
   return res.status(500).json({
     error: true,
     message: "Sorry — I'm having trouble answering right now. Please try again later."
   });
 }
 
-// Simple token verification for admin routes (keeps previous behavior)
 const verifyToken = (req, res, next) => {
   try {
     const token = req.header('Authorization')?.split(' ')[1];
@@ -48,7 +41,6 @@ const verifyToken = (req, res, next) => {
   }
 };
 
-// Connect to MongoDB
 async function connectDB() {
   const uri = process.env.MONGO_URI || 'mongodb://127.0.0.1:27017/okk_portfolio';
   try {
@@ -61,7 +53,6 @@ async function connectDB() {
 
 connectDB();
 
-// --- Auth ---
 app.post('/api/auth/login', (req, res) => {
   const { email, password } = req.body;
   if (email === 'admin@rudra.com' && password === 'admin123') {
@@ -71,23 +62,20 @@ app.post('/api/auth/login', (req, res) => {
   return res.status(400).json({ message: 'Invalid Credentials' });
 });
 
-// --- Contact ---
 app.post('/api/contact', async (req, res) => {
   try {
     const data = req.body;
-    const c = new Contact(data);
-    await c.save();
+    await dataProvider.saveContact(data);
     return safeJson(res, { success: true, message: 'Message received' });
   } catch (err) {
     return friendlyError(res);
   }
 });
 
-// --- Admin ---
 app.get('/api/admin/stats', verifyToken, async (req, res) => {
   try {
-    const messages = await Contact.countDocuments();
-    const projects = await Project.countDocuments();
+    const messages = await dataProvider.countContacts();
+    const projects = (await dataProvider.getProjects()).length;
     return safeJson(res, { visits: 12500, messages, projects, conversionRate: '3.2%' });
   } catch (err) {
     return friendlyError(res);
@@ -96,18 +84,17 @@ app.get('/api/admin/stats', verifyToken, async (req, res) => {
 
 app.get('/api/admin/messages', verifyToken, async (req, res) => {
   try {
-    const messages = await Contact.find().sort({ date: -1 }).limit(50).lean();
+    const messages = await dataProvider.findContacts(50);
     return safeJson(res, messages);
   } catch (err) {
     return friendlyError(res);
   }
 });
 
-// --- Public API Endpoints ---
 app.get('/api/about/:mode?', async (req, res) => {
   try {
     const mode = req.params.mode || 'short';
-    const doc = await About.findOne({ mode }).lean();
+    const doc = await dataProvider.getAbout(mode);
     if (!doc) return safeJson(res, { content: '', timeline: [], skills: [] });
     return safeJson(res, doc);
   } catch (err) {
@@ -117,8 +104,8 @@ app.get('/api/about/:mode?', async (req, res) => {
 
 app.get('/api/about/timeline', async (req, res) => {
   try {
-    const doc = await About.findOne({}).lean();
-    return safeJson(res, doc?.timeline || []);
+    const doc = await dataProvider.getTimeline();
+    return safeJson(res, doc || []);
   } catch (err) {
     return friendlyError(res);
   }
@@ -126,7 +113,7 @@ app.get('/api/about/timeline', async (req, res) => {
 
 app.get('/api/services', async (req, res) => {
   try {
-    const items = await Service.find().sort({ order: 1 }).lean();
+    const items = await dataProvider.getServices();
     return safeJson(res, items);
   } catch (err) {
     return friendlyError(res);
@@ -135,7 +122,7 @@ app.get('/api/services', async (req, res) => {
 
 app.get('/api/faqs', async (req, res) => {
   try {
-    const items = await FAQ.find().sort({ order: 1 }).lean();
+    const items = await dataProvider.getFAQs();
     return safeJson(res, items);
   } catch (err) {
     return friendlyError(res);
@@ -144,7 +131,7 @@ app.get('/api/faqs', async (req, res) => {
 
 app.get('/api/projects', async (req, res) => {
   try {
-    const projects = await Project.find().lean();
+    const projects = await dataProvider.getProjects();
     const grouped = { video: [], dev: [] };
     projects.forEach(p => grouped[p.mode] ? grouped[p.mode].push(p) : null);
     return safeJson(res, grouped);
@@ -153,13 +140,11 @@ app.get('/api/projects', async (req, res) => {
   }
 });
 
-// --- Chat endpoint with intent routing and fallback ---
 app.post('/api/chat', async (req, res) => {
   try {
     const { message = '' } = req.body || {};
     const normalized = String(message).toLowerCase();
 
-    // Simple intent detection by keywords
     const intentMatchers = [
       { intent: 'about', keywords: ['about', 'who are you', 'who is', 'about you', 'tell me about'] },
       { intent: 'services', keywords: ['service', 'services', 'offer', 'what do you'] },
@@ -179,28 +164,27 @@ app.post('/api/chat', async (req, res) => {
       if (matched) break;
     }
 
-    // Route to appropriate handler
     if (matched === 'about') {
-      const doc = await About.findOne({ mode: 'short' }).lean();
+      const doc = await dataProvider.getAbout('short');
       const reply = doc?.content || "I am an assistant that can tell you about the developer and their experience.";
       return safeJson(res, { reply, intent: 'about', confidence: 0.9 });
     }
 
     if (matched === 'services') {
-      const items = await Service.find().limit(6).lean();
-      const summary = items.map(s => `• ${s.title}: ${s.summary || ''}`).join('\n') || 'I offer development and creative services.';
+      const items = await dataProvider.getServices();
+      const summary = (items || []).slice(0,6).map(s => `• ${s.title}: ${s.summary || ''}`).join('\n') || 'I offer development and creative services.';
       return safeJson(res, { reply: summary, intent: 'services', confidence: 0.9 });
     }
 
     if (matched === 'projects') {
-      const projects = await Project.find().limit(6).lean();
-      const summary = projects.map(p => `• ${p.title} (${p.mode || 'dev'}) - ${p.description || ''}`).join('\n') || 'I have worked on several projects across video and development.';
+      const projects = await dataProvider.getProjects();
+      const summary = (projects || []).slice(0,6).map(p => `• ${p.title} (${p.mode || 'dev'}) - ${p.description || ''}`).join('\n') || 'I have worked on several projects across video and development.';
       return safeJson(res, { reply: summary, intent: 'projects', confidence: 0.9 });
     }
 
     if (matched === 'faq') {
-      const faqs = await FAQ.find().limit(5).lean();
-      const summary = faqs.map(f => `Q: ${f.question}\nA: ${f.answer}`).join('\n\n') || 'I can answer common questions about services, pricing, and timelines.';
+      const faqs = await dataProvider.getFAQs();
+      const summary = (faqs || []).slice(0,5).map(f => `Q: ${f.question}\nA: ${f.answer}`).join('\n\n') || 'I can answer common questions about services, pricing, and timelines.';
       return safeJson(res, { reply: summary, intent: 'faq', confidence: 0.85 });
     }
 
@@ -208,7 +192,6 @@ app.post('/api/chat', async (req, res) => {
       return safeJson(res, { reply: 'You can contact via the contact form on the site or email me directly.', intent: 'contact', confidence: 0.9 });
     }
 
-    // Fallback: try to surface helpful links or ask clarification
     return safeJson(res, {
       reply: "I didn't quite get that. Could you rephrase or ask about 'about', 'services', 'projects', or 'faqs'?",
       intent: 'fallback',
@@ -220,7 +203,6 @@ app.post('/api/chat', async (req, res) => {
   }
 });
 
-// Global error handler (catch-all) - never return stack traces
 app.use((err, req, res, next) => {
   console.error('Unhandled error:', err && err.message ? err.message : err);
   return friendlyError(res);
