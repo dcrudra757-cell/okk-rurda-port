@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 import { PROJECTS } from '../constants';
-import { Play, ArrowUpRight, ChevronLeft, ChevronRight } from 'lucide-react';
+import { Play, ArrowUpRight, ChevronLeft, ChevronRight, ArrowRight } from 'lucide-react';
 import { AppMode } from '../types';
 
 interface ProjectsProps {
@@ -11,13 +11,12 @@ const Projects: React.FC<ProjectsProps> = ({ mode }) => {
   const projects = PROJECTS[mode];
   const isVideo = mode === 'video';
   const accentText = isVideo ? 'text-cine-red' : 'text-blue-500';
-  const hoverText = isVideo ? 'group-hover:text-cine-red' : 'group-hover:text-blue-500';
   const scrollContainerRef = useRef<HTMLDivElement>(null);
 
   const scroll = (direction: 'left' | 'right') => {
     if (scrollContainerRef.current) {
       const { current } = scrollContainerRef;
-      const scrollAmount = current.clientWidth * 0.7; // Scroll 70% of view
+      const scrollAmount = isVideo ? 420 : 360; // Adjust scroll amount based on card size
       current.scrollBy({ left: direction === 'left' ? -scrollAmount : scrollAmount, behavior: 'smooth' });
     }
   };
@@ -63,49 +62,90 @@ const Projects: React.FC<ProjectsProps> = ({ mode }) => {
            style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
         >
           {projects.map((project) => (
-            <div key={project.id} className="min-w-[85vw] md:min-w-[380px] lg:min-w-[420px] snap-start shrink-0 group cursor-pointer">
-              {/* Image Container */}
-              <div className="relative aspect-video rounded-2xl overflow-hidden mb-4 bg-[#111] border border-white/5">
-                 <img 
-                    src={project.image} 
-                    alt={project.title} 
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 grayscale group-hover:grayscale-0 opacity-80 group-hover:opacity-100"
-                 />
-                 
-                 <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-500"></div>
-                 
-                 {/* Play Button Overlay */}
-                 {isVideo && (
+            mode === 'dev' ? (
+              // ================= DEV MODE CARD DESIGN (Reference Style) =================
+              <div key={project.id} className="min-w-[85vw] md:min-w-[360px] lg:min-w-[380px] snap-start shrink-0 h-full">
+                 <div className="group h-full bg-[#0F1115] border border-white/5 rounded-2xl overflow-hidden hover:border-blue-500/30 transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 flex flex-col">
+                    {/* Top Image Section */}
+                    <div className="relative h-52 overflow-hidden">
+                       <img 
+                          src={project.image} 
+                          alt={project.title} 
+                          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                       />
+                       <div className="absolute inset-0 bg-blue-900/10 mix-blend-overlay"></div>
+                       {project.category && (
+                          <span className="absolute top-4 right-4 bg-pink-600 text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider shadow-lg">
+                             {project.category}
+                          </span>
+                       )}
+                    </div>
+                    
+                    {/* Content Section */}
+                    <div className="p-6 flex flex-col flex-1 bg-[#0b0c10]">
+                       <h3 className="text-xl font-bold text-white mb-2">{project.title}</h3>
+                       <p className="text-slate-400 text-sm leading-relaxed mb-6 line-clamp-3 flex-1">{project.description}</p>
+                       
+                       {/* Tags Pills */}
+                       <div className="flex flex-wrap gap-2 mb-6">
+                          {project.tech.map(t => (
+                             <span key={t} className="px-3 py-1.5 bg-[#1A2333] text-blue-400 border border-blue-500/10 text-[10px] font-bold rounded-full">
+                                {t}
+                             </span>
+                          ))}
+                       </div>
+                       
+                       {/* Footer Link */}
+                       <a href={project.link} className="inline-flex items-center text-sm font-bold text-[#A78BFA] hover:text-white transition-colors mt-auto group/link">
+                          View Case Study <ArrowRight size={16} className="ml-1 transition-transform group-hover/link:translate-x-1" />
+                       </a>
+                    </div>
+                 </div>
+              </div>
+            ) : (
+              // ================= VIDEO MODE CARD DESIGN (Cinematic Style) =================
+              <div key={project.id} className="min-w-[85vw] md:min-w-[420px] snap-start shrink-0 group cursor-pointer">
+                {/* Image Container */}
+                <div className="relative aspect-video rounded-2xl overflow-hidden mb-4 bg-[#111] border border-white/5">
+                   <img 
+                      src={project.image} 
+                      alt={project.title} 
+                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 grayscale group-hover:grayscale-0 opacity-80 group-hover:opacity-100"
+                   />
+                   
+                   <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-500"></div>
+                   
+                   {/* Play Button Overlay */}
                    <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
                       <div className="w-14 h-14 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center transform scale-90 opacity-0 group-hover:scale-100 group-hover:opacity-100 transition-all duration-500 shadow-2xl">
                          <Play fill="white" className="ml-1 text-white" size={20} />
                       </div>
                    </div>
-                 )}
-                 
-                 <div className="absolute top-4 left-4">
-                    <span className="bg-black/60 backdrop-blur-md text-white text-[9px] font-bold uppercase tracking-widest px-2.5 py-1 rounded-full border border-white/10">
-                       {project.category}
-                    </span>
-                 </div>
-              </div>
+                   
+                   <div className="absolute top-4 left-4">
+                      <span className="bg-black/60 backdrop-blur-md text-white text-[9px] font-bold uppercase tracking-widest px-2.5 py-1 rounded-full border border-white/10">
+                         {project.category}
+                      </span>
+                   </div>
+                </div>
 
-              {/* Text Content */}
-              <div className="px-1">
-                 <div className="flex justify-between items-start mb-1.5">
-                    <h3 className={`text-lg md:text-xl font-bold text-white ${hoverText} transition-colors`}>{project.title}</h3>
-                    <a href={project.link} className="p-1.5 rounded-full hover:bg-white/5 transition-colors group/link">
-                      <ArrowUpRight size={16} className="text-text-muted group-hover/link:text-white transition-colors" />
-                    </a>
-                 </div>
-                 <p className="text-text-muted text-xs leading-relaxed mb-3 max-w-sm line-clamp-2">{project.description}</p>
-                 <div className="flex flex-wrap gap-2">
-                    {project.tech.map(t => (
-                       <span key={t} className="text-[10px] text-text-muted font-medium px-2 py-0.5 bg-white/5 rounded-md border border-white/5">#{t}</span>
-                    ))}
-                 </div>
+                {/* Text Content */}
+                <div className="px-1">
+                   <div className="flex justify-between items-start mb-1.5">
+                      <h3 className="text-lg md:text-xl font-bold text-white group-hover:text-cine-red transition-colors">{project.title}</h3>
+                      <a href={project.link} className="p-1.5 rounded-full hover:bg-white/5 transition-colors group/link">
+                        <ArrowUpRight size={16} className="text-text-muted group-hover/link:text-white transition-colors" />
+                      </a>
+                   </div>
+                   <p className="text-text-muted text-xs leading-relaxed mb-3 max-w-sm line-clamp-2">{project.description}</p>
+                   <div className="flex flex-wrap gap-2">
+                      {project.tech.map(t => (
+                         <span key={t} className="text-[10px] text-text-muted font-medium px-2 py-0.5 bg-white/5 rounded-md border border-white/5">#{t}</span>
+                      ))}
+                   </div>
+                </div>
               </div>
-            </div>
+            )
           ))}
         </div>
         
