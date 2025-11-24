@@ -7,6 +7,7 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 const dotenv = require('dotenv');
 const jwt = require('jsonwebtoken');
+const path = require('path');
 
 dotenv.config();
 
@@ -17,6 +18,10 @@ const PORT = process.env.PORT || 5000;
 
 app.use(cors());
 app.use(express.json());
+
+// Serve user images folder as static at /images
+const imagesPath = path.join(__dirname, '..', 'My images');
+app.use('/images', express.static(imagesPath));
 
 function safeJson(res, data) {
   return res.json(data);

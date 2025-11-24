@@ -64,7 +64,7 @@ export const HERO_DATA: DataByMode<HeroModeContent> = {
     subtitleHighlight: "Technical SEO Specialist",
     description: "Passionate about technology and software development. I transform complex problems into elegant solutions with clean, efficient code.",
     primaryButtonText: "View Code",
-    profileImage: "https://picsum.photos/800/1000?random=10",
+    profileImage: "/images/dev-profile.jpg",
     socials: [
       { icon: Github, href: "#" },
       { icon: Linkedin, href: "#" },

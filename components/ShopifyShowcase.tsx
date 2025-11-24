@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { SPECIALIZED_SOLUTIONS } from '../constants';
 import { ShoppingBag, Film, ArrowRight, Layers } from 'lucide-react';
 import { AppMode } from '../types';
@@ -8,7 +8,23 @@ interface SpecializedProps {
 }
 
 const ShopifyShowcase: React.FC<SpecializedProps> = ({ mode }) => {
-  const data = SPECIALIZED_SOLUTIONS[mode];
+   const data = SPECIALIZED_SOLUTIONS[mode];
+   const [projects, setProjects] = useState(data.projects || []);
+
+   // Simple Fisher-Yates shuffle
+   const shuffle = (arr: any[]) => {
+      const a = arr.slice();
+      for (let i = a.length - 1; i > 0; i--) {
+         const j = Math.floor(Math.random() * (i + 1));
+         [a[i], a[j]] = [a[j], a[i]];
+      }
+      return a;
+   };
+
+   useEffect(() => {
+      // shuffle on mount
+      setProjects(shuffle(data.projects || []));
+   }, [mode]);
   const isVideo = mode === 'video';
   
   const accentText = isVideo ? 'text-cine-red' : 'text-blue-500';
@@ -33,7 +49,7 @@ const ShopifyShowcase: React.FC<SpecializedProps> = ({ mode }) => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-           {data.projects.map((project, i) => (
+           {projects.map((project, i) => (
               <div key={project.id} className="group bg-[#0a0a0a] rounded-3xl overflow-hidden border border-white/5 hover:border-white/10 transition-all duration-500 hover:shadow-2xl">
                  {/* Thumbnail Area */}
                  <div className="relative h-64 overflow-hidden">

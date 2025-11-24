@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import { PROJECTS } from '../constants';
 import { Play, ArrowUpRight, ChevronLeft, ChevronRight, ArrowRight } from 'lucide-react';
 import { AppMode } from '../types';
@@ -8,18 +8,54 @@ interface ProjectsProps {
 }
 
 const Projects: React.FC<ProjectsProps> = ({ mode }) => {
-  const projects = PROJECTS[mode];
+   const [projects, setProjects] = useState<any[]>(PROJECTS[mode] || []);
   const isVideo = mode === 'video';
   const accentText = isVideo ? 'text-cine-red' : 'text-blue-500';
   const scrollContainerRef = useRef<HTMLDivElement>(null);
 
-  const scroll = (direction: 'left' | 'right') => {
+   const scroll = (direction: 'left' | 'right') => {
     if (scrollContainerRef.current) {
       const { current } = scrollContainerRef;
       const scrollAmount = isVideo ? 420 : 360; // Adjust scroll amount based on card size
       current.scrollBy({ left: direction === 'left' ? -scrollAmount : scrollAmount, behavior: 'smooth' });
     }
   };
+
+   // Fisher-Yates shuffle
+   const shuffle = (arr: any[]) => {
+      const a = arr.slice();
+      for (let i = a.length - 1; i > 0; i--) {
+         const j = Math.floor(Math.random() * (i + 1));
+         [a[i], a[j]] = [a[j], a[i]];
+      }
+      return a;
+   };
+
+   useEffect(() => {
+      let mounted = true;
+      // Try to fetch projects from backend; if it fails, fall back to constants
+      fetch('/api/projects')
+         .then(res => res.json())
+         .then(data => {
+            if (!mounted) return;
+            // backend groups by mode: { video: [], dev: [] }
+            const list = data && (data.video || data.dev) ? (mode === 'video' ? (data.video || []) : (data.dev || [])) : (Array.isArray(data) ? data : []);
+            if (list && list.length > 0) {
+               setProjects(shuffle(list));
+               return;
+            }
+            // fallback: shuffle local constants
+            setProjects(shuffle(PROJECTS[mode] || []));
+         })
+         .catch(() => {
+            if (!mounted) return;
+            setProjects(shuffle(PROJECTS[mode] || []));
+         });
+
+      return () => { mounted = false; };
+   }, [mode]);
+
+   const reshuffle = () => setProjects(prev => shuffle(prev || []));
 
   return (
     <section id="projects" className="py-16 md:py-24 bg-darker overflow-hidden border-t border-white/5">
@@ -32,7 +68,7 @@ const Projects: React.FC<ProjectsProps> = ({ mode }) => {
             </h2>
           </div>
           
-          <div className="flex items-center gap-3">
+               <div className="flex items-center gap-3">
              <button 
                onClick={() => scroll('left')} 
                className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center hover:bg-white/5 text-white transition-colors hover:border-white/30 active:scale-95"
@@ -47,12 +83,18 @@ const Projects: React.FC<ProjectsProps> = ({ mode }) => {
              >
                <ChevronRight size={20} />
              </button>
-             <a 
-               href="#" 
-               className="hidden md:flex items-center justify-center h-10 px-5 rounded-full border border-white/10 hover:bg-white/5 text-white text-xs font-bold transition-all hover:border-white/30 ml-2"
-             >
-                View All Projects
-             </a>
+                   <button
+                      onClick={reshuffle}
+                      className="hidden md:inline-flex items-center justify-center h-10 px-4 rounded-full border border-white/10 hover:bg-white/5 text-white text-xs font-bold transition-all hover:border-white/30 ml-2"
+                   >
+                      Shuffle
+                   </button>
+                   <a 
+                      href="#" 
+                      className="hidden md:flex items-center justify-center h-10 px-5 rounded-full border border-white/10 hover:bg-white/5 text-white text-xs font-bold transition-all hover:border-white/30 ml-2"
+                   >
+                        View All Projects
+                   </a>
           </div>
         </div>
 
