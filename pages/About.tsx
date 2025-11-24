@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { AppMode } from '../types';
 import { Film, Calendar, Users, Code, Award, CheckCircle, Briefcase } from 'lucide-react';
 import { getAboutData, getTimeline, getSkills } from '../services/api';
-import { ABOUT_DATA, FULL_TIMELINE, SKILLS_MATRIX } from '../constants';
+import { ABOUT_DATA, FULL_TIMELINE, SKILLS_MATRIX, PROFILE_IMAGES } from '../constants';
 
 interface AboutPageProps {
   mode: AppMode;
@@ -26,8 +26,23 @@ const AboutPage: React.FC<AboutPageProps> = ({ mode }) => {
       // In a real scenario, you'd replace state entirely. 
       // Here we rely on the service fallback logic mostly.
       if (aboutRes) setContent(aboutRes);
-      if (timelineRes) setTimeline(timelineRes);
-      if (skillsRes) setSkills(skillsRes);
+      if (timelineRes) {
+        // API previously returned the full about doc by mistake (object). Coerce to array shape.
+        if (Array.isArray(timelineRes)) {
+          setTimeline(timelineRes);
+        } else if (timelineRes && Array.isArray((timelineRes).timeline)) {
+          setTimeline((timelineRes).timeline);
+        } else {
+          // fallback to default constant
+          setTimeline(FULL_TIMELINE);
+        }
+      }
+      if (skillsRes) {
+        // Skills can be returned as array or embedded in an about doc
+        if (Array.isArray(skillsRes)) setSkills(skillsRes);
+        else if (skillsRes && Array.isArray((skillsRes).skills)) setSkills((skillsRes).skills);
+        else setSkills(SKILLS_MATRIX[mode]);
+      }
       
       setLoading(false);
     };
@@ -38,6 +53,16 @@ const AboutPage: React.FC<AboutPageProps> = ({ mode }) => {
   const accentText = isVideo ? 'text-cine-red' : 'text-blue-500';
   const accentBg = isVideo ? 'bg-cine-red' : 'bg-blue-600';
   const gradientText = isVideo ? 'from-cine-red to-orange-500' : 'from-blue-500 to-cyan-400';
+
+  // Randomize profile image on mount / mode change
+  const [profileSrc, setProfileSrc] = useState<string>(() => {
+    const imgs = PROFILE_IMAGES && PROFILE_IMAGES.length ? PROFILE_IMAGES : [(ABOUT_DATA[mode] as any).profileImage || '/images/dev-profile.jpg'];
+    return imgs[Math.floor(Math.random() * imgs.length)];
+  });
+  useEffect(() => {
+    const imgs = PROFILE_IMAGES && PROFILE_IMAGES.length ? PROFILE_IMAGES : [(content as any).profileImage || '/images/dev-profile.jpg'];
+    setProfileSrc(imgs[Math.floor(Math.random() * imgs.length)]);
+  }, [mode, content]);
 
   if (loading) return <div className="min-h-screen bg-[#050505] pt-32 flex justify-center"><div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-white"></div></div>;
 
@@ -112,7 +137,7 @@ const AboutPage: React.FC<AboutPageProps> = ({ mode }) => {
                {/* Photo Card */}
                <div className="relative rounded-3xl overflow-hidden aspect-[4/5] mb-8 group">
                   <div className={`absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent z-10`}></div>
-                  <img src={content.profileImage || "https://picsum.photos/800/1000"} alt="Rudra" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                  <img src={profileSrc} alt="Rudra" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
                   <div className="absolute bottom-6 left-6 z-20">
                      <h3 className="text-white font-bold text-2xl">Rudra Saxena</h3>
                      <p className={`text-sm font-medium ${accentText}`}>{content.subtitle || (isVideo ? "Video Editor" : "Full Stack Dev")}</p>

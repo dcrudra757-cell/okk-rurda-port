@@ -87,7 +87,7 @@ export const HERO_DATA: DataByMode<HeroModeContent> = {
     subtitleHighlight: "Cinematic Storyteller",
     description: "I craft powerful visual stories through advanced editing, color grading, sound design, and motion graphics. With 200+ edited videos across brands, influencers, and YouTube creators, I help transform concepts into engaging cinematic experiences.\n\nSpecialized in: Cinematic Editing • Reels/Shorts • YouTube Long-Form • Color Grading • Motion Graphics",
     primaryButtonText: "Watch Reel",
-    profileImage: "https://images.unsplash.com/photo-1536440136628-849c177e76a1?q=80&w=2825&auto=format&fit=crop",
+    profileImage: "/images/dev-profile.jpg",
     socials: [
       { icon: Instagram, href: "#" },
       { icon: Youtube, href: "#" },
@@ -329,7 +329,7 @@ export const SPECIALIZED_SOLUTIONS: DataByMode<{ title: string; subtitle: string
         id: 's1',
         title: 'Velvet & Vine Boutique',
         description: 'Developed a custom Shopify 2.0 theme focusing on mobile-first UX. Implemented advanced filtering and a streamlined checkout flow.',
-        image: 'https://picsum.photos/800/600?random=20',
+        image: '/images/Picsart_25-01-17_09-58-34-586.jpg',
         technologies: ['Shopify Liquid', 'Theme Kit', 'jQuery', 'Klaviyo'],
         results: [
           { metric: 'Conversion Rate', value: '+45%' },
@@ -341,7 +341,7 @@ export const SPECIALIZED_SOLUTIONS: DataByMode<{ title: string; subtitle: string
         id: 's2',
         title: 'PureGlow Skincare',
         description: 'Migrated a high-volume store from WooCommerce to Shopify Plus. Built a custom subscription portal using Recharge API.',
-        image: 'https://picsum.photos/800/600?random=21',
+        image: '/images/IMG_20250315_190935_0040.jpg',
         technologies: ['Shopify Plus', 'Recharge API', 'React', 'Node.js'],
         results: [
           { metric: 'Recurring Rev', value: '+30%' },
@@ -353,7 +353,7 @@ export const SPECIALIZED_SOLUTIONS: DataByMode<{ title: string; subtitle: string
         id: 's3',
         title: 'TechGear Global',
         description: 'Created a headless commerce solution for an international electronics retailer using Shopify Storefront API.',
-        image: 'https://picsum.photos/800/600?random=22',
+        image: '/images/IMG_20240921_062536.jpg',
         technologies: ['Shopify API', 'Next.js', 'Sanity', 'Tailwind'],
         results: [
           { metric: 'Intl. Traffic', value: '+120%' },
@@ -371,7 +371,7 @@ export const SPECIALIZED_SOLUTIONS: DataByMode<{ title: string; subtitle: string
         id: 'vs1',
         title: 'Travel Film Cinematic Rework',
         description: 'Improved color grading + pacing led to massive retention boosts.',
-        image: 'https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?q=80&w=1000&auto=format&fit=crop',
+        image: '/images/Picsart_24-06-10_08-40-58-116.jpg',
         technologies: ['Color Grading', 'Pacing', 'Storytelling'],
         results: [
           { metric: 'Retention', value: '+65%' },
@@ -382,7 +382,7 @@ export const SPECIALIZED_SOLUTIONS: DataByMode<{ title: string; subtitle: string
         id: 'vs2',
         title: 'Fashion Brand Reels Transformation',
         description: 'Adding motion text, cuts & style for high-impact social content.',
-        image: 'https://images.unsplash.com/photo-1483985988355-763728e1935b?q=80&w=1000&auto=format&fit=crop',
+        image: 'https:/images.unsplash.com/photo-1483985988355-763728e1935b?q=80&w=1000&auto=format&fit=crop',
         technologies: ['Motion Text', 'Transitions', 'Hooks'],
         results: [
           { metric: 'Engagement', value: '+90%' },
@@ -393,7 +393,7 @@ export const SPECIALIZED_SOLUTIONS: DataByMode<{ title: string; subtitle: string
         id: 'vs3',
         title: 'YouTube Channel Improvement',
         description: 'Complete structural overhaul including thumbnails, pacing, and hooks.',
-        image: 'https://images.unsplash.com/photo-1611162617474-5b21e879e113?q=80&w=1000&auto=format&fit=crop',
+        image: 'https:/images.unsplash.com/photo-1611162617474-5b21e879e113?q=80&w=1000&auto=format&fit=crop',
         technologies: ['Thumbnails', 'Structure', 'Pacing'],
         results: [
           { metric: 'Subs Growth', value: '+120%' },
@@ -410,7 +410,7 @@ export const ALL_SOLUTIONS: DataByMode<SolutionDetail[]> = {
       id: 'sol_v1',
       title: 'The Retention Engine',
       description: 'A proprietary editing framework designed to keep viewers watching past the 30-second mark. Uses pattern interrupts and audio cues.',
-      image: 'https://images.unsplash.com/photo-1574717024653-61fd2cf4d44c?q=80&w=1000&auto=format&fit=crop',
+      image: 'https:/images.unsplash.com/photo-1574717024653-61fd2cf4d44c?q=80&w=1000&auto=format&fit=crop',
       metrics: [{ label: 'Avg Retention', value: '+45%' }, { label: 'CTR Boost', value: '+12%' }],
       features: ['Pacing Audit', 'Hook Optimization', 'Sound Design Layering'],
       comparison: { before: 'Flat, linear storytelling with drop-offs.', after: 'Dynamic, multi-layered narrative with high retention.' }
@@ -419,7 +419,7 @@ export const ALL_SOLUTIONS: DataByMode<SolutionDetail[]> = {
       id: 'sol_v2',
       title: 'Brand Identity System',
       description: 'Establishing a cohesive visual language for your brand through custom LUTs, motion graphics templates, and sound signatures.',
-      image: 'https://images.unsplash.com/photo-1536240478700-b869070f9279?q=80&w=1000&auto=format&fit=crop',
+      image: 'https:/images.unsplash.com/photo-1536240478700-b869070f9279?q=80&w=1000&auto=format&fit=crop',
       metrics: [{ label: 'Brand Recall', value: 'High' }, { label: 'Consistency', value: '100%' }],
       features: ['Custom LUTs', 'Motion Templates', 'Sonic Branding'],
       comparison: { before: 'Inconsistent visual style across videos.', after: 'Unified, instantly recognizable brand aesthetic.' }
@@ -430,7 +430,7 @@ export const ALL_SOLUTIONS: DataByMode<SolutionDetail[]> = {
       id: 'sol_d1',
       title: 'Shopify Speed & Conversion',
       description: 'Optimization of Shopify stores to pass Core Web Vitals and reduce checkout friction.',
-      image: 'https://images.unsplash.com/photo-1556742049-0cfed4f7a07d?q=80&w=1000&auto=format&fit=crop',
+      image: 'https:/images.unsplash.com/photo-1556742049-0cfed4f7a07d?q=80&w=1000&auto=format&fit=crop',
       metrics: [{ label: 'Load Time', value: '< 2s' }, { label: 'Conversion', value: '+30%' }],
       features: ['Code Splitting', 'Image Optimization', 'App Audit'],
       comparison: { before: 'Slow load times and high bounce rates.', after: 'Blazing fast navigation and seamless checkout.' }
@@ -439,7 +439,7 @@ export const ALL_SOLUTIONS: DataByMode<SolutionDetail[]> = {
       id: 'sol_d2',
       title: 'Headless SEO Architecture',
       description: 'Building SEO-first Next.js frontends for content-heavy sites to dominate search rankings.',
-      image: 'https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?q=80&w=1000&auto=format&fit=crop',
+      image: 'https:/images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?q=80&w=1000&auto=format&fit=crop',
       metrics: [{ label: 'Organic Traffic', value: '+200%' }, { label: 'Crawl Budget', value: 'Optimized' }],
       features: ['SSR/SSG', 'Structured Data', 'Semantic HTML'],
       comparison: { before: 'Invisible to search engines.', after: 'Ranking for high-intent keywords.' }
@@ -479,7 +479,7 @@ export const PROJECTS: DataByMode<Project[]> = {
       id: 'd1',
       title: 'N Plus Pro',
       category: 'B2B Platform',
-      image: 'https://images.unsplash.com/photo-1551434678-e076c223a692?q=80&w=2670&auto=format&fit=crop', // Networking/Business
+      image: '/images/Picsart_25-01-17_09-58-34-586.jpg', // Networking/Business
       description: 'A modern B2B platform for professional networking and business solutions.',
       tech: ['React', 'Node.js', 'MongoDB'],
       link: '#',
@@ -488,7 +488,7 @@ export const PROJECTS: DataByMode<Project[]> = {
       id: 'd2',
       title: 'Platform One Inc',
       category: 'Enterprise',
-      image: 'https://images.unsplash.com/photo-1558494949-ef526b0042a0?q=80&w=2668&auto=format&fit=crop', // Server/Tech
+      image: '/images/IMG_20250315_190935_0040.jpg', // Server/Tech
       description: 'Enterprise software solutions and digital transformation services.',
       tech: ['Next.js', 'TypeScript', 'Tailwind'],
       link: '#',
@@ -497,7 +497,7 @@ export const PROJECTS: DataByMode<Project[]> = {
       id: 'd3',
       title: 'Spotlite Mall of Joy',
       category: 'E-Commerce',
-      image: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=2670&auto=format&fit=crop', // Mall/Shopping
+      image: '/images/Picsart_24-06-10_08-40-58-116.jpg', // Mall/Shopping
       description: 'An interactive e-commerce platform for retail shopping experiences.',
       tech: ['React', 'Redux', 'Express'],
       link: '#',
@@ -508,7 +508,7 @@ export const PROJECTS: DataByMode<Project[]> = {
       id: 'v1',
       title: 'Travel Film — Uttarakhand',
       category: 'Travel',
-      image: 'https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=1000&auto=format&fit=crop',
+      image: '/images/Picsart_25-01-17_09-58-34-586.jpg',
       description: 'Cinematic mountain storytelling focusing on atmospheric immersion and sound design.',
       tech: ['Storytelling', 'Grading'],
       link: '#',
@@ -517,7 +517,7 @@ export const PROJECTS: DataByMode<Project[]> = {
       id: 'v2',
       title: 'Restaurant Promo — Chill Bill UAE',
       category: 'Commercial',
-      image: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=1000&auto=format&fit=crop',
+      image: '/images/IMG_20240921_062536.jpg',
       description: 'Fast-paced motion & food highlights designed to drive foot traffic and social engagement.',
       tech: ['Fast Cuts', 'Motion'],
       link: '#',
@@ -526,7 +526,7 @@ export const PROJECTS: DataByMode<Project[]> = {
       id: 'v3',
       title: 'Brand Reel — Velnyy Clothing',
       category: 'Fashion',
-      image: 'https://images.unsplash.com/photo-1483985988355-763728e1935b?q=80&w=1000&auto=format&fit=crop',
+      image: '/images/Picsart_24-06-10_08-40-58-116.jpg',
       description: 'High-fashion transitions & text animations synced to trending audio for maximum reach.',
       tech: ['Transitions', 'Animation'],
       link: '#',
@@ -535,7 +535,7 @@ export const PROJECTS: DataByMode<Project[]> = {
       id: 'v4',
       title: 'YouTube Long Form — Interview Edit',
       category: 'YouTube',
-      image: 'https://images.unsplash.com/photo-1559523161-0fc0d8b38a7a?q=80&w=1000&auto=format&fit=crop',
+      image: '/images/IMG_20250315_190935_0040.jpg',
       description: 'Clean pacing, noise reduction, and b-roll overlays for a polished, professional interview.',
       tech: ['Pacing', 'B-Roll'],
       link: '#',
@@ -550,7 +550,7 @@ export const EXTENDED_PROJECTS: DataByMode<ProjectDetail[]> = {
       id: 'v5',
       title: 'Documentary - The Lost Art',
       category: 'Documentary',
-      image: 'https://images.unsplash.com/photo-1533577116850-9cc66cad8a9b?q=80&w=1000&auto=format&fit=crop',
+      image: '/images/Picsart_25-01-17_09-58-34-586.jpg',
       description: 'A 20-minute documentary focusing on traditional craftsmanship. Color grading played a huge role.',
       tech: ['DaVinci Resolve', 'Sound Design'],
       link: '#',
@@ -563,7 +563,7 @@ export const EXTENDED_PROJECTS: DataByMode<ProjectDetail[]> = {
       id: 'v6',
       title: 'Tech Review - Gadget Pro',
       category: 'YouTube',
-      image: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=1000&auto=format&fit=crop',
+      image: '/images/Picsart_24-06-10_08-40-58-116.jpg',
       description: 'Fast-paced tech review with motion graphics overlays for specs and comparisons.',
       tech: ['Premiere Pro', 'After Effects'],
       link: '#',
@@ -579,7 +579,7 @@ export const EXTENDED_PROJECTS: DataByMode<ProjectDetail[]> = {
       id: 'd4',
       title: 'NLP AI Tool',
       category: 'AI/SaaS',
-      image: 'https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=1000&auto=format&fit=crop',
+      image: 'https://My images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=1000&auto=format&fit=crop',
       description: 'Natural Language Processing tool for sentiment analysis of customer reviews.',
       tech: ['Python', 'React', 'FastAPI'],
       link: '#',
@@ -592,7 +592,7 @@ export const EXTENDED_PROJECTS: DataByMode<ProjectDetail[]> = {
       id: 'd5',
       title: 'Luxury Real Estate Portal',
       category: 'Web App',
-      image: 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=1000&auto=format&fit=crop',
+      image: 'https://My images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=1000&auto=format&fit=crop',
       description: 'High-end property listing site with virtual tour integration.',
       tech: ['Next.js', 'Mapbox', 'Sanity CMS'],
       link: '#',
@@ -610,7 +610,7 @@ export const SHORT_FORM_VIDEOS: ShortFormVideo[] = [
     title: 'Typographic Promo',
     category: 'Motion Graphics',
     views: '45K+ Views',
-    image: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1000&auto=format&fit=crop',
+    image: '/images/dev-profile.jpg',
     videoUrl: 'https://drive.google.com/file/d/1vg4CVhCiHBgKyN6QIHgQCSmusuqB2Vfo/view?usp=sharing', // User provided link
   },
   {
@@ -618,7 +618,7 @@ export const SHORT_FORM_VIDEOS: ShortFormVideo[] = [
     title: 'Software Tutorial',
     category: 'Educational',
     views: '120K+ Views',
-    image: 'https://images.unsplash.com/photo-1550439062-609e1531270e?q=80&w=1000&auto=format&fit=crop',
+    image: '/images/dev-profile.jpg',
     videoUrl: 'https://drive.google.com/file/d/1vg4CVhCiHBgKyN6QIHgQCSmusuqB2Vfo/view?usp=sharing', // User provided link
   },
   {
@@ -626,7 +626,7 @@ export const SHORT_FORM_VIDEOS: ShortFormVideo[] = [
     title: 'Before & After Color',
     category: 'Color Grading',
     views: '85K+ Views',
-    image: 'https://images.unsplash.com/photo-1535451801241-b5395e1d4a1b?q=80&w=1000&auto=format&fit=crop',
+    image: '/images/dev-profile.jpg',
     videoUrl: 'https://drive.google.com/file/d/1vg4CVhCiHBgKyN6QIHgQCSmusuqB2Vfo/view?usp=sharing', // User provided link
   },
   {
@@ -634,7 +634,7 @@ export const SHORT_FORM_VIDEOS: ShortFormVideo[] = [
     title: 'Financial VSL',
     category: 'Commercial',
     views: '200K+ Views',
-    image: 'https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?q=80&w=1000&auto=format&fit=crop',
+    image: '/images/dev-profile.jpg',
     videoUrl: 'https://drive.google.com/file/d/1vg4CVhCiHBgKyN6QIHgQCSmusuqB2Vfo/view?usp=sharing', // User provided link
   }
 ];
@@ -767,6 +767,15 @@ export const FAQ_DATA: FAQItem[] = [
     question: "Do you work with agencies?",
     answer: "Absolutely. I often white-label my services for agencies needing reliable, high-quality overflow work for both editing and development."
   }
+];
+
+// Profile images available in `My images` and served at `/images`
+export const PROFILE_IMAGES: string[] = [
+  '/images/dev-profile.jpg',
+  '/images/IMG_20240921_062536.jpg',
+  '/images/IMG_20250315_190935_0040.jpg',
+  '/images/Picsart_25-01-17_09-58-34-586.jpg',
+  '/images/Picsart_24-06-10_08-40-58-116.jpg'
 ];
 
 export const AVAILABILITY_STATUS = {

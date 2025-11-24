@@ -1,6 +1,6 @@
 import React, { useState, MouseEvent } from 'react';
 import { ArrowRight, Code, Film, Star, CheckCircle, Award, Play } from 'lucide-react';
-import { HERO_DATA } from '../constants';
+import { HERO_DATA, PROFILE_IMAGES } from '../constants';
 import { AppMode } from '../types';
 
 interface HeroProps {
@@ -38,6 +38,14 @@ const Hero: React.FC<HeroProps> = ({ mode, setMode }) => {
   };
 
   const content = HERO_DATA[mode];
+
+   // Randomize profile image on mount / mode change so a different photo shows each visit
+   const [profileSrc, setProfileSrc] = React.useState<string>(content.profileImage || PROFILE_IMAGES[0]);
+   React.useEffect(() => {
+      const imgs = PROFILE_IMAGES && PROFILE_IMAGES.length ? PROFILE_IMAGES : [content.profileImage];
+      const pick = imgs[Math.floor(Math.random() * imgs.length)];
+      setProfileSrc(pick);
+   }, [mode]);
 
   // Cinematic Theme Styles
   const primaryText = isVideo ? 'text-cine-red' : 'text-blue-500';
@@ -159,7 +167,7 @@ const Hero: React.FC<HeroProps> = ({ mode, setMode }) => {
                 {/* Main Card */}
                 <div className="relative w-full h-full rounded-[2rem] overflow-hidden border border-white/10 shadow-2xl bg-[#0a0a0a]">
                    <img 
-                      src={content.profileImage} 
+                      src={profileSrc} 
                       alt="Profile" 
                       className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700 group-hover:scale-105"
                    />

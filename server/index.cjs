@@ -96,21 +96,34 @@ app.get('/api/admin/messages', verifyToken, async (req, res) => {
   }
 });
 
+// Specific about endpoints must come before generic parameter routes
+app.get('/api/about/timeline', async (req, res) => {
+  try {
+    const doc = await dataProvider.getTimeline();
+    return safeJson(res, doc || []);
+  } catch (err) {
+    return friendlyError(res);
+  }
+});
+
+// Return skills array for a given mode
+app.get('/api/about/skills/:mode', async (req, res) => {
+  try {
+    const mode = req.params.mode || 'short';
+    const about = await dataProvider.getAbout(mode);
+    return safeJson(res, (about && about.skills) ? about.skills : []);
+  } catch (err) {
+    return friendlyError(res);
+  }
+});
+
+// Generic about route (mode as param) — placed after specific endpoints to avoid collisions
 app.get('/api/about/:mode?', async (req, res) => {
   try {
     const mode = req.params.mode || 'short';
     const doc = await dataProvider.getAbout(mode);
     if (!doc) return safeJson(res, { content: '', timeline: [], skills: [] });
     return safeJson(res, doc);
-  } catch (err) {
-    return friendlyError(res);
-  }
-});
-
-app.get('/api/about/timeline', async (req, res) => {
-  try {
-    const doc = await dataProvider.getTimeline();
-    return safeJson(res, doc || []);
   } catch (err) {
     return friendlyError(res);
   }
