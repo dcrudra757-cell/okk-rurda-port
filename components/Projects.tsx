@@ -63,7 +63,7 @@ const Projects: React.FC<ProjectsProps> = ({ mode }) => {
            style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
         >
           {projects.map((project) => (
-            <div key={project.id} className="min-w-[90vw] md:min-w-[600px] lg:min-w-[700px] snap-start shrink-0 group cursor-pointer">
+            <div key={project.id} className="min-w-[85vw] md:min-w-[450px] lg:min-w-[550px] snap-start shrink-0 group cursor-pointer">
               {/* Image Container */}
               <div className="relative aspect-video rounded-3xl overflow-hidden mb-6 bg-[#111] border border-white/5">
                  <img 
