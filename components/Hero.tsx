@@ -48,94 +48,94 @@ const Hero: React.FC<HeroProps> = ({ mode, setMode }) => {
     : 'from-blue-500 via-blue-400 to-cyan-400';
 
   return (
-    <section id="home" className="relative pt-32 pb-16 md:pt-40 md:pb-24 overflow-hidden min-h-screen flex items-center bg-[#050505]">
+    <section id="home" className="relative pt-28 pb-12 md:pt-36 md:pb-20 overflow-hidden min-h-screen flex items-center bg-[#050505]">
       {/* Cinematic Background Ambience - Low Saturation */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-         <div className={`absolute top-0 right-0 w-[600px] h-[600px] rounded-full blur-[150px] opacity-10 transition-colors duration-1000 ${isVideo ? 'bg-cine-red' : 'bg-blue-900'}`}></div>
-         <div className={`absolute bottom-0 left-0 w-[600px] h-[600px] rounded-full blur-[150px] opacity-5 transition-colors duration-1000 ${isVideo ? 'bg-orange-900' : 'bg-cyan-900'}`}></div>
+         <div className={`absolute top-0 right-0 w-[500px] h-[500px] rounded-full blur-[120px] opacity-10 transition-colors duration-1000 ${isVideo ? 'bg-cine-red' : 'bg-blue-900'}`}></div>
+         <div className={`absolute bottom-0 left-0 w-[500px] h-[500px] rounded-full blur-[120px] opacity-5 transition-colors duration-1000 ${isVideo ? 'bg-orange-900' : 'bg-cyan-900'}`}></div>
          <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-[0.05] mix-blend-overlay"></div>
       </div>
 
       <div className="container mx-auto px-6 relative z-10">
-        <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
+        <div className="flex flex-col lg:flex-row items-center gap-10 lg:gap-16">
           
           {/* Content Side */}
           <div className="flex-1 w-full flex flex-col items-center lg:items-start text-center lg:text-left z-20">
             
             {/* Mode Switcher */}
-            <div className="inline-flex items-center bg-surface-highlight border border-white/[0.08] rounded-full p-1.5 mb-8 shadow-inner relative overflow-hidden">
-               <div className={`absolute top-1.5 bottom-1.5 w-[calc(50%-6px)] rounded-full transition-all duration-500 ease-out shadow-lg ${mode === 'dev' ? 'left-1.5 bg-blue-600' : 'left-[calc(50%+3px)] bg-cine-red'}`}></div>
-               <button onClick={() => handleToggle('dev')} className={`relative z-10 flex items-center gap-2 px-5 py-2 rounded-full text-xs font-bold transition-colors ${mode === 'dev' ? 'text-white' : 'text-text-muted hover:text-white'}`}>
-                 <Code size={14} /> Dev
+            <div className="inline-flex items-center bg-surface-highlight border border-white/[0.08] rounded-full p-1 mb-6 shadow-inner relative overflow-hidden">
+               <div className={`absolute top-1 bottom-1 w-[calc(50%-4px)] rounded-full transition-all duration-500 ease-out shadow-lg ${mode === 'dev' ? 'left-1 bg-blue-600' : 'left-[calc(50%+2px)] bg-cine-red'}`}></div>
+               <button onClick={() => handleToggle('dev')} className={`relative z-10 flex items-center gap-2 px-4 py-1.5 rounded-full text-[10px] font-bold transition-colors ${mode === 'dev' ? 'text-white' : 'text-text-muted hover:text-white'}`}>
+                 <Code size={12} /> Dev
                </button>
-               <button onClick={() => handleToggle('video')} className={`relative z-10 flex items-center gap-2 px-5 py-2 rounded-full text-xs font-bold transition-colors ${mode === 'video' ? 'text-white' : 'text-text-muted hover:text-white'}`}>
-                 <Film size={14} /> Video
+               <button onClick={() => handleToggle('video')} className={`relative z-10 flex items-center gap-2 px-4 py-1.5 rounded-full text-[10px] font-bold transition-colors ${mode === 'video' ? 'text-white' : 'text-text-muted hover:text-white'}`}>
+                 <Film size={12} /> Video
                </button>
             </div>
 
             {/* Typography */}
             <div className={`transition-all duration-500 ${isAnimating ? 'opacity-0 translate-y-4' : 'opacity-100 translate-y-0'}`}>
-              <h2 className={`font-bold tracking-[0.3em] text-xs md:text-sm uppercase mb-4 flex items-center gap-2 ${primaryText} justify-center lg:justify-start`}>
-                 <span className="w-8 h-[2px] bg-current"></span>
+              <h2 className={`font-bold tracking-[0.3em] text-[10px] md:text-xs uppercase mb-3 flex items-center gap-2 ${primaryText} justify-center lg:justify-start`}>
+                 <span className="w-6 h-[2px] bg-current"></span>
                  {content.greeting}
               </h2>
               
-              <h1 className="text-4xl sm:text-5xl md:text-6xl font-heading font-black text-white tracking-tighter leading-[0.95] mb-4">
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-heading font-black text-white tracking-tighter leading-[0.95] mb-4">
                 {content.titleLine1} <br />
                 <span className={`text-transparent bg-clip-text bg-gradient-to-r ${gradientText} animate-text`}>
                   {content.titleLine2}
                 </span>
               </h1>
               
-              <h3 className="text-lg md:text-2xl text-text-muted font-light mb-8 max-w-xl mx-auto lg:mx-0">
+              <h3 className="text-base md:text-xl text-text-muted font-light mb-8 max-w-lg mx-auto lg:mx-0">
                 {content.subtitle} <span className="text-white font-medium border-b border-white/20 pb-0.5">{content.subtitleHighlight}</span>
               </h3>
 
               <div className="flex flex-wrap items-center justify-center lg:justify-start gap-4">
                 <a 
                   href="#projects" 
-                  className={`text-white px-8 py-3.5 rounded-full font-bold text-sm tracking-wide transition-all shadow-[0_10px_30px_-10px_rgba(0,0,0,0.5)] hover:-translate-y-1 hover:shadow-2xl flex items-center gap-3 group ${primaryBg} ${glowColor}`}
+                  className={`text-white px-7 py-3 rounded-full font-bold text-xs tracking-wide transition-all shadow-[0_10px_30px_-10px_rgba(0,0,0,0.5)] hover:-translate-y-1 hover:shadow-2xl flex items-center gap-2 group ${primaryBg} ${glowColor}`}
                 >
                   {content.primaryButtonText}
-                  <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+                  <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
                 </a>
                 
                 {isVideo && (
-                  <button className="px-8 py-3.5 rounded-full border border-white/10 text-white font-bold text-sm hover:bg-white/5 transition-all flex items-center gap-3">
-                    <Play size={16} fill="currentColor" /> Showreel
+                  <button className="px-7 py-3 rounded-full border border-white/10 text-white font-bold text-xs hover:bg-white/5 transition-all flex items-center gap-2">
+                    <Play size={14} fill="currentColor" /> Showreel
                   </button>
                 )}
               </div>
 
               {/* Social Proof Bar */}
-              <div className="mt-10 pt-8 border-t border-white/5 w-full flex flex-wrap justify-center lg:justify-start gap-8 md:gap-12">
+              <div className="mt-8 pt-6 border-t border-white/5 w-full flex flex-wrap justify-center lg:justify-start gap-6 md:gap-10">
                  <div className="flex flex-col items-center lg:items-start">
                     <div className="flex items-center gap-1 text-yellow-500 mb-1">
-                       <Star size={14} fill="currentColor" />
-                       <Star size={14} fill="currentColor" />
-                       <Star size={14} fill="currentColor" />
-                       <Star size={14} fill="currentColor" />
-                       <Star size={14} fill="currentColor" />
+                       <Star size={12} fill="currentColor" />
+                       <Star size={12} fill="currentColor" />
+                       <Star size={12} fill="currentColor" />
+                       <Star size={12} fill="currentColor" />
+                       <Star size={12} fill="currentColor" />
                     </div>
-                    <span className="text-xs text-text-muted font-medium">100% Client Satisfaction</span>
+                    <span className="text-[10px] text-text-muted font-medium">100% Client Satisfaction</span>
                  </div>
                  
                  <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-white">
-                       <CheckCircle size={20} className={isVideo ? 'text-cine-red' : 'text-blue-500'} />
+                    <div className="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center text-white">
+                       <CheckCircle size={16} className={isVideo ? 'text-cine-red' : 'text-blue-500'} />
                     </div>
                     <div className="flex flex-col">
-                       <span className="text-white font-bold text-lg leading-none">200+</span>
+                       <span className="text-white font-bold text-base leading-none">200+</span>
                        <span className="text-[10px] text-text-muted uppercase tracking-wider">Projects Done</span>
                     </div>
                  </div>
 
                  <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-white">
-                       <Award size={20} className={isVideo ? 'text-cine-red' : 'text-blue-500'} />
+                    <div className="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center text-white">
+                       <Award size={16} className={isVideo ? 'text-cine-red' : 'text-blue-500'} />
                     </div>
                     <div className="flex flex-col">
-                       <span className="text-white font-bold text-lg leading-none">5+</span>
+                       <span className="text-white font-bold text-base leading-none">5+</span>
                        <span className="text-[10px] text-text-muted uppercase tracking-wider">Years Exp.</span>
                     </div>
                  </div>
@@ -144,9 +144,9 @@ const Hero: React.FC<HeroProps> = ({ mode, setMode }) => {
           </div>
 
           {/* Visual Side with 3D Tilt */}
-          <div className="flex-1 w-full flex justify-center lg:justify-end relative mt-12 lg:mt-0 z-10" style={{ perspective: '1000px' }}>
+          <div className="flex-1 w-full flex justify-center lg:justify-end relative mt-8 lg:mt-0 z-10" style={{ perspective: '1000px' }}>
              <div 
-                className="relative w-full max-w-[400px] lg:max-w-md aspect-[4/5] group transition-all duration-200 ease-out"
+                className="relative w-full max-w-[320px] lg:max-w-sm aspect-[4/5] group transition-all duration-200 ease-out"
                 onMouseMove={onMouseMove}
                 onMouseLeave={onMouseLeave}
                 style={{
@@ -154,10 +154,10 @@ const Hero: React.FC<HeroProps> = ({ mode, setMode }) => {
                 }}
              >
                 {/* Glow Behind */}
-                <div className={`absolute inset-0 bg-gradient-to-tr ${isVideo ? 'from-cine-red to-orange-600' : 'from-blue-600 to-cyan-500'} rounded-[2.5rem] blur-2xl opacity-20 group-hover:opacity-40 transition-opacity duration-700`}></div>
+                <div className={`absolute inset-0 bg-gradient-to-tr ${isVideo ? 'from-cine-red to-orange-600' : 'from-blue-600 to-cyan-500'} rounded-[2rem] blur-2xl opacity-20 group-hover:opacity-40 transition-opacity duration-700`}></div>
                 
                 {/* Main Card */}
-                <div className="relative w-full h-full rounded-[2.5rem] overflow-hidden border border-white/10 shadow-2xl bg-[#0a0a0a]">
+                <div className="relative w-full h-full rounded-[2rem] overflow-hidden border border-white/10 shadow-2xl bg-[#0a0a0a]">
                    <img 
                       src={content.profileImage} 
                       alt="Profile" 
@@ -169,27 +169,27 @@ const Hero: React.FC<HeroProps> = ({ mode, setMode }) => {
                    
                    {/* Rec Overlay for Video */}
                    {isVideo && (
-                     <div className="absolute top-6 left-6 right-6 flex justify-between items-center pointer-events-none">
+                     <div className="absolute top-5 left-5 right-5 flex justify-between items-center pointer-events-none">
                         <div className="flex items-center gap-2">
-                           <div className="w-3 h-3 bg-red-600 rounded-full animate-pulse"></div>
-                           <span className="text-white font-mono text-xs font-bold tracking-widest">REC</span>
+                           <div className="w-2.5 h-2.5 bg-red-600 rounded-full animate-pulse"></div>
+                           <span className="text-white font-mono text-[10px] font-bold tracking-widest">REC</span>
                         </div>
-                        <div className="text-white/80 font-mono text-xs">4K • 60FPS</div>
+                        <div className="text-white/80 font-mono text-[10px]">4K • 60FPS</div>
                      </div>
                    )}
 
                    {/* Floating Stats Card */}
-                   <div className="absolute bottom-6 left-6 right-6 bg-white/5 backdrop-blur-xl border border-white/10 p-5 rounded-2xl transform transition-transform duration-300 group-hover:translate-z-10" style={{ transform: 'translateZ(20px)' }}>
+                   <div className="absolute bottom-5 left-5 right-5 bg-white/5 backdrop-blur-xl border border-white/10 p-4 rounded-xl transform transition-transform duration-300 group-hover:translate-z-10" style={{ transform: 'translateZ(20px)' }}>
                       <div className="flex items-center justify-between">
                          <div>
-                            <p className="text-xs text-text-muted uppercase tracking-wider mb-1">Current Status</p>
+                            <p className="text-[10px] text-text-muted uppercase tracking-wider mb-1">Current Status</p>
                             <div className="flex items-center gap-2">
-                               <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
-                               <span className="text-white font-bold text-sm">Accepting New Projects</span>
+                               <span className="w-1.5 h-1.5 bg-green-500 rounded-full animate-pulse"></span>
+                               <span className="text-white font-bold text-xs">Accepting New Projects</span>
                             </div>
                          </div>
-                         <div className={`w-10 h-10 rounded-full border border-white/10 flex items-center justify-center ${primaryBg}`}>
-                            {isVideo ? <Film size={18} className="text-white" /> : <Code size={18} className="text-white" />}
+                         <div className={`w-8 h-8 rounded-full border border-white/10 flex items-center justify-center ${primaryBg}`}>
+                            {isVideo ? <Film size={16} className="text-white" /> : <Code size={16} className="text-white" />}
                          </div>
                       </div>
                    </div>
