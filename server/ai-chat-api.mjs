@@ -6,6 +6,15 @@ dotenv.config();
 
 const app = express();
 
+// Enable CORS for all origins (or be more restrictive in production)
+app.use(cors({
+  origin: '*',
+  methods: ['GET', 'POST', 'OPTIONS'],
+  allowedHeaders: ['Content-Type'],
+  credentials: false
+}));
+app.use(express.json());
+
 // Try to dynamically import Google GenAI client if available and API key provided.
 let genAIClient = null;
 if (process.env.GOOGLE_API_KEY) {
@@ -21,9 +30,6 @@ if (process.env.GOOGLE_API_KEY) {
     genAIClient = null;
   }
 }
-
-app.use(cors());
-app.use(express.json());
 
 // In-memory session storage (use database in production)
 const sessions = new Map();
