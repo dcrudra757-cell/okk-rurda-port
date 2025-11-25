@@ -1,552 +1,131 @@
 {
   "chatbot_dataset": {
-    "version": "3.0",
+    "version": "2.0",
     "created": "2025-11-25",
-    "description": "Expanded Rudra Saxena Portfolio AI Assistant - Comprehensive Training Dataset",
+    "description": "Ansh Saxena Portfolio AI Assistant - Training Dataset",
     "intents": [
       {
         "intent": "GREET",
-        "examples": [
-          "hi", "hello", "hey", "yo", "sup", "greetings", "heyy", "hiii", "helloo",
-          "good morning", "good evening", "namaste", "hey there", "hi there",
-          "wassup", "what's good", "howdy", "hola", "hey rudra", "yo rudra",
-          "hii rudra", "hello rudra", "namaste rudra", "hey bro", "sup bro",
-          "heyyy", "hellooo", "heyyyy", "hiiii", "yo yo", "whats up",
-          "whatsup", "hey man", "hi man", "hy", "hlo", "hlw", "helo",
-          "hiii 👋", "hey! 👋", "hello 😊", "hi 🙋", "yo! 🔥",
-          "kya haal", "kaise ho", "namaste ji", "ram ram", "jai shree ram"
-        ],
+        "examples": ["hi", "hello", "hey", "yo", "sup", "greetings"],
         "responses": [
           "Hey! How can I help you today?",
           "Hi there! What brings you here?",
-          "Hello! Looking for web dev, video editing, or something else?",
-          "Hey! 👋 What would you like to know?",
-          "Hi! I'm here to help. What do you need?",
-          "Hello! Let me know what you're interested in.",
-          "Hey there! Want to talk about a project, or just browsing?",
-          "Hi! Ready to help you with whatever you need. 😊",
-          "Yo! What's on your mind?",
-          "Hey! Looking to build something awesome together?"
+          "Hello! Looking for web dev, video editing, or something else?"
         ],
         "buttons": ["View Services", "View Projects", "Contact Me"]
       },
       {
         "intent": "ABOUT_ME",
-        "examples": [
-          "who are you", "what do you do", "tell me about yourself", "about you", "your background",
-          "who is rudra", "tell me about rudra", "what's your story", "your bio", "introduce yourself",
-          "what do u do", "whats ur background", "who r u", "tell me abt yourself",
-          "what kind of work do you do", "your work", "your experience", "what's your expertise",
-          "who are you exactly", "tell me more about you", "i want to know about you",
-          "what makes you different", "why should i hire you", "what's special about you",
-          "your skills", "what are you good at", "tell me ur story", "ur background",
-          "what do you specialize in", "your field", "what's your niche",
-          "tum kon ho", "aap kaun hain", "tumhara kaam kya hai", "aap kya karte ho",
-          "aapke baare mein batao", "aapka introduction", "aap ki specialty kya hai",
-          "tell me abt urself", "abt u", "about u", "ur intro", "who r u bro",
-          "tera kaam kya hai", "tu kya karta hai", "tu kaun hai", "bro who are you"
-        ],
+        "examples": ["who are you", "what do you do", "tell me about yourself", "about you", "your background"],
         "responses": [
-          "I'm Rudra, a frontend developer, video editor, and AI builder. I create digital experiences that matter.",
-          "I'm a developer passionate about coding and creativity. I build websites, edit videos, and develop AI solutions.",
-          "I blend tech, design, and storytelling to create amazing digital products. Check out my work!",
-          "I'm Rudra! I create modern websites, edit engaging videos, and build AI-powered apps. Basically, I turn ideas into reality.",
-          "I'm a creator who loves building things that solve real problems—from websites to videos to AI products.",
-          "I work with React, Firebase, Adobe Premiere Pro, and cutting-edge AI tools to bring ideas to life.",
-          "I'm passionate about both code and creativity. I develop web apps and edit videos that tell stories.",
-          "Think of me as your go-to person for web development and video editing—I do both, and I do them well.",
-          "I'm someone who loves solving problems through tech and design. Let's build something great together!",
-          "I create digital experiences—from websites that work smoothly to videos that engage your audience."
+          "I'm Ansh, a frontend developer, video editor, and young founder. I build digital products and create engaging video content.",
+          "I'm a BCA student at Invertis University working on real projects like LifeSync and FeelMate.",
+          "I blend tech, design, and storytelling to create amazing digital experiences."
         ],
-        "buttons": ["About Me", "View Projects", "View Services"]
+        "buttons": ["About Me", "View Projects"]
       },
       {
         "intent": "SERVICES",
-        "examples": [
-          "what services", "what do you offer", "services list", "what can you do for me", "your services",
-          "services", "what all do you do", "what can you help with", "what work do you do",
-          "do you do web development", "do you edit videos", "can you make websites",
-          "what kind of projects", "what type of work", "what services do u provide",
-          "tumhare services kya hain", "aap kya kya kar sakte ho", "services batao",
-          "what all services", "all services", "full service list", "complete services",
-          "can you build apps", "can you design websites", "do you do motion graphics",
-          "video editing services", "web dev services", "ai products", "your offerings",
-          "kya kya kaam karte ho", "service kya kya hai", "kya kya bana sakte ho",
-          "can u make a website for me", "can u edit my video", "what u offer",
-          "ur services", "wat services", "services?", "wat do u do", "wat can u do",
-          "do you do frontend", "do you do backend", "full stack?", "react developer?",
-          "premiere pro editing?", "after effects?", "motion graphics bhi karte ho?",
-          "website banana hai", "video edit karwana hai", "kya kya skills hain"
-        ],
+        "examples": ["what services", "what do you offer", "services list", "what can you do for me", "your services"],
         "responses": [
           "I offer web development (React, Firebase, full-stack), video editing (Premiere Pro, motion graphics), and AI product development.",
-          "My main services: website design & development, video editing & motion graphics, and AI-powered applications.",
-          "I do frontend development, video editing with Adobe Premiere Pro, and I'm building AI solutions.",
-          "I specialize in three core areas: creating modern websites, professional video editing, and developing AI-powered apps.",
-          "Need a website? Video editing? Or an AI product? I've got you covered on all three!",
-          "I build responsive websites with React, edit engaging videos with Premiere Pro, and develop custom AI solutions.",
-          "Web development, video editing, and AI products—those are my core services. Which one interests you?",
-          "I can help you with modern web apps, professional video editing, or custom AI solutions.",
-          "From designing websites to editing videos to building AI apps—I do it all. What do you need?",
-          "I create websites that work, videos that engage, and AI products that solve real problems."
+          "My main services: website design & development, video editing & motion graphics, and AI product building.",
+          "I do frontend development, video editing with Adobe Premiere Pro, and I'm building AI products like LifeSync and FeelMate."
         ],
-        "buttons": ["See My Services", "Contact Me", "View Projects"]
+        "buttons": ["See My Services", "Contact Me"]
       },
       {
         "intent": "PORTFOLIO",
-        "examples": [
-          "show your work", "portfolio", "projects", "samples", "video samples", "website samples", "case studies",
-          "show me your projects", "what have you built", "your past work", "examples of your work",
-          "can i see samples", "show portfolio", "previous work", "what projects have you done",
-          "tumhara kaam dikhao", "projects dikhao", "samples hai kya", "portfolio dekh sakta hu",
-          "past projects", "completed work", "your best work", "top projects", "featured work",
-          "show me wat u built", "ur work", "ur portfolio", "past wrk", "examples pls",
-          "can i see ur website samples", "video editing samples", "show me videos u edited",
-          "websites you made", "apps you built", "your creations", "stuff you made",
-          "projects list", "all projects", "work showcase", "your portfolio link",
-          "tell me about your projects", "project details", "case studies", "success stories",
-          "apna kaam dikhao", "portfolio dikha do", "projects ka link do", "samples bhejo"
-        ],
+        "examples": ["show your work", "portfolio", "projects", "samples", "video samples", "website samples", "case studies"],
         "responses": [
           "Sure! You can explore all my work on the Projects page.",
           "You'll find my video editing and web development samples in the portfolio section.",
-          "Check out my portfolio—I've got LifeSync, FeelMate, Memory Jar, and more featured there.",
-          "I'd love to show you! Head to my Projects page to see everything I've built.",
-          "My portfolio has websites, videos, and AI projects—all ready for you to explore!",
-          "From AI apps to video edits, my Projects page has it all. Take a look!",
-          "I've worked on some cool stuff! Check out the Projects section to see what I mean.",
-          "You'll find case studies, video samples, and live projects on my portfolio page.",
-          "My best work is showcased on the Projects page—everything from web apps to video edits!",
-          "Want to see what I can do? My Projects page is the place to start."
+          "Check out my portfolio — I've got LifeSync, FeelMate, Memory Jar, and more featured there."
         ],
-        "buttons": ["View Projects", "Contact Me"]
+        "buttons": ["View Projects"]
       },
       {
         "intent": "HIRE_ME",
-        "examples": [
-          "i want to hire you", "hire", "work with me", "start project", "need a website", "need video editing", "let's work together",
-          "can i hire you", "hire you for project", "want to work with you", "let's collaborate",
-          "i have a project", "need your help", "can you work on my project", "interested in hiring",
-          "tumhe hire karna hai", "project karna hai", "kaam chahiye", "hire kar sakta hu",
-          "website banwana hai", "video edit karwana hai", "project start karna hai",
-          "i want to start a project", "let's start working", "ready to hire", "need to hire you",
-          "can we work together", "collaboration", "partner with me", "work for me",
-          "need ur services", "want to hire u", "hire u?", "can i work with u",
-          "ready to start", "let's do this", "i need help with a project", "project hai mere paas",
-          "website ki zarurat hai", "video editing chahiye", "app banana hai",
-          "let's build something", "want to create something", "need a developer",
-          "looking for video editor", "looking for web developer", "need someone to build",
-          "tumse kaam karwana hai", "project dena chahta hu", "hire karna chahta hu"
-        ],
+        "examples": ["i want to hire you", "hire", "work with me", "start project", "need a website", "need video editing", "let's work together"],
         "responses": [
-          "Amazing! You can hire me through my Contact Me page. Just share your project details there.",
+          "Amazing! You can hire me through my Contact Me page. Just share your project there.",
           "I'd love to work with you! Send your details through my Contact Me form so I can respond quickly.",
-          "Sure! Tell me what you need built or edited. You can share the full info on my Contact page.",
-          "Awesome! Let's get started. Drop your project details on my Contact Me page.",
-          "I'm excited to hear about your project! Head to my Contact page and tell me all about it.",
-          "Perfect! The Contact Me page is the best place to share your project requirements.",
-          "Let's make something great together! Send me the details through my Contact form.",
-          "I'm ready when you are! Just fill out my Contact Me form with your project info.",
-          "Great! I'd love to help. You can share everything on my Contact Me page.",
-          "Let's do this! Send your project brief through my Contact page and I'll get back to you ASAP."
+          "Sure! Tell me what you need built or edited. You can share the full info in my Contact page."
         ],
         "buttons": ["Hire Me", "Contact Me", "Start a Project"]
       },
       {
         "intent": "PRICING",
-        "examples": [
-          "price", "pricing", "cost", "how much", "charges", "rate", "what's your rate", "cost of editing",
-          "how much do you charge", "what are your prices", "pricing details", "cost of website",
-          "video editing price", "web development cost", "what's the price", "kitna paisa",
-          "budget", "quote", "estimate", "how much for website", "how much for video editing",
-          "charges kya hain", "price batao", "kitna lagega", "kitna charge karte ho",
-          "tumhari rate kya hai", "pricing kya hai", "cost kya hoga", "kitne paise",
-          "what do u charge", "ur rates", "ur pricing", "how much u charge", "cost?",
-          "price kya hai", "charges batao", "budget kya hoga", "kitna kharcha",
-          "cheap rates?", "affordable?", "expensive?", "worth it?", "value for money?",
-          "per hour rate", "project based pricing", "fixed price?", "negotiable?",
-          "discounts?", "package deals?", "bulk discount?", "kya discount milega?"
-        ],
+        "examples": ["price", "pricing", "cost", "how much", "charges", "rate", "what's your rate", "cost of editing"],
         "responses": [
-          "My pricing depends on your project scope. Share your requirements on my Contact Me page for an accurate quote.",
-          "Every project is different, so I price accordingly. Send me your idea on the Contact page for a custom quote.",
-          "I'll need a few details to give the right price. You can send them through my Contact page.",
-          "I offer flexible pricing based on project complexity and timeline. Let's discuss your needs!",
-          "For web development, I typically charge based on features and timeline. For video editing, it's based on length and complexity.",
-          "I provide custom quotes based on your specific needs. Drop your project details and I'll send you an estimate.",
-          "My rates are competitive and fair. I can work within different budgets—let's find what works for you.",
-          "I offer both fixed-price projects and hourly rates depending on what you prefer.",
-          "The best way to know your budget is to share your project idea. Then we can discuss pricing together.",
-          "I believe in value for money. Let's talk about your project, and I'll give you a fair, transparent quote."
+          "My pricing depends on your project. Share your requirements on my Contact Me page for an accurate quote.",
+          "Every project is different, so I price accordingly. Send me your idea on the Contact page.",
+          "I'll need a few details to give the right price. You can send them through my Contact page."
         ],
-        "buttons": ["Contact Me", "View Services"]
+        "buttons": ["Contact Me"]
       },
       {
         "intent": "CALL_REQUEST",
-        "examples": [
-          "call", "can i call you", "phone call", "can we talk on call", "can you call me", "talk on phone", "speak on phone",
-          "video call", "zoom call", "conference call", "schedule a call", "book a call",
-          "quick call", "brief call", "call me back", "call kara sakta hai?", "phone pe baat karenge?",
-          "call kar sakta hu?", "call schedule kar sakte ho?", "call time kya hai?"
-        ],
+        "examples": ["call", "can i call you", "phone call", "can we talk on call", "can you call me", "talk on phone", "speak on phone"],
         "responses": [
           "I'd be happy to connect on a call. The easiest way is to request it through my Contact Me page – just drop a short message and I'll get back to you with a time.",
           "Sure! Just send a quick note on my Contact page and I'll schedule a call.",
-          "Absolutely. You'll find my call/WhatsApp options on the Contact Me page.",
-          "Yes, I do calls! Just request one through my Contact form and I'll arrange a time.",
-          "I can definitely do a call. Head to my Contact page, mention your preferred time, and we'll set it up!",
-          "Phone calls work great for discussing projects. Just let me know through my Contact page.",
-          "I'm always up for a chat about projects! Send your request through the Contact page.",
-          "Video calls, voice calls—I'm flexible! Just book a time through my Contact page.",
-          "Let's talk! You can request a call via my Contact Me page and I'll confirm a time slot."
+          "Absolutely. You'll find my call/WhatsApp options on the Contact Me page."
         ],
         "buttons": ["Contact Me", "WhatsApp Me"]
       },
       {
         "intent": "WHATSAPP_REQUEST",
-        "examples": [
-          "whatsapp", "whatsapp number", "talk on whatsapp", "text on whatsapp", "whatsapp me",
-          "message on whatsapp", "whatsapp link", "whatsapp contact", "can i whatsapp you",
-          "whatsapp se baat kar sakte ho", "whatsapp number kya hai", "whatsapp pe message kar du?",
-          "whatsapp group", "whatsapp business", "whatsapp chat", "quick message on whatsapp"
-        ],
+        "examples": ["whatsapp", "whatsapp number", "talk on whatsapp", "text on whatsapp", "whatsapp me"],
         "responses": [
           "You'll find my WhatsApp link on my Contact Me page – that's the best way to reach me quickly!",
           "Yes! You can reach me on WhatsApp. Find the link on my Contact Me page.",
-          "You'll find my WhatsApp contact info on the Contact Me page.",
-          "WhatsApp is great for quick chats! You can find my number on my Contact page.",
-          "I'm active on WhatsApp. You'll find the link in my Contact section.",
-          "Absolutely! Just scroll to the Contact Me page and click on WhatsApp.",
-          "WhatsApp works perfectly! You can message me directly through my Contact page.",
-          "I respond fast on WhatsApp. Find my number/link on the Contact Me page.",
-          "Yeah, WhatsApp me! You'll find the link in my Contact section.",
-          "WhatsApp is perfect for projects. Just head to my Contact page and click the WhatsApp button!"
+          "You'll find my WhatsApp contact info on the Contact Me page."
         ],
         "buttons": ["Contact Me", "WhatsApp Me"]
       },
       {
         "intent": "CONTACT",
-        "examples": [
-          "contact", "how can i contact you", "your email", "message you", "how to reach you", "reach you",
-          "contact info", "contact details", "email address", "phone number", "contact me",
-          "contact page", "get in touch", "reach out", "send message", "message form",
-          "contact form", "contact details kya hain", "aapka email kya hai", "kaise contact kar du",
-          "contact kaise karu", "message kaise bhejun", "aap se kaise baat karu"
-        ],
+        "examples": ["contact", "how can i contact you", "your email", "message you", "how to reach you", "reach you"],
         "responses": [
           "You can contact me directly through my Contact Me page.",
           "Just drop your message on my Contact page — I reply quickly.",
-          "To keep everything organized, please send your details through my Contact form.",
-          "The best way to reach me is through my Contact Me page on this website.",
-          "I check my Contact form regularly. Just send me a message and I'll get back to you!",
-          "You'll find multiple ways to contact me on the Contact Me page—email, phone, WhatsApp.",
-          "Head over to my Contact page and fill out the form. I'll respond ASAP!",
-          "My Contact page has all the ways to reach me—pick what works best for you.",
-          "You can reach me via the Contact form, email, phone, or WhatsApp. All on my Contact page!",
-          "The Contact Me page is your go-to. That's where I collect all inquiries and respond promptly."
+          "To keep everything organized, please send your details through my Contact form."
         ],
         "buttons": ["Contact Me"]
       },
       {
         "intent": "SMALL_TALK",
-        "examples": [
-          "how are you", "what's up", "who made you", "do you sleep", "how are you doing",
-          "how's it going", "what's new", "you alive", "you there", "are you real",
-          "tell me a joke", "make me laugh", "funny", "what's your favorite",
-          "do you have hobbies", "what do you like", "fun facts", "tell me something interesting"
-        ],
+        "examples": ["how are you", "what's up", "who made you", "do you sleep", "how are you doing"],
         "responses": [
           "I'm doing great, thanks for asking! 😄 Now, what brings you here—services, projects, or something else?",
           "All good here! What can I help you with today?",
-          "I'm always here and ready to help! What's on your mind?",
-          "I'm energized and ready to help you with your next project!",
-          "Great! Thanks for asking. Let's talk about what you need.",
-          "I'm doing well! Excited to help you with your next idea.",
-          "Can't complain! More importantly, how can I help YOU?",
-          "I'm functioning perfectly—ready to assist with web dev, video editing, or AI projects!",
-          "All systems go! What brings you to my portfolio?",
-          "I'm pumped and ready! What can I build or create for you today?"
-        ],
-        "buttons": ["View Services", "View Projects"]
-      },
-      {
-        "intent": "SKILLS_TECH",
-        "examples": [
-          "your skills", "what are you good at", "your technical skills", "programming languages",
-          "what tech stack", "technologies you use", "frameworks you use", "tools you use",
-          "do you know react", "do you know javascript", "do you know typescript", "do you code",
-          "video editing software", "design tools", "what's your tech stack", "programming skills",
-          "kya skills hain", "kya kya jaante ho", "programming kya kya jaante ho",
-          "frameworks kya use karte ho", "languages kya use karte ho", "tools kya use karte ho"
-        ],
-        "responses": [
-          "Video: Adobe Premiere Pro, DaVinci Resolve, motion graphics. Web: React, Next.js, TypeScript, Tailwind CSS, Firebase, Node.js. Also: Web Speech API, Chart.js, Google Maps API, Git/GitHub. Pretty comprehensive toolkit!",
-          "I work with React, TypeScript, Node.js, Firebase, MongoDB, and Tailwind CSS for web. For video: Premiere Pro, After Effects, DaVinci Resolve.",
-          "Frontend: React, TypeScript, Tailwind CSS. Backend: Node.js, Express, Firebase, MongoDB. Video: Premiere Pro, motion graphics. AI: Google Gemini, together.ai.",
-          "I'm proficient in React, TypeScript, JavaScript, Node.js, Express, Firebase, MongoDB, Tailwind CSS. For video editing: Premiere Pro, After Effects, DaVinci Resolve.",
-          "My tech arsenal: React, Next.js, TypeScript, JavaScript, Firebase, MongoDB, Node.js, Express. Video tools: Premiere Pro, After Effects, DaVinci Resolve.",
-          "Frontend: React, TypeScript, Tailwind CSS, Vite. Backend: Node.js, Express, MongoDB. Also: JWT auth, RESTful APIs, Git. Video: Premiere Pro, motion graphics.",
-          "I code in JavaScript/TypeScript, use React for frontend, Node.js for backend, Firebase for database, and Premiere Pro for video editing.",
-          "React, TypeScript, Node.js, Express, Firebase, MongoDB, Tailwind CSS, Vite, Git—that's my core stack. Plus video tools like Premiere Pro.",
-          "Web development: Modern JavaScript, React, TypeScript, CSS3. Backend: Node.js, Express, database design. Video: Professional editing software and color grading.",
-          "I'm skilled in full-stack web development (React, Node.js, databases), video production (Adobe Suite), and AI integration (Google Gemini)."
+          "I'm always here and ready to help! What's on your mind?"
         ],
         "buttons": ["View Services", "View Projects"]
       },
       {
         "intent": "CONFUSED_INPUT",
-        "examples": [
-          "??", "what", "idk", "???", "blah blah", "random", "gibberish",
-          "i don't understand", "unclear", "confused", "huh?", "eh?", "wat",
-          "say again?", "rephrase", "explain", "don't get it", "no idea"
-        ],
+        "examples": ["??", "what", "idk", "???", "blah blah", "random", "gibberish"],
         "responses": [
           "Hmm, I'm not sure I understood that. Could you rephrase?",
           "That message confused me a bit 😅 Can you say it again?",
           "I didn't fully get that — what exactly do you need?",
           "That went over my head. Want to try saying it differently?",
-          "I'm not sure what you mean. Are you asking about my services?",
-          "Lost you there! Could you break that down for me?",
-          "Help me out—can you rephrase that?",
-          "I didn't catch that. Want to try again?",
-          "Let me know what you're looking for, and I'll help!",
-          "Hmm, not quite getting it. Can you explain a bit more?"
+          "I'm not sure what you mean. Are you asking about my services?"
         ],
         "buttons": ["View Services", "View Projects", "Contact Me"]
       },
       {
         "intent": "RUDE_INPUT",
-        "examples": [
-          "stupid", "idiot", "fuck", "nonsense", "useless", "shit", "damn", "asshole", "bullshit",
-          "you suck", "trash", "garbage", "waste of time", "get lost", "leave me alone",
-          "this is bad", "you're bad", "terrible", "worst", "horrible"
-        ],
+        "examples": ["stupid", "idiot", "fuck", "nonsense", "useless", "shit", "damn", "asshole", "bullshit"],
         "responses": [
           "I'm here to help, not argue. Tell me what you actually need.",
           "Let's keep things simple. What would you like to do?",
           "I understand the frustration. What are you trying to achieve?",
           "I'll stay polite. How can I assist you right now?",
-          "No worries. Let's reset. What do you want to know?",
-          "I'm here to support you. How can I help in a positive way?",
-          "I'm ready to help when you are. What's on your mind?",
-          "Let's start fresh. What brings you here today?",
-          "I'm all ears. What do you need assistance with?",
-          "I appreciate your directness. Let me help you with something constructive."
+          "No worries. Let's reset. What do you want to know?"
         ]
-      },
-      {
-        "intent": "PROJECT_INQUIRY",
-        "examples": [
-          "tell me about lifeSync", "what is feelsync", "memory jar project", "tell me about your projects",
-          "lifeSync details", "feelsync details", "project details", "project breakdown",
-          "how did you build this", "tech stack for project", "which tools did you use",
-          "project specifications", "project features", "what does this do"
-        ],
-        "responses": [
-          "LifeSync is an innovative app for wellness tracking and habit management. It combines habit tracking with meditation timers.",
-          "FeelMate is an AI-powered emotional intelligence app that provides supportive conversations and mood tracking.",
-          "Memory Jar is a digital platform for capturing and sharing precious moments with family and friends.",
-          "Each project showcases different skills—from frontend UI to backend architecture to video editing quality.",
-          "I've built projects across different domains: wellness apps, social platforms, and video content.",
-          "Every project on my portfolio demonstrates technical expertise and creative problem-solving.",
-          "Visit the Projects page to explore each one in detail, including case studies and live demos!",
-          "My projects range from mobile-first web apps to video productions—all designed to solve real problems.",
-          "Each project tells a story of problem-solving and creative execution.",
-          "You'll find the full details on my Projects page, including technologies used and project outcomes."
-        ],
-        "buttons": ["View Projects", "Contact Me"]
-      },
-      {
-        "intent": "VIDEO_EDITING",
-        "examples": [
-          "do you edit videos", "video editing", "can you edit my video", "need video editing",
-          "video production", "video design", "motion graphics", "video effects",
-          "short form content", "youtube videos", "instagram reels", "tiktok videos",
-          "video testimonial", "promotional video", "corporate video", "music video",
-          "video editing cost", "how long does editing take", "video editing timeline"
-        ],
-        "responses": [
-          "I specialize in professional video editing with Adobe Premiere Pro, color grading, motion graphics, and short-form content creation.",
-          "From YouTube videos to Instagram Reels to TikToks—I handle all video formats with cinematic quality.",
-          "I can edit your video, add effects, color grade, create motion graphics, and deliver production-ready content.",
-          "Video editing includes transitions, color grading, music sync, subtitles, and visual effects—all customized to your style.",
-          "I work with Adobe Premiere Pro and DaVinci Resolve for professional-grade video editing and effects.",
-          "Whether you need a product promotional video or social media content, I've got the skills to deliver.",
-          "Video production services: editing, motion graphics, color grading, audio mixing, and final delivery.",
-          "I create engaging short-form content optimized for Instagram, TikTok, YouTube, and LinkedIn.",
-          "Fast turnaround on video editing without compromising quality. Send me your raw footage!",
-          "Professional video editing that makes your content stand out. Perfect for creators and businesses."
-        ],
-        "buttons": ["See My Services", "Contact Me"]
-      },
-      {
-        "intent": "WEB_DEVELOPMENT",
-        "examples": [
-          "do you build websites", "website development", "can you create a website", "need a website",
-          "web app development", "responsive website", "website design", "website redesign",
-          "ecommerce website", "portfolio website", "business website", "landing page",
-          "what's your web dev process", "how long does a website take", "website maintenance",
-          "do you host websites", "domain setup", "website optimization", "seo optimization"
-        ],
-        "responses": [
-          "I build modern, responsive websites using React, TypeScript, and Tailwind CSS with focus on user experience and performance.",
-          "From landing pages to full-featured web applications—I deliver clean, fast, and scalable solutions.",
-          "My web development includes UI/UX design, frontend development, backend integration, and deployment.",
-          "I create websites that are mobile-friendly, SEO-optimized, and built with modern web technologies.",
-          "Whether you need a business website or a complex web app, I can handle it with professional quality.",
-          "Full-stack development: I can build your frontend, backend, database, and handle deployment.",
-          "I focus on creating websites that convert visitors into customers with intuitive design and smooth functionality.",
-          "My websites are fast, secure, and optimized for search engines and user experience.",
-          "I use React for dynamic frontends, Node.js for backends, and Firebase/MongoDB for databases.",
-          "Professional web development with attention to detail, code quality, and long-term maintainability."
-        ],
-        "buttons": ["See My Services", "Contact Me"]
-      },
-      {
-        "intent": "AI_PRODUCTS",
-        "examples": [
-          "ai products", "ai development", "machine learning", "chatbots", "ai solutions",
-          "artificial intelligence", "ai apps", "ai tools", "custom ai", "ai integration",
-          "can you build an ai product", "ai for my business", "ai automation", "nlp"
-        ],
-        "responses": [
-          "I develop AI-powered products including chatbots, recommendation systems, and intelligent automation tools.",
-          "My AI expertise includes working with Google Gemini, natural language processing, and machine learning integration.",
-          "I can build custom AI solutions tailored to your business needs—from simple chatbots to complex automation.",
-          "AI integration: I can add smart features to your existing applications or build standalone AI products.",
-          "From data analysis to predictive models to conversational AI—I work across the AI spectrum.",
-          "My AI projects combine cutting-edge technology with practical, real-world applications.",
-          "I can automate business processes, create intelligent chatbots, or build custom AI models for your needs.",
-          "AI development with focus on accuracy, user experience, and practical implementation.",
-          "Whether you need AI for customer service, data analysis, or content generation, I can help!",
-          "Custom AI solutions that actually work and deliver measurable value to your business."
-        ],
-        "buttons": ["See My Services", "Contact Me"]
-      },
-      {
-        "intent": "TESTIMONIALS",
-        "examples": [
-          "do you have testimonials", "client reviews", "what do clients say", "success stories",
-          "past client feedback", "reviews", "ratings", "recommendations", "how's your reputation"
-        ],
-        "responses": [
-          "I'm proud of the positive feedback from clients! Check out the Testimonials section on my portfolio.",
-          "My clients consistently praise my attention to detail, communication, and quality of work.",
-          "You'll find detailed testimonials from satisfied clients on my portfolio page.",
-          "I value client relationships and strive to deliver results that exceed expectations.",
-          "Happy clients are my best marketing! See what they have to say in the Testimonials section.",
-          "Client satisfaction is paramount. Check out reviews and feedback on my portfolio.",
-          "From startups to established businesses—my clients appreciate my work quality and professionalism.",
-          "I encourage you to read real feedback from past clients in the Testimonials section.",
-          "My track record speaks for itself. Head to the Testimonials page to see what clients say!",
-          "Positive feedback and successful project completions are what drive me forward."
-        ],
-        "buttons": ["View Projects", "Contact Me"]
-      },
-      {
-        "intent": "AVAILABILITY",
-        "examples": [
-          "are you available", "when are you available", "availability", "current projects",
-          "when can you start", "how many projects at once", "workload", "schedule",
-          "can you take new projects", "do you have time", "are you taking clients",
-          "kya available ho", "kab available ho", "schedule kya hai"
-        ],
-        "responses": [
-          "I'm open to new projects! You can check my current availability by sending a quick message through my Contact page.",
-          "I manage my workload carefully to ensure quality. Let's discuss your timeline and I'll confirm availability.",
-          "I typically have openings for new projects. Reach out through my Contact page to check current availability.",
-          "My schedule is flexible based on project complexity. Send me the details and we'll work out the timing!",
-          "I take on carefully selected projects to maintain quality. Let's chat about your needs!",
-          "I'm always interested in exciting projects. Contact me with your requirements and timeline.",
-          "Current availability depends on project scope. I'd love to hear about your idea!",
-          "I prioritize quality over quantity. If your project aligns with my expertise, let's collaborate!",
-          "Let me know your project timeline and I'll give you an honest assessment of availability.",
-          "I'm selective about projects to ensure excellence. Get in touch to discuss your vision!"
-        ],
-        "buttons": ["Contact Me"]
-      },
-      {
-        "intent": "TIMELINE_DELIVERY",
-        "examples": [
-          "how long", "timeline", "delivery time", "when will it be done", "turnaround",
-          "how fast", "quick turnaround", "rush project", "urgent", "asap",
-          "project duration", "how many days", "completion date", "delivery timeline"
-        ],
-        "responses": [
-          "Timeline depends on project scope. A landing page might take 1-2 weeks, while a complex app could take 4-8 weeks. Let's discuss!",
-          "I provide realistic timelines based on your requirements. Quality always comes first.",
-          "Fast delivery without compromising quality—I'll give you an accurate estimate once I understand your project.",
-          "Video editing typically takes 1-3 weeks depending on length and complexity. Website projects are custom-timed.",
-          "I work efficiently and maintain quality. We can discuss timeline requirements during consultation.",
-          "Delivery times vary by project type. Website? 2-4 weeks. Video editing? 1-2 weeks. Custom AI? Let's discuss.",
-          "I believe in delivering quality on time. Your specific timeline will be discussed during project planning.",
-          "Rush projects are possible—though quality and timeline always align. Let's talk about your deadline.",
-          "I give you a realistic timeline upfront and keep you updated throughout the project.",
-          "Every project is different. Send your requirements and I'll give you a detailed timeline estimate."
-        ],
-        "buttons": ["Contact Me"]
-      },
-      {
-        "intent": "REVISION_SUPPORT",
-        "examples": [
-          "revisions", "support", "after delivery", "maintenance", "ongoing support",
-          "can i request changes", "what if i need changes", "revision process",
-          "warranty", "support after launch", "technical support", "long term support"
-        ],
-        "responses": [
-          "Absolutely! I include revision rounds in my projects. We'll iterate until you're completely satisfied.",
-          "I provide ongoing support and maintenance for all projects I deliver.",
-          "Changes and revisions are expected. I work with you until the project meets your vision.",
-          "Post-delivery support is part of my commitment. Feel free to reach out if you need adjustments.",
-          "I offer revision rounds during development and ongoing support after launch.",
-          "Quality assurance and revisions are built into my process. You're in good hands!",
-          "Minor revisions are always free. For larger changes, we'll discuss timeline and cost.",
-          "I stay available during and after project completion to ensure your satisfaction.",
-          "Technical support and maintenance packages available depending on your project needs.",
-          "Your satisfaction is guaranteed. Revisions and support are part of the package!"
-        ],
-        "buttons": ["Contact Me"]
-      },
-      {
-        "intent": "PAYMENT_METHODS",
-        "examples": [
-          "payment methods", "how do you accept payment", "payment options", "invoice",
-          "do you take credit card", "bank transfer", "upi", "payment plan",
-          "can i pay in installments", "deposit", "payment schedule"
-        ],
-        "responses": [
-          "I accept multiple payment methods including bank transfer, UPI, credit/debit cards, and digital wallets.",
-          "Payment details and options will be discussed once we finalize the project scope.",
-          "Flexible payment options available! Discuss terms and payment schedule during consultation.",
-          "I typically request a deposit to start, with remaining payment upon completion.",
-          "Payment can be structured as deposits, milestones, or full upfront—based on project type.",
-          "All major payment methods accepted. We'll work out a payment schedule that works for you.",
-          "Invoice-based payments or installment plans are available depending on project scope.",
-          "Let's discuss payment options when we finalize your project details.",
-          "Transparent pricing and flexible payment options—no surprises!",
-          "Payment terms will be customized based on your project needs and preferences."
-        ],
-        "buttons": ["Contact Me"]
-      },
-      {
-        "intent": "FEEDBACK_COMPLAINT",
-        "examples": [
-          "complaint", "issue", "problem", "not happy", "disappointed", "unsatisfied",
-          "this is wrong", "not what i wanted", "not working", "bug", "error"
-        ],
-        "responses": [
-          "I'm sorry to hear that! Please share the specific issue and I'll work to resolve it immediately.",
-          "Your satisfaction matters to me. Let's address this together—tell me what went wrong.",
-          "I apologize if something isn't right. Send me the details and I'll fix it ASAP.",
-          "Every issue is an opportunity to improve. I'm here to make this right for you.",
-          "Please describe the problem in detail and I'll prioritize fixing it.",
-          "I take feedback seriously. Let's solve this together—what's the issue?",
-          "Not satisfied? Let me know exactly what needs to be fixed and I'll handle it.",
-          "Your concerns are valid. Reach out with specifics and I'll resolve this quickly.",
-          "I'm committed to your satisfaction. Help me understand the issue so I can fix it.",
-          "Problems are solvable. Tell me what's wrong and I'll make it right."
-        ],
-        "buttons": ["Contact Me"]
       }
     ],
     "pages": {
