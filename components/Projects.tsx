@@ -103,11 +103,11 @@ const Projects: React.FC<ProjectsProps> = ({ mode }) => {
            className="flex gap-4 md:gap-6 overflow-x-auto pb-8 snap-x snap-mandatory -mx-6 px-6 md:mx-0 md:px-0 [&::-webkit-scrollbar]:hidden"
            style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
         >
-          {projects.map((project) => (
+          {projects.map((project, idx) => (
             mode === 'dev' ? (
               // ================= DEV MODE CARD DESIGN (Reference Style) =================
-              <div key={project.id} className="min-w-[85vw] md:min-w-[360px] lg:min-w-[380px] snap-start shrink-0 h-full">
-                 <div className="group h-full bg-[#0F1115] border border-white/5 rounded-2xl overflow-hidden hover:border-blue-500/30 transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 flex flex-col">
+              <div key={project.id} className="min-w-[85vw] md:min-w-[360px] lg:min-w-[380px] snap-start shrink-0 h-full animate-scale-in" style={{ animationDelay: `${idx * 100}ms` }}>
+                 <div className="group h-full bg-[#0F1115] border border-white/5 rounded-2xl overflow-hidden hover:border-blue-500/30 transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 hover:scale-105 active:scale-95 flex flex-col">
                     {/* Top Image Section */}
                     <div className="relative h-52 overflow-hidden">
                        <img 
@@ -149,7 +149,7 @@ const Projects: React.FC<ProjectsProps> = ({ mode }) => {
               </div>
             ) : (
               // ================= VIDEO MODE CARD DESIGN (Cinematic Style) =================
-              <div key={project.id} className="min-w-[85vw] md:min-w-[420px] snap-start shrink-0 group cursor-pointer">
+              <div key={project.id} className="min-w-[85vw] md:min-w-[420px] snap-start shrink-0 group cursor-pointer animate-scale-in" style={{ animationDelay: `${idx * 100}ms` }}>
                 {/* Image Container */}
                 <div className="relative aspect-video rounded-2xl overflow-hidden mb-4 bg-[#111] border border-white/5">
                    <img 

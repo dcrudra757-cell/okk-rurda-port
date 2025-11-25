@@ -1,0 +1,148 @@
+{
+  "chatbot_dataset": {
+    "version": "2.0",
+    "created": "2025-11-25",
+    "description": "Ansh Saxena Portfolio AI Assistant - Training Dataset",
+    "intents": [
+      {
+        "intent": "GREET",
+        "examples": ["hi", "hello", "hey", "yo", "sup", "greetings"],
+        "responses": [
+          "Hey! How can I help you today?",
+          "Hi there! What brings you here?",
+          "Hello! Looking for web dev, video editing, or something else?"
+        ],
+        "buttons": ["View Services", "View Projects", "Contact Me"]
+      },
+      {
+        "intent": "ABOUT_ME",
+        "examples": ["who are you", "what do you do", "tell me about yourself", "about you", "your background"],
+        "responses": [
+          "I'm Ansh, a frontend developer, video editor, and young founder. I build digital products and create engaging video content.",
+          "I'm a BCA student at Invertis University working on real projects like LifeSync and FeelMate.",
+          "I blend tech, design, and storytelling to create amazing digital experiences."
+        ],
+        "buttons": ["About Me", "View Projects"]
+      },
+      {
+        "intent": "SERVICES",
+        "examples": ["what services", "what do you offer", "services list", "what can you do for me", "your services"],
+        "responses": [
+          "I offer web development (React, Firebase, full-stack), video editing (Premiere Pro, motion graphics), and AI product development.",
+          "My main services: website design & development, video editing & motion graphics, and AI product building.",
+          "I do frontend development, video editing with Adobe Premiere Pro, and I'm building AI products like LifeSync and FeelMate."
+        ],
+        "buttons": ["See My Services", "Contact Me"]
+      },
+      {
+        "intent": "PORTFOLIO",
+        "examples": ["show your work", "portfolio", "projects", "samples", "video samples", "website samples", "case studies"],
+        "responses": [
+          "Sure! You can explore all my work on the Projects page.",
+          "You'll find my video editing and web development samples in the portfolio section.",
+          "Check out my portfolio — I've got LifeSync, FeelMate, Memory Jar, and more featured there."
+        ],
+        "buttons": ["View Projects"]
+      },
+      {
+        "intent": "HIRE_ME",
+        "examples": ["i want to hire you", "hire", "work with me", "start project", "need a website", "need video editing", "let's work together"],
+        "responses": [
+          "Amazing! You can hire me through my Contact Me page. Just share your project there.",
+          "I'd love to work with you! Send your details through my Contact Me form so I can respond quickly.",
+          "Sure! Tell me what you need built or edited. You can share the full info in my Contact page."
+        ],
+        "buttons": ["Hire Me", "Contact Me", "Start a Project"]
+      },
+      {
+        "intent": "PRICING",
+        "examples": ["price", "pricing", "cost", "how much", "charges", "rate", "what's your rate", "cost of editing"],
+        "responses": [
+          "My pricing depends on your project. Share your requirements on my Contact Me page for an accurate quote.",
+          "Every project is different, so I price accordingly. Send me your idea on the Contact page.",
+          "I'll need a few details to give the right price. You can send them through my Contact page."
+        ],
+        "buttons": ["Contact Me"]
+      },
+      {
+        "intent": "CALL_REQUEST",
+        "examples": ["call", "can i call you", "phone call", "can we talk on call", "can you call me", "talk on phone", "speak on phone"],
+        "responses": [
+          "I'd be happy to connect on a call. The easiest way is to request it through my Contact Me page – just drop a short message and I'll get back to you with a time.",
+          "Sure! Just send a quick note on my Contact page and I'll schedule a call.",
+          "Absolutely. You'll find my call/WhatsApp options on the Contact Me page."
+        ],
+        "buttons": ["Contact Me", "WhatsApp Me"]
+      },
+      {
+        "intent": "WHATSAPP_REQUEST",
+        "examples": ["whatsapp", "whatsapp number", "talk on whatsapp", "text on whatsapp", "whatsapp me"],
+        "responses": [
+          "You'll find my WhatsApp link on my Contact Me page – that's the best way to reach me quickly!",
+          "Yes! You can reach me on WhatsApp. Find the link on my Contact Me page.",
+          "You'll find my WhatsApp contact info on the Contact Me page."
+        ],
+        "buttons": ["Contact Me", "WhatsApp Me"]
+      },
+      {
+        "intent": "CONTACT",
+        "examples": ["contact", "how can i contact you", "your email", "message you", "how to reach you", "reach you"],
+        "responses": [
+          "You can contact me directly through my Contact Me page.",
+          "Just drop your message on my Contact page — I reply quickly.",
+          "To keep everything organized, please send your details through my Contact form."
+        ],
+        "buttons": ["Contact Me"]
+      },
+      {
+        "intent": "SMALL_TALK",
+        "examples": ["how are you", "what's up", "who made you", "do you sleep", "how are you doing"],
+        "responses": [
+          "I'm doing great, thanks for asking! 😄 Now, what brings you here—services, projects, or something else?",
+          "All good here! What can I help you with today?",
+          "I'm always here and ready to help! What's on your mind?"
+        ],
+        "buttons": ["View Services", "View Projects"]
+      },
+      {
+        "intent": "CONFUSED_INPUT",
+        "examples": ["??", "what", "idk", "???", "blah blah", "random", "gibberish"],
+        "responses": [
+          "Hmm, I'm not sure I understood that. Could you rephrase?",
+          "That message confused me a bit 😅 Can you say it again?",
+          "I didn't fully get that — what exactly do you need?",
+          "That went over my head. Want to try saying it differently?",
+          "I'm not sure what you mean. Are you asking about my services?"
+        ],
+        "buttons": ["View Services", "View Projects", "Contact Me"]
+      },
+      {
+        "intent": "RUDE_INPUT",
+        "examples": ["stupid", "idiot", "fuck", "nonsense", "useless", "shit", "damn", "asshole", "bullshit"],
+        "responses": [
+          "I'm here to help, not argue. Tell me what you actually need.",
+          "Let's keep things simple. What would you like to do?",
+          "I understand the frustration. What are you trying to achieve?",
+          "I'll stay polite. How can I assist you right now?",
+          "No worries. Let's reset. What do you want to know?"
+        ]
+      }
+    ],
+    "pages": {
+      "home": "/",
+      "about": "/about",
+      "services": "/services",
+      "projects": "/projects",
+      "contact": "/contact"
+    },
+    "buttons": {
+      "contact_me": "Contact Me",
+      "view_services": "See My Services",
+      "view_projects": "View Projects",
+      "about_me": "About Me",
+      "whatsapp": "WhatsApp Me",
+      "hire_me": "Hire Me",
+      "start_project": "Start a Project"
+    }
+  }
+}

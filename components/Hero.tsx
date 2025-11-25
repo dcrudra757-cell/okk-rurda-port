@@ -68,7 +68,7 @@ const Hero: React.FC<HeroProps> = ({ mode, setMode }) => {
         <div className="flex flex-col lg:flex-row items-center gap-10 lg:gap-16">
           
           {/* Content Side */}
-          <div className="flex-1 w-full flex flex-col items-center lg:items-start text-center lg:text-left z-20">
+          <div className="flex-1 w-full flex flex-col items-center lg:items-start text-center lg:text-left z-20 animate-fade-in-up">
             
             {/* Mode Switcher */}
             <div className="inline-flex items-center bg-surface-highlight border border-white/[0.08] rounded-full p-1 mb-5 shadow-inner relative overflow-hidden">
@@ -83,40 +83,36 @@ const Hero: React.FC<HeroProps> = ({ mode, setMode }) => {
 
             {/* Typography */}
             <div className={`transition-all duration-500 ${isAnimating ? 'opacity-0 translate-y-4' : 'opacity-100 translate-y-0'}`}>
-              <h2 className={`font-bold tracking-[0.3em] text-[10px] md:text-xs uppercase mb-3 flex items-center gap-2 ${primaryText} justify-center lg:justify-start`}>
-                 <span className="w-6 h-[2px] bg-current"></span>
+              <h2 className={`font-bold tracking-[0.3em] text-[10px] md:text-xs uppercase mb-3 flex items-center gap-2 ${primaryText} justify-center lg:justify-start animate-slide-in-down`}>
+                 <span className="w-6 h-[2px] bg-current animate-scale-in"></span>
                  {content.greeting}
               </h2>
               
-                     <h1 className="hero-h1 text-[28px] sm:text-5xl lg:text-6xl font-heading font-black text-white tracking-tighter leading-[1.05] mb-4">
+              <h1 className="hero-h1 text-[28px] sm:text-5xl lg:text-6xl font-heading font-black text-white tracking-tighter leading-[1.05] mb-4 animate-fade-in-up">
                 {content.titleLine1} <br />
-                <span className={`text-transparent bg-clip-text bg-gradient-to-r ${gradientText} animate-text`}>
+                <span className={`text-transparent bg-clip-text bg-gradient-to-r ${gradientText} animate-gradient-shift`}>
                   {content.titleLine2}
                 </span>
-              </h1>
-              
-              <h3 className="text-sm md:text-base lg:text-lg text-text-muted font-light mb-8 max-w-lg mx-auto lg:mx-0">
+              </h1>              <h3 className="text-sm md:text-base lg:text-lg text-text-muted font-light mb-8 max-w-lg mx-auto lg:mx-0 animate-slide-in-right" style={{ animationDelay: '100ms' }}>
                 {content.subtitle} <span className="text-white font-medium border-b border-white/20 pb-0.5">{content.subtitleHighlight}</span>
               </h3>
 
-                     <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
-                        <a 
-                           href="#projects" 
-                           className={`cta-full sm:w-auto text-white px-6 py-3 rounded-full font-bold text-sm tracking-wide transition-all shadow-[0_10px_30px_-10px_rgba(0,0,0,0.5)] hover:-translate-y-1 hover:shadow-2xl flex items-center gap-2 group ${primaryBg} ${glowColor}`}
-                        >
-                           {content.primaryButtonText}
-                           <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
-                        </a>
+              <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 animate-slide-in-left" style={{ animationDelay: '200ms' }}>
+                <a 
+                  href="#projects" 
+                  className={`cta-full sm:w-auto text-white px-6 py-3 rounded-full font-bold text-sm tracking-wide transition-all shadow-[0_10px_30px_-10px_rgba(0,0,0,0.5)] hover:-translate-y-1 hover:shadow-2xl hover:scale-105 active:scale-95 flex items-center gap-2 group ${primaryBg} ${glowColor}`}
+                >
+                  {content.primaryButtonText}
+                  <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+                </a>
                 
-                        {isVideo && (
-                           <button className="w-full sm:w-auto px-6 py-3 rounded-full border border-white/10 text-white font-bold text-sm hover:bg-white/5 transition-all flex items-center gap-2 justify-center">
-                              <Play size={14} fill="currentColor" /> Showreel
-                           </button>
-                        )}
-                     </div>
-
-              {/* Social Proof Bar */}
-              <div className="mt-8 pt-6 border-t border-white/5 w-full flex flex-wrap justify-center lg:justify-start gap-6 md:gap-10">
+                {isVideo && (
+                  <button className="w-full sm:w-auto px-6 py-3 rounded-full border border-white/10 text-white font-bold text-sm hover:bg-white/5 hover:border-white/30 transition-all flex items-center gap-2 justify-center transform hover:scale-105 active:scale-95">
+                    <Play size={14} fill="currentColor" /> Showreel
+                  </button>
+                )}
+              </div>              {/* Social Proof Bar */}
+              <div className="mt-8 pt-6 border-t border-white/5 w-full flex flex-wrap justify-center lg:justify-start gap-6 md:gap-10 animate-fade-in-up" style={{ animationDelay: '300ms' }}>
                  <div className="flex flex-col items-center lg:items-start">
                     <div className="flex items-center gap-1 text-yellow-500 mb-1">
                        <Star size={12} fill="currentColor" />
@@ -152,9 +148,9 @@ const Hero: React.FC<HeroProps> = ({ mode, setMode }) => {
           </div>
 
           {/* Visual Side with 3D Tilt */}
-          <div className="flex-1 w-full flex justify-center lg:justify-end relative mt-8 lg:mt-0 z-10" style={{ perspective: '1000px' }}>
+          <div className="flex-1 w-full flex justify-center lg:justify-end relative mt-8 lg:mt-0 z-10 animate-slide-in-right" style={{ perspective: '1000px' }}>
              <div 
-                className="relative w-full max-w-[300px] lg:max-w-sm aspect-[4/5] group transition-all duration-200 ease-out"
+                className="relative w-full max-w-[300px] lg:max-w-sm aspect-[4/5] group transition-all duration-200 ease-out hover:scale-105 active:scale-95"
                 onMouseMove={onMouseMove}
                 onMouseLeave={onMouseLeave}
                 style={{

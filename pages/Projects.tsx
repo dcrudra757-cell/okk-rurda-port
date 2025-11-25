@@ -73,8 +73,8 @@ const ProjectsPage: React.FC<ProjectsPageProps> = ({ mode }) => {
            <div className="flex justify-center py-20"><div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-white"></div></div>
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
-            {filteredProjects.map((project: any) => (
-                <div key={project.id} className="group cursor-pointer">
+            {filteredProjects.map((project: any, idx: number) => (
+                <div key={project.id} className="group cursor-pointer animate-fade-in-up" style={{ animationDelay: `${idx * 100}ms` }}>
                   {/* Thumbnail */}
                   <div className="relative aspect-video rounded-[2rem] overflow-hidden mb-6 border border-white/5 bg-[#111]">
                       <img src={project.image} alt={project.title} loading="lazy" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-80 group-hover:opacity-100" />

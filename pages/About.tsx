@@ -120,8 +120,8 @@ const AboutPage: React.FC<AboutPageProps> = ({ mode }) => {
                 <h3 className={`text-sm font-bold tracking-[0.2em] uppercase mb-8 ${accentText}`}>JOURNEY</h3>
                 <div className="space-y-12 border-l border-white/10 ml-3 pl-10 relative">
                   {timeline.map((item, index) => (
-                    <div key={index} className="relative group">
-                      <div className={`absolute -left-[49px] w-7 h-7 rounded-full border-4 border-[#050505] ${accentBg} flex items-center justify-center shadow-[0_0_15px_rgba(0,0,0,0.5)]`}></div>
+                    <div key={index} className="relative group animate-slide-in-left" style={{ animationDelay: `${index * 150}ms` }}>
+                      <div className={`absolute -left-[49px] w-7 h-7 rounded-full border-4 border-[#050505] ${accentBg} flex items-center justify-center shadow-[0_0_15px_rgba(0,0,0,0.5)] group-hover:scale-125 group-hover:shadow-[0_0_25px_rgba(255,74,25,0.4)] transition-all duration-300`}></div>
                       {/* display year if present, fall back to parsing a date field */}
                       <span className={`block text-xs font-bold mb-2 px-3 py-1 rounded-full bg-white/5 w-max text-white`}>{item.year ?? (item.date ? String(new Date(item.date).getFullYear()) : '')}</span>
                       <h4 className="text-white font-bold text-xl mb-2 group-hover:text-slate-200 transition-colors">{item.title}</h4>
@@ -136,9 +136,9 @@ const AboutPage: React.FC<AboutPageProps> = ({ mode }) => {
             <div className="lg:col-span-4 space-y-8 lg:sticky lg:top-32">
                
                {/* Photo Card */}
-               <div className="relative rounded-3xl overflow-hidden aspect-[4/5] mb-8 group">
+               <div className="relative rounded-3xl overflow-hidden aspect-[4/5] mb-8 group animate-scale-in hover:scale-105 transition-transform">
                   <div className={`absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent z-10`}></div>
-                  <img src={profileSrc} alt="Rudra" loading="lazy" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                  <img src={profileSrc} alt="Rudra" loading="lazy" className="w-full h-full object-cover transition-all duration-700 group-hover:scale-110 grayscale group-hover:grayscale-0" />
                   <div className="absolute bottom-6 left-6 z-20">
                      <h3 className="text-white font-bold text-2xl">Rudra Saxena</h3>
                      <p className={`text-sm font-medium ${accentText}`}>{content.subtitle || (isVideo ? "Video Editor" : "Full Stack Dev")}</p>
@@ -146,8 +146,8 @@ const AboutPage: React.FC<AboutPageProps> = ({ mode }) => {
                </div>
 
                {/* Skills Matrix */}
-               <div className="bg-[#0a0a0a] border border-white/5 rounded-3xl p-8 relative overflow-hidden">
-                  <h3 className="text-xl font-bold text-white mb-6 flex items-center gap-2">
+               <div className="bg-[#0a0a0a] border border-white/5 rounded-3xl p-8 relative overflow-hidden group hover:border-white/10 hover:shadow-lg transition-all animate-slide-in-right">
+                  <h3 className="text-xl font-bold text-white mb-6 flex items-center gap-2 group-hover:scale-105 origin-left transition-transform">
                     {isVideo ? <Film size={20} className={accentText} /> : <Code size={20} className={accentText} />}
                     Skills Matrix
                   </h3>

@@ -35,7 +35,7 @@ const About: React.FC<AboutProps> = ({ mode }) => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-start">
           
           {/* LEFT COLUMN: Bio, Stats, CTA */}
-          <div className="flex flex-col justify-center">
+          <div className="flex flex-col justify-center animate-fade-in-up">
             {/* Header Group */}
             <div className="mb-8">
               <div className="flex items-center gap-3 mb-4">
@@ -63,8 +63,8 @@ const About: React.FC<AboutProps> = ({ mode }) => {
             {/* Premium Stats Grid */}
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-12">
               {content.stats.map((stat, idx) => (
-                <div key={idx} className={`group bg-white/[0.03] border border-white/5 p-5 rounded-2xl transition-all duration-300 hover:-translate-y-1 hover:bg-white/[0.05] ${borderColor}`}>
-                  <div className={`w-10 h-10 rounded-full bg-white/5 flex items-center justify-center mb-3 text-slate-300 transition-colors ${isVideo ? 'group-hover:text-cine-red group-hover:bg-cine-red/10' : 'group-hover:text-blue-500 group-hover:bg-blue-500/10'}`}>
+                <div key={idx} className={`group bg-white/[0.03] border border-white/5 p-5 rounded-2xl transition-all duration-300 hover:-translate-y-1 hover:bg-white/[0.05] hover:scale-105 animate-scale-in ${borderColor}`} style={{ animationDelay: `${idx * 100}ms` }}>
+                  <div className={`w-10 h-10 rounded-full bg-white/5 flex items-center justify-center mb-3 text-slate-300 transition-all duration-300 group-hover:scale-110 group-hover:rotate-12 ${isVideo ? 'group-hover:text-cine-red group-hover:bg-cine-red/10' : 'group-hover:text-blue-500 group-hover:bg-blue-500/10'}`}>
                     {getStatIcon(idx)}
                   </div>
                   <span className="block text-3xl font-heading font-bold text-white mb-1 group-hover:scale-105 transition-transform origin-left">{stat.value}</span>
@@ -83,7 +83,7 @@ const About: React.FC<AboutProps> = ({ mode }) => {
           </div>
 
           {/* RIGHT COLUMN: Tools & Testimonial */}
-          <div className="flex flex-col gap-8 lg:mt-8">
+          <div className="flex flex-col gap-8 lg:mt-8 animate-slide-in-right">
             
             {/* Glassmorphism Tools Card */}
             <div className="bg-[#111]/80 backdrop-blur-xl border border-white/10 rounded-3xl p-8 relative overflow-hidden group">

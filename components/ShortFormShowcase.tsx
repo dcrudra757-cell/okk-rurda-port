@@ -88,7 +88,7 @@ const VideoCard: React.FC<{ video: ShortFormVideo }> = ({ video }) => {
 
   return (
     <div 
-      className={`w-full md:min-w-[260px] md:md:min-w-[300px] aspect-[9/16] relative rounded-[2rem] overflow-hidden group border transition-all duration-300 snap-center bg-[#0a0a0a] cursor-pointer
+      className={`w-full md:min-w-[260px] md:md:min-w-[300px] aspect-[9/16] relative rounded-[2rem] overflow-hidden group border transition-all duration-300 snap-center bg-[#0a0a0a] cursor-pointer animate-scale-in
         ${showDrivePlayer 
           ? 'border-white/20 z-50 scale-100' 
           : 'border-white/5 hover:border-white/20 hover:shadow-2xl hover:scale-[1.02] hover:z-40'
@@ -151,7 +151,7 @@ const VideoCard: React.FC<{ video: ShortFormVideo }> = ({ video }) => {
           
           {/* Play Button */}
           <div className={`absolute inset-0 flex items-center justify-center transition-all duration-300 z-30 pointer-events-none ${(isPlaying || showDrivePlayer) ? 'opacity-0 scale-110' : 'opacity-100 scale-100'}`}>
-             <div className="w-16 h-16 bg-white/10 backdrop-blur-sm rounded-full flex items-center justify-center border border-white/20 shadow-xl group-hover:bg-white/20 transition-all">
+             <div className="w-16 h-16 bg-white/10 backdrop-blur-sm rounded-full flex items-center justify-center border border-white/20 shadow-xl group-hover:bg-white/20 transition-all animate-bounce-3d">
                 <Play fill="white" className="ml-1 text-white" size={28} />
              </div>
           </div>

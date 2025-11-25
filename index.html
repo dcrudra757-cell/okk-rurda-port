@@ -36,6 +36,19 @@
               'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
               'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
               'float': 'float 6s ease-in-out infinite',
+              'slide-in-left': 'slideInLeft 0.6s ease-out forwards',
+              'slide-in-right': 'slideInRight 0.6s ease-out forwards',
+              'slide-in-down': 'slideInDown 0.5s ease-out forwards',
+              'scale-in': 'scaleIn 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards',
+              'scale-up': 'scaleUp 0.4s ease-out forwards',
+              'shimmer': 'shimmer 2s infinite',
+              'glow': 'glow 3s ease-in-out infinite',
+              'gradient-shift': 'gradientShift 6s ease infinite',
+              'spin-slow': 'rotate 20s linear infinite',
+              'bounce-3d': 'bounce3d 2s ease-in-out infinite',
+              'border-glow': 'borderGlow 3s ease-in-out infinite',
+              'text-shine': 'textShine 3s infinite',
+              'blink-glow': 'blinkGlow 2s ease-in-out infinite',
             },
             keyframes: {
               marquee: {
@@ -49,6 +62,59 @@
               float: {
                 '0%, 100%': { transform: 'translateY(0)' },
                 '50%': { transform: 'translateY(-20px)' },
+              },
+              slideInLeft: {
+                '0%': { opacity: '0', transform: 'translateX(-30px)' },
+                '100%': { opacity: '1', transform: 'translateX(0)' },
+              },
+              slideInRight: {
+                '0%': { opacity: '0', transform: 'translateX(30px)' },
+                '100%': { opacity: '1', transform: 'translateX(0)' },
+              },
+              slideInDown: {
+                '0%': { opacity: '0', transform: 'translateY(-20px)' },
+                '100%': { opacity: '1', transform: 'translateY(0)' },
+              },
+              scaleIn: {
+                '0%': { opacity: '0', transform: 'scale(0.92)' },
+                '100%': { opacity: '1', transform: 'scale(1)' },
+              },
+              scaleUp: {
+                '0%': { transform: 'scale(1)' },
+                '100%': { transform: 'scale(1.05)' },
+              },
+              shimmer: {
+                '0%': { backgroundPosition: '-1000px 0' },
+                '100%': { backgroundPosition: '1000px 0' },
+              },
+              glow: {
+                '0%, 100%': { opacity: '0.4', filter: 'blur(20px)' },
+                '50%': { opacity: '0.8', filter: 'blur(30px)' },
+              },
+              gradientShift: {
+                '0%': { backgroundPosition: '0% 50%' },
+                '50%': { backgroundPosition: '100% 50%' },
+                '100%': { backgroundPosition: '0% 50%' },
+              },
+              rotate: {
+                '0%': { transform: 'rotate(0deg)' },
+                '100%': { transform: 'rotate(360deg)' },
+              },
+              bounce3d: {
+                '0%, 100%': { transform: 'translateY(0) translateZ(0)' },
+                '50%': { transform: 'translateY(-12px) translateZ(10px)' },
+              },
+              borderGlow: {
+                '0%, 100%': { borderColor: 'rgba(255, 255, 255, 0.1)', boxShadow: '0 0 0px rgba(59, 130, 246, 0)' },
+                '50%': { borderColor: 'rgba(255, 74, 25, 0.5)', boxShadow: '0 0 20px rgba(59, 130, 246, 0.2)' },
+              },
+              textShine: {
+                '0%': { backgroundPosition: '-1000px center' },
+                '100%': { backgroundPosition: '1000px center' },
+              },
+              blinkGlow: {
+                '0%, 100%': { boxShadow: '0 0 5px rgba(255, 74, 25, 0.2)' },
+                '50%': { boxShadow: '0 0 25px rgba(255, 74, 25, 0.6)' },
               }
             }
           }
@@ -78,6 +144,18 @@
       .text-glow {
         text-shadow: 0 0 20px rgba(255, 74, 25, 0.3);
       }
+
+      /* Respect prefers-reduced-motion */
+      @media (prefers-reduced-motion: reduce) {
+        *,
+        *::before,
+        *::after {
+          animation-duration: 0.01ms !important;
+          animation-iteration-count: 1 !important;
+          transition-duration: 0.01ms !important;
+        }
+      }
+
       /* Mobile-only responsive adjustments (applies to screens <1024px) */
       @media (max-width: 1023px) {
         /* Container padding: 16px default for mobile */
@@ -109,7 +187,7 @@
 
         /* Navbar adjustments */
         nav .container { padding-left: 1rem; padding-right: 1rem; }
-        .mobile-menu-panel { width: 92vw; max-width: 360px; transform: translateX(100%); transition: transform 260ms ease; }
+        .mobile-menu-panel { width: 92vw; max-width: 360px; transform: translateX(100%); transition: transform 260ms cubic-bezier(0.4, 0, 0.2, 1); }
         .mobile-menu-open .mobile-menu-panel { transform: translateX(0%); }
 
         /* Footer center alignment */

@@ -60,20 +60,21 @@ const Services: React.FC<ServicesProps> = ({ mode }) => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-          {filteredServices.map((service) => (
+          {filteredServices.map((service, idx) => (
             <div 
               key={service.id}
-              className="group relative bg-[#131313] rounded-3xl p-1 overflow-hidden transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl card-mobile-spacing"
+              className="group relative bg-[#131313] rounded-3xl p-1 overflow-hidden transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl card-mobile-spacing animate-scale-in hover:border-white/20"
+              style={{ animationDelay: `${idx * 100}ms` }}
             >
               {/* Gradient Border */}
               <div className={`absolute inset-0 bg-gradient-to-br ${isVideo ? 'from-cine-red/50 to-orange-500/0' : 'from-blue-600/50 to-cyan-500/0'} opacity-0 group-hover:opacity-100 transition-opacity duration-500`}></div>
               
-                <div className="relative h-full bg-[#131313] rounded-[1.4rem] p-6 md:p-8 flex flex-col items-start z-10">
-                 <div className={`w-12 h-12 md:w-14 md:h-14 rounded-2xl flex items-center justify-center mb-6 transition-colors duration-300 ${isVideo ? 'bg-white/5 text-white group-hover:bg-cine-red' : 'bg-white/5 text-white group-hover:bg-blue-600'}`}>
+              <div className="relative h-full bg-[#131313] rounded-[1.4rem] p-6 md:p-8 flex flex-col items-start z-10">
+                <div className={`w-12 h-12 md:w-14 md:h-14 rounded-2xl flex items-center justify-center mb-6 transition-all duration-300 transform group-hover:scale-110 group-hover:rotate-6 ${isVideo ? 'bg-white/5 text-white group-hover:bg-cine-red' : 'bg-white/5 text-white group-hover:bg-blue-600'}`}>
                    <service.icon size={22} strokeWidth={1.5} />
-                 </div>
+                </div>
                 
-                <h4 className="text-xl font-bold text-white mb-3">{service.title}</h4>
+                <h4 className="text-xl font-bold text-white mb-3 group-hover:text-white transition-colors">{service.title}</h4>
                 <p className="text-text-muted text-sm leading-relaxed mb-6 flex-1">
                   {service.description}
                 </p>

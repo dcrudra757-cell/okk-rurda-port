@@ -49,7 +49,7 @@ const Navbar: React.FC<NavbarProps> = ({ mode }) => {
       <nav 
         className={`fixed top-0 left-0 w-full z-[100] transition-all duration-500 border-b ${
           isScrolled 
-            ? 'bg-[#050505]/90 backdrop-blur-xl border-white/[0.05] py-3 shadow-lg' 
+            ? 'bg-[#050505]/80 backdrop-blur-2xl border-white/[0.1] py-3 shadow-[0_0_30px_rgba(0,0,0,0.4)] animate-slide-in-down' 
             : 'bg-transparent border-transparent py-6'
         }`}
       >
@@ -65,7 +65,7 @@ const Navbar: React.FC<NavbarProps> = ({ mode }) => {
                 <NavLink 
                   key={link.name} 
                   to={link.href} 
-                  className={({ isActive }) => `text-[11px] font-bold transition-all duration-300 uppercase tracking-[0.15em] hover:text-white ${isActive ? activeLink : 'text-text-muted'} ${linkHover}`}
+                  className={({ isActive }) => `text-[11px] font-bold transition-all duration-300 uppercase tracking-[0.15em] hover:text-white relative group ${isActive ? activeLink : 'text-text-muted'} ${linkHover} ${isActive ? 'after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-gradient-to-r after:from-transparent after:via-white after:to-transparent after:animate-pulse-slow' : ''}`}
                 >
                   {link.name}
                 </NavLink>
@@ -96,7 +96,7 @@ const Navbar: React.FC<NavbarProps> = ({ mode }) => {
         <div className={`absolute inset-0 bg-black/60 backdrop-blur-sm transition-opacity ${isMobileMenuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`} onClick={() => setIsMobileMenuOpen(false)}></div>
 
         {/* Slide-in panel */}
-        <aside className={`absolute top-0 right-0 h-full mobile-menu-panel glass-card shadow-xl pointer-events-auto ${isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'}`}>
+        <aside className={`absolute top-0 right-0 h-full mobile-menu-panel glass-card shadow-xl pointer-events-auto transition-all duration-300 ${isMobileMenuOpen ? 'translate-x-0 opacity-100' : 'translate-x-full opacity-0'}`}>
           <div className="h-full flex flex-col justify-start items-stretch px-6 py-8">
             <div className="flex items-center justify-between mb-8">
               <NavLink to="/" className="text-xl font-heading font-black text-white tracking-tighter flex items-center gap-1">
@@ -113,9 +113,8 @@ const Navbar: React.FC<NavbarProps> = ({ mode }) => {
                   <NavLink 
                     key={link.name}
                     to={link.href}
-                    className={({ isActive }) => `text-2xl font-heading font-black transition-all duration-300 tracking-tight ${isActive ? 'text-white' : 'text-white/70'} ${linkHover}`}
+                    className={({ isActive }) => `text-2xl font-heading font-black transition-all duration-300 tracking-tight animate-slide-in-left ${isActive ? 'text-white' : 'text-white/70'} ${linkHover}`}
                     onClick={() => setIsMobileMenuOpen(false)}
-                    style={{ transitionDelay: `${index * 40}ms` }}
                   >
                     {link.name}
                   </NavLink>

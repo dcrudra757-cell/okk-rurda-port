@@ -60,8 +60,8 @@ const ShortsPage: React.FC = () => {
            <div className="flex justify-center py-20"><div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-white"></div></div>
         ) : (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-            {filteredVideos.map((video) => (
-                <div key={video.id} className="relative aspect-[9/16] rounded-[2rem] overflow-hidden group cursor-pointer border border-white/5 hover:border-cine-red/50 transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl bg-[#0a0a0a]">
+            {filteredVideos.map((video, idx) => (
+                <div key={video.id} className="relative aspect-[9/16] rounded-[2rem] overflow-hidden group cursor-pointer border border-white/5 hover:border-cine-red/50 transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl bg-[#0a0a0a] animate-scale-in" style={{ animationDelay: `${idx * 100}ms` }}>
                   <img src={video.image} alt={video.title} loading="lazy" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-80 group-hover:opacity-100" />
                   
                   {/* Overlay Gradient */}
