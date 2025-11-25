@@ -151,25 +151,25 @@ const Projects: React.FC<ProjectsProps> = ({ mode }) => {
               // ================= VIDEO MODE CARD DESIGN (Cinematic Style) =================
               <div key={project.id} className="min-w-[85vw] md:min-w-[420px] snap-start shrink-0 group cursor-pointer animate-scale-in" style={{ animationDelay: `${idx * 100}ms` }}>
                 {/* Image Container */}
-                <div className="relative aspect-video rounded-2xl overflow-hidden mb-4 bg-[#111] border border-white/5">
+                <div className="relative aspect-video rounded-2xl overflow-hidden mb-4 bg-[#111] border border-white/5 group-hover:border-red-500/50 transition-all duration-300 shadow-lg group-hover:shadow-red-500/20">
                    <img 
                       src={project.image} 
                       alt={project.title} 
                       loading="lazy"
-                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 grayscale group-hover:grayscale-0 opacity-80 group-hover:opacity-100"
+                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 grayscale group-hover:grayscale-0 opacity-85 group-hover:opacity-100"
                    />
                    
-                   <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-500"></div>
+                   <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent group-hover:from-black/20 transition-all duration-500"></div>
                    
                    {/* Play Button Overlay */}
                    <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                      <div className="w-14 h-14 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center transform scale-90 opacity-0 group-hover:scale-100 group-hover:opacity-100 transition-all duration-500 shadow-2xl">
-                         <Play fill="white" className="ml-1 text-white" size={20} />
+                      <div className="w-16 h-16 rounded-full bg-red-600/80 backdrop-blur-md border-2 border-white flex items-center justify-center transform scale-75 opacity-0 group-hover:scale-100 group-hover:opacity-100 transition-all duration-500 shadow-2xl shadow-red-600/50">
+                         <Play fill="white" className="ml-1 text-white" size={24} />
                       </div>
                    </div>
                    
                    <div className="absolute top-4 left-4">
-                      <span className="bg-black/60 backdrop-blur-md text-white text-[9px] font-bold uppercase tracking-widest px-2.5 py-1 rounded-full border border-white/10">
+                      <span className="bg-red-600 text-white text-[10px] font-bold uppercase tracking-widest px-3 py-1.5 rounded-full border border-red-500/50 shadow-lg">
                          {project.category}
                       </span>
                    </div>
@@ -177,22 +177,22 @@ const Projects: React.FC<ProjectsProps> = ({ mode }) => {
 
                 {/* Text Content */}
                 <div className="px-1">
-                   <div className="flex justify-between items-start mb-1.5">
-                      <h3 className="text-lg md:text-xl font-bold text-white group-hover:text-cine-red transition-colors">{project.title}</h3>
-                      <a href={project.link} className="p-1.5 rounded-full hover:bg-white/5 transition-colors group/link">
-                        <ArrowUpRight size={16} className="text-text-muted group-hover/link:text-white transition-colors" />
+                   <div className="flex justify-between items-start mb-2">
+                      <h3 className="text-lg md:text-xl font-bold text-white group-hover:text-red-400 transition-colors duration-300 leading-tight">{project.title}</h3>
+                      <a href={project.link} className="p-2 rounded-full hover:bg-red-600/20 transition-all duration-300 flex-shrink-0 group/link">
+                        <ArrowUpRight size={18} className="text-gray-400 group-hover/link:text-red-500 transition-colors" />
                       </a>
                    </div>
-                   <p className="text-text-muted text-xs leading-relaxed mb-3 max-w-sm line-clamp-2">{project.description}</p>
-                   <div className="flex flex-wrap gap-2">
+                   <p className="text-gray-400 text-sm leading-relaxed mb-4 line-clamp-2 group-hover:text-gray-300 transition-colors">{project.description}</p>
+                   <div className="flex flex-wrap gap-2.5 mb-4">
                       {project.tech.map(t => (
-                         <span key={t} className="text-[10px] text-text-muted font-medium px-2 py-0.5 bg-white/5 rounded-md border border-white/5">#{t}</span>
+                         <span key={t} className="text-[11px] text-red-400 font-semibold px-2.5 py-1 bg-red-500/10 rounded-md border border-red-500/30 hover:border-red-500/60 transition-all">#{t}</span>
                       ))}
                    </div>
-                           {/* Mobile full-width View button */}
-                           <div className="mt-4 md:hidden px-1">
-                              <a href={project.link} className="block w-full py-3 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 text-white text-center font-bold">View Project</a>
-                           </div>
+                   {/* Mobile full-width View button */}
+                   <div className="mt-4 md:hidden px-1">
+                      <a href={project.link} className="block w-full py-3 rounded-xl bg-gradient-to-r from-red-600 to-red-700 hover:from-red-500 hover:to-red-600 text-white text-center font-bold text-sm transition-all duration-300 shadow-lg shadow-red-600/30">View Project</a>
+                   </div>
                 </div>
               </div>
             )

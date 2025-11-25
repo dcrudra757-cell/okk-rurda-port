@@ -509,8 +509,8 @@ export const PROJECTS: DataByMode<Project[]> = {
       title: 'Travel Film — Uttarakhand',
       category: 'Travel',
       image: '/images/Picsart_25-01-17_09-58-34-586.jpg',
-      description: 'Cinematic mountain storytelling focusing on atmospheric immersion and sound design.',
-      tech: ['Storytelling', 'Grading'],
+      description: 'Cinematic mountain storytelling with atmospheric immersion, dynamic color grading, and layered sound design.',
+      tech: ['Storytelling', 'Color Grading', 'Sound Design'],
       link: '#',
     },
     {
@@ -518,8 +518,8 @@ export const PROJECTS: DataByMode<Project[]> = {
       title: 'Restaurant Promo — Chill Bill UAE',
       category: 'Commercial',
       image: '/images/IMG_20240921_062536.jpg',
-      description: 'Fast-paced motion & food highlights designed to drive foot traffic and social engagement.',
-      tech: ['Fast Cuts', 'Motion'],
+      description: 'Fast-paced motion graphics with food highlights, designed to drive foot traffic and maximize social engagement.',
+      tech: ['Fast Cuts', 'Motion Graphics', 'B-Roll'],
       link: '#',
     },
     {
@@ -527,8 +527,8 @@ export const PROJECTS: DataByMode<Project[]> = {
       title: 'Brand Reel — Velnyy Clothing',
       category: 'Fashion',
       image: '/images/Picsart_24-06-10_08-40-58-116.jpg',
-      description: 'High-fashion transitions & text animations synced to trending audio for maximum reach.',
-      tech: ['Transitions', 'Animation'],
+      description: 'High-fashion transitions and text animations synced to trending audio for maximum viral reach and engagement.',
+      tech: ['Transitions', 'Animation', 'Audio Sync'],
       link: '#',
     },
     {
@@ -536,8 +536,8 @@ export const PROJECTS: DataByMode<Project[]> = {
       title: 'YouTube Long Form — Interview Edit',
       category: 'YouTube',
       image: '/images/IMG_20250315_190935_0040.jpg',
-      description: 'Clean pacing, noise reduction, and b-roll overlays for a polished, professional interview.',
-      tech: ['Pacing', 'B-Roll'],
+      description: 'Clean pacing with noise reduction and b-roll overlays for a polished, professional interview presentation.',
+      tech: ['Pacing', 'B-Roll', 'Audio Cleanup'],
       link: '#',
     }
   ]
