@@ -48,15 +48,15 @@ const Navbar: React.FC<NavbarProps> = ({ mode }) => {
       <nav 
         className={`fixed top-0 left-0 w-full z-[100] transition-all duration-500 border-b ${
           isScrolled 
-            ? 'bg-[#050505]/80 backdrop-blur-2xl border-white/[0.1] py-2 sm:py-3 shadow-[0_0_30px_rgba(0,0,0,0.4)] animate-slide-in-down' 
-            : 'bg-transparent border-transparent py-3 sm:py-6'
+            ? 'bg-[#050505]/80 backdrop-blur-2xl border-white/[0.1] py-2 xs:py-2.5 sm:py-3 shadow-[0_0_30px_rgba(0,0,0,0.4)] animate-slide-in-down' 
+            : 'bg-transparent border-transparent py-2 xs:py-2.5 sm:py-3 md:py-6'
         }`}
       >
-        <div className="container mx-auto px-3 sm:px-6 flex justify-between items-center h-16 sm:h-auto">
+        <div className="container mx-auto px-3 sm:px-6 flex justify-between items-center min-h-[56px] xs:min-h-[60px] sm:h-auto">
           {/* Logo - Mobile Optimized */}
           <NavLink 
             to="/" 
-            className="text-lg sm:text-xl md:text-2xl font-heading font-black text-white tracking-tighter group flex items-center gap-1 relative z-[101] min-h-[44px] flex items-center flex-shrink-0"
+            className="text-base xs:text-lg sm:text-xl md:text-2xl font-heading font-black text-white tracking-tighter group flex items-center gap-1 relative z-[101] min-h-[44px] flex items-center flex-shrink-0"
           >
             RUDRA<span className={isVideo ? 'text-cine-red' : 'text-blue-500'}>.</span>
           </NavLink>
@@ -102,13 +102,13 @@ const Navbar: React.FC<NavbarProps> = ({ mode }) => {
         />
 
         {/* Slide-in Panel */}
-        <aside className={`absolute top-0 right-0 h-full w-4/5 max-w-xs glass-card shadow-xl pointer-events-auto transition-all duration-300 ${isMobileMenuOpen ? 'translate-x-0 opacity-100' : 'translate-x-full opacity-0'}`}>
-          <div className="h-full flex flex-col justify-start items-stretch px-4 sm:px-6 py-6">
+        <aside className={`absolute top-0 right-0 h-full w-3/4 max-w-xs glass-card shadow-xl pointer-events-auto transition-all duration-300 ${isMobileMenuOpen ? 'translate-x-0 opacity-100' : 'translate-x-full opacity-0'}`}>
+          <div className="h-full flex flex-col justify-start items-stretch px-4 sm:px-5 py-4 sm:py-5">
             {/* Menu Header */}
-            <div className="flex items-center justify-between mb-8 pb-6 border-b border-white/10">
+            <div className="flex items-center justify-between mb-5 sm:mb-6 pb-4 sm:pb-5 border-b border-white/10">
               <NavLink 
                 to="/" 
-                className="text-base sm:text-lg font-heading font-black text-white tracking-tighter flex items-center gap-1 min-h-[44px] flex items-center"
+                className="text-sm xs:text-base sm:text-lg font-heading font-black text-white tracking-tighter flex items-center gap-1 min-h-[44px] flex items-center"
               >
                 RUDRA<span className={isVideo ? 'text-cine-red' : 'text-blue-500'}>.</span>
               </NavLink>
@@ -123,12 +123,12 @@ const Navbar: React.FC<NavbarProps> = ({ mode }) => {
 
             {/* Menu Links */}
             <nav className="flex-1 overflow-y-auto scrollbar-hide">
-              <div className="flex flex-col gap-4">
+              <div className="flex flex-col gap-3 sm:gap-3.5">
                 {links.map((link) => (
                   <NavLink 
                     key={link.name}
                     to={link.href}
-                    className={({ isActive }) => `text-lg sm:text-xl font-heading font-black transition-all duration-300 tracking-tight py-3 px-3 rounded-lg min-h-[48px] flex items-center ${isActive ? 'text-white bg-white/5' : 'text-white/70'} ${linkHover}`}
+                    className={({ isActive }) => `text-sm xs:text-base sm:text-lg font-heading font-black transition-all duration-300 tracking-tight py-3 px-3 rounded-lg min-h-[48px] flex items-center ${isActive ? 'text-white bg-white/5' : 'text-white/70'} ${linkHover}`}
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
                     {link.name}
@@ -138,10 +138,10 @@ const Navbar: React.FC<NavbarProps> = ({ mode }) => {
             </nav>
 
             {/* CTA Button */}
-            <div className="mt-auto pt-6 border-t border-white/10">
+            <div className="mt-auto pt-4 sm:pt-5 border-t border-white/10">
               <NavLink 
                 to="/contact" 
-                className={`text-center text-white px-4 py-3 sm:py-3.5 rounded-full font-bold uppercase tracking-wide text-sm sm:text-base min-h-[48px] flex items-center justify-center w-full transition-all transform hover:scale-105 active:scale-95 ${btnColor}`} 
+                className={`text-center text-white px-4 py-3 sm:py-3.5 rounded-full font-bold uppercase tracking-wide text-xs xs:text-sm sm:text-base min-h-[48px] flex items-center justify-center w-full transition-all transform hover:scale-105 active:scale-95 ${btnColor}`} 
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 {mode === 'dev' ? "Let's Talk" : "Start Project"}
