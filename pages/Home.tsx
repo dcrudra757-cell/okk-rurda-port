@@ -1,5 +1,5 @@
 import React from 'react';
-import Hero from '../components/Hero';
+import HeroIntroUI from '../components/HeroIntroUI';
 import TechTicker from '../components/TechTicker';
 import About from '../components/About';
 import Services from '../components/Services';
@@ -19,7 +19,7 @@ interface HomeProps {
 const Home: React.FC<HomeProps> = ({ mode, setMode }) => {
   return (
     <>
-      <Hero mode={mode} setMode={setMode} />
+      <HeroIntroUI mode={mode} setMode={setMode} />
       <TechTicker mode={mode} />
       <About mode={mode} />
       <Services mode={mode} />

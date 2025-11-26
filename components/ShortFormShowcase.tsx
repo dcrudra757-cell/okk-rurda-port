@@ -88,10 +88,10 @@ const VideoCard: React.FC<{ video: ShortFormVideo }> = ({ video }) => {
 
   return (
     <div 
-      className={`w-full md:min-w-[260px] md:md:min-w-[300px] aspect-[9/16] relative rounded-[2rem] overflow-hidden group border transition-all duration-300 snap-center bg-[#0a0a0a] cursor-pointer animate-scale-in
+      className={`w-full md:min-w-[300px] aspect-[9/16] relative rounded-2xl md:rounded-3xl overflow-hidden group border transition-all duration-300 snap-center bg-black cursor-pointer animate-scale-in
         ${showDrivePlayer 
           ? 'border-white/20 z-50 scale-100' 
-          : 'border-white/5 hover:border-white/20 hover:shadow-2xl hover:scale-[1.02] hover:z-40'
+          : 'border-white/10 md:hover:border-white/30 md:hover:shadow-2xl md:hover:scale-[1.02] md:hover:z-40'
         }
       `}
       onMouseEnter={handleMouseEnter}
@@ -177,15 +177,27 @@ const VideoCard: React.FC<{ video: ShortFormVideo }> = ({ video }) => {
             </div>
           )}
 
-          {/* Info Section - Cleaner Layout */}
-          <div className="absolute bottom-0 left-0 w-full p-6 z-30 pointer-events-none">
-            <div className="flex items-center gap-2 mb-2">
-               <span className="text-[10px] font-bold uppercase tracking-widest text-red-500">
-                  {video.category}
-               </span>
+          {/* Info Section - Mobile Optimized Full Screen */}
+          <div className="absolute inset-0 z-30 pointer-events-none flex flex-col justify-between p-4 md:p-5">
+            {/* Top Section */}
+            <div className="flex justify-between items-start">
+               <div>
+                  <span className="inline-block text-[6px] md:text-[7px] font-bold uppercase tracking-wider text-red-400 bg-red-500/40 px-2 py-1 rounded-md whitespace-nowrap">
+                     {video.category}
+                  </span>
+               </div>
+               <div className="text-right">
+                  <p className="text-[10px] md:text-xs text-slate-300 font-medium">{video.views}</p>
+               </div>
             </div>
-            <h3 className="text-xl font-bold text-white mb-1 leading-tight">{video.title}</h3>
-            <p className="text-xs text-slate-400 font-medium">{video.views}</p>
+
+            {/* Center Title */}
+            <div className="text-center">
+               <h3 className="text-sm md:text-base font-bold text-white leading-tight">{video.title}</h3>
+            </div>
+
+            {/* Bottom Gradient */}
+            <div className="h-16 bg-gradient-to-t from-black via-black/50 to-transparent"></div>
           </div>
         </>
       )}
@@ -231,7 +243,7 @@ const ShortFormShowcase: React.FC = () => {
         {/* Carousel Container */}
         <div 
           ref={scrollContainerRef}
-          className="flex gap-6 overflow-x-auto pb-8 snap-x snap-mandatory -mx-6 px-6 md:mx-0 md:px-0 scrollbar-hide"
+          className="flex gap-4 md:gap-6 overflow-x-auto pb-8 snap-x snap-mandatory -mx-6 px-6 md:mx-0 md:px-0 scrollbar-hide"
           style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
         >
           {SHORT_FORM_VIDEOS.map((video) => (
