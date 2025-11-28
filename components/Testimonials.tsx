@@ -14,13 +14,13 @@ const Testimonials: React.FC<TestimonialsProps> = ({ mode }) => {
   const accentText = isVideo ? 'text-cine-red' : 'text-blue-500';
 
   return (
-    <section className="py-16 md:py-24 lg:py-32 bg-surface-highlight border-t border-white/5">
-      <div className="container mx-auto px-3 sm:px-6">
+    <section data-section className="bg-surface-highlight border-t border-white/5">
+      <div className="section-shell">
         
         {/* Header */}
-        <div className="text-center mb-8 xs:mb-10 sm:mb-12 md:mb-16">
-          <h3 className={`${accentText} font-bold tracking-[0.2em] mb-2 xs:mb-2.5 sm:mb-3 md:mb-4 uppercase text-[9px] xs:text-[10px] sm:text-xs`}>TESTIMONIALS</h3>
-          <h2 className="text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-5xl font-heading font-black text-white leading-tight">Trusted by Creators & Brands</h2>
+        <div className="section-heading center">
+          <h3 className={`section-kicker ${accentText}`}>TESTIMONIALS</h3>
+          <h2 className="section-title text-white text-center">Trusted by Creators & Brands</h2>
         </div>
 
         {/* Testimonials Grid */}

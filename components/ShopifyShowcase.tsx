@@ -31,9 +31,9 @@ const ShopifyShowcase: React.FC<SpecializedProps> = ({ mode }) => {
   const badgeBg = isVideo ? 'bg-cine-red/10' : 'bg-blue-500/10';
 
   return (
-    <section id="shopify" className="py-16 md:py-24 lg:py-36 bg-[#050505] border-y border-white/5">
-      <div className="container mx-auto px-4 sm:px-6">
-        <div className="flex flex-col lg:flex-row gap-6 md:gap-12 lg:items-end mb-12 md:mb-20">
+    <section id="shopify" data-section className="bg-[#050505] border-y border-white/5">
+      <div className="section-shell">
+        <div className="flex flex-col lg:flex-row gap-6 md:gap-12 lg:items-end mb-12 md:mb-16">
           <div className="flex-1">
             <div className={`inline-flex items-center gap-2 px-3 py-1 rounded-md text-[10px] font-bold uppercase tracking-widest mb-3 md:mb-6 ${badgeBg} ${accentText}`}>
                {isVideo ? <Film size={12} /> : <ShoppingBag size={12} />}
@@ -48,7 +48,7 @@ const ShopifyShowcase: React.FC<SpecializedProps> = ({ mode }) => {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 lg:gap-8">
+        <div className="card-grid md:grid-cols-3">
            {projects.map((project, i) => (
               <div key={project.id} className="group bg-[#0a0a0a] rounded-lg md:rounded-3xl overflow-hidden border border-white/5 hover:border-white/10 transition-all duration-500 hover:shadow-2xl">
                  {/* Thumbnail Area */}

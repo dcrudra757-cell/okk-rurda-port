@@ -20,18 +20,18 @@ const SEOProcess: React.FC<ProcessProps> = ({ mode }) => {
     : 'from-blue-600/20 to-transparent';
 
   return (
-    <section className="py-24 md:py-32 bg-[#050505] relative overflow-hidden">
-      <div className="container mx-auto px-6 relative z-10">
+    <section data-section className="bg-[#050505] relative overflow-hidden border-t border-white/5">
+      <div className="section-shell relative z-10">
         
         {/* Section Header */}
-        <div className="text-center mb-20">
-          <h3 className={`${accentColor} font-bold tracking-[0.2em] mb-3 uppercase text-xs md:text-sm`}>
+        <div className="section-heading center">
+          <h3 className={`section-kicker ${accentColor}`}>
             {isVideo ? 'WORKFLOW' : 'METHODOLOGY'}
           </h3>
-          <h2 className="text-3xl md:text-5xl font-heading font-black text-white mb-6">
+          <h2 className="section-title text-white text-center">
             {data.title}
           </h2>
-          <p className="text-slate-400 max-w-2xl mx-auto text-base md:text-lg">
+          <p className="section-lead text-center mx-auto">
             {data.subtitle}
           </p>
         </div>

@@ -54,8 +54,8 @@ const Projects: React.FC<ProjectsProps> = ({ mode }) => {
   const reshuffle = () => setProjects(prev => shuffle(prev || []));
 
   return (
-    <section id="projects" className="py-6 xs:py-7 sm:py-10 md:py-16 lg:py-24 bg-darker overflow-hidden border-t border-white/5">
-      <div className="container mx-auto px-3 sm:px-6">
+    <section id="projects" data-section className="bg-darker overflow-hidden border-t border-white/5">
+      <div className="section-shell">
         {/* Header Section - Mobile Optimized */}
         <div className="flex flex-col gap-3 xs:gap-3.5 sm:gap-4 md:gap-5 mb-5 xs:mb-5.5 sm:mb-6 md:mb-8 lg:mb-12">
           <div className="flex-1 min-w-0">

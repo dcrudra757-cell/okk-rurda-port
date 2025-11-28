@@ -26,12 +26,12 @@ const About: React.FC<AboutProps> = ({ mode }) => {
   };
 
   return (
-    <section id="about" className="py-16 md:py-24 lg:py-36 bg-[#080808] relative overflow-hidden">
+    <section id="about" data-section className="bg-[#080808] relative overflow-hidden">
       {/* Ambient Lighting */}
       <div className={`absolute top-0 right-0 w-[500px] h-[500px] rounded-full blur-[120px] opacity-10 pointer-events-none ${isVideo ? 'bg-red-600' : 'bg-blue-600'}`}></div>
       <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-white/[0.02] rounded-full blur-[120px] pointer-events-none"></div>
 
-      <div className="container mx-auto px-4 sm:px-6 relative z-10">
+      <div className="section-shell relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 xs:gap-8 sm:gap-10 md:gap-16 lg:gap-24 items-start">
           
           {/* LEFT COLUMN: Bio, Stats, CTA */}

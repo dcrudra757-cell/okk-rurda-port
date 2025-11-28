@@ -13,8 +13,8 @@ const Contact: React.FC<ContactProps> = ({ mode }) => {
     : 'bg-gradient-to-r from-blue-600 to-cyan-600 hover:shadow-[0_0_30px_rgba(59,130,246,0.4)]';
 
   return (
-    <section id="contact" className="py-6 xs:py-7 sm:py-12 md:py-20 lg:py-32 bg-[#050505] relative overflow-hidden">
-      <div className="container mx-auto px-3 sm:px-6 relative z-10">
+    <section id="contact" data-section className="bg-[#050505] relative overflow-hidden border-t border-white/5">
+      <div className="section-shell relative z-10">
         {/* Header - Mobile Optimized */}
         <div className="max-w-4xl mx-auto text-center mb-5 xs:mb-5.5 sm:mb-8 md:mb-10 lg:mb-16 px-2 sm:px-0">
           <h2 className="text-lg xs:text-xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-heading font-black text-white mb-1.5 xs:mb-2 sm:mb-3 md:mb-4 lg:mb-6 leading-tight">

@@ -29,15 +29,15 @@ const Services: React.FC<ServicesProps> = ({ mode }) => {
   const accentBg = isVideo ? 'bg-cine-red' : 'bg-blue-600';
 
   return (
-    <section id="services" className="py-16 md:py-24 lg:py-36 bg-surface relative">
-      <div className="container mx-auto px-3 sm:px-6">
-        <div className="text-center max-w-3xl mx-auto mb-8 xs:mb-10 sm:mb-12 md:mb-16">
-          <h3 className={`${accentText} font-bold tracking-[0.2em] mb-2 xs:mb-2.5 sm:mb-3 md:mb-4 uppercase text-[9px] xs:text-[10px] sm:text-xs`}>WHAT I DO</h3>
-          <h2 className="text-lg xs:text-xl sm:text-3xl md:text-4xl lg:text-6xl font-heading font-black text-white mb-3 xs:mb-3.5 sm:mb-4 md:mb-6 tracking-tight leading-tight">
+    <section id="services" data-section className="bg-surface relative border-t border-white/5">
+      <div className="section-shell">
+        <div className="section-heading center">
+          <h3 className={`section-kicker ${accentText}`}>WHAT I DO</h3>
+          <h2 className="section-title text-white text-center">
             Premium {mode === 'dev' ? 'Development' : 'Editing'} <br className="hidden xs:block" />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-white/50">Services.</span>
           </h2>
-          <p className="text-text-muted text-xs xs:text-sm sm:text-base md:text-base lg:text-lg leading-relaxed">
+          <p className="section-lead text-center">
             Specialized solutions tailored to your unique needs. From concept to final delivery, I ensure quality at every step.
           </p>
         </div>
